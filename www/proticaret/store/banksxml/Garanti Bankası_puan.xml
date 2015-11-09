@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<CC5Request>
+	<Name>[%Name%]</Name>
+	<Password>[%Password%]</Password>
+	<ClientId>[%ClientId%]</ClientId>
+  <IPAddress>[%IPAddress%]</IPAddress>
+	<Email></Email>
+	<Mode>P</Mode>
+	<OrderId>[%OrderId%]</OrderId>
+	<GroupId></GroupId>
+	<TransId></TransId>
+	<UserId>[%UserId%]</UserId>
+	<Type>[%Paytype%]</Type>
+	<Number>[%Number%]</Number>
+	<Expires>[%Expires%]</Expires>
+	<Cvv2Val>[%Cvv2Val%]</Cvv2Val>
+	<Total>[%Total%]</Total>
+	<Currency>949</Currency>
+	<Taksit>[%Taksit%]</Taksit>
+  [%3d%]
+  <BillTo>
+		<Name></Name>
+		<Street1></Street1>
+		<Street2></Street2>
+		<Street3></Street3>
+		<City></City>
+		<StateProv></StateProv>
+		<PostalCode></PostalCode>
+		<Country></Country>
+		<Company></Company>
+		<TelVoice></TelVoice>
+	</BillTo>
+	<ShipTo>
+		<Name></Name>
+		<Street1></Street1>
+		<Street2></Street2>
+		<Street3></Street3>
+		<City></City>
+		<StateProv></StateProv>
+		<PostalCode></PostalCode>
+		<Country></Country>
+	</ShipTo>
+  <Extra>
+    <KULLANBONUS>[%Total%]</KULLANBONUS>
+  </Extra>
+ 
+  </CC5Request>

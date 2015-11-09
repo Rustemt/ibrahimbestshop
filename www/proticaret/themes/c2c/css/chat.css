@@ -1,0 +1,36 @@
+﻿/* Online Destek ekranı tasarımı basi*/
+.Chat_Talk_Area {
+	height: 200px;
+	border-bottom: solid 2px #f9f8f3;
+	border-right: solid 2px #f9f8f3;
+	border-top: solid 2px #828177;
+	border-left: solid 2px #828177;
+	width: 450px;
+	overflow: auto;
+}
+.Chat_Send_Button {
+	border-style: outset;
+	border-width: 2px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	height: 65px;
+}
+.Chat_System_Mesaj {
+	color: red;
+	font-weight: bold;
+}
+.Chat_Visitor_Mesaj {
+	color: #0000ff;
+	font-weight: bold;
+}
+.Chat_Operator_Mesaj {
+	color: black;
+	font-weight: bold;
+}
+.Chat_Talk_TextBox {
+	font-weight: bold;
+	height:60px;
+	width: 390px;
+}
+/* Online Destek ekranı tasarımı sonu*/

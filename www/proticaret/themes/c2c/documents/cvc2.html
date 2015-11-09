@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
+<title>Güvenlik Kodu</title>
+<script type="text/javascript" src="/themes/default/js/jquery.min.js"></script>
+<script type="text/javascript" src="/themes/default/js/jquery-colorbox.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/themes/default/css/popup.css" />
+</head>
+<body>
+<div id="cvv2">
+<h2>CVV2 KODU NEDİR ?</h2>
+<p>Güvenlik kodu; Visa ve MasterCard logolu kartların arka yüzünde bulunan 3 haneli numaradır.</p>
+<p align="center"><img src="images/cvv2.jpg" border="0" /></p>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function (){
+ jQuery(window).bind("load", function () {
+ var frameWidth = jQuery(document).width();
+ var frameHeight = jQuery(document).height() + 20;
+ parent.$.fn.colorbox.myResize(frameWidth, frameHeight);
+ });
+});
+</script>
+
+</body>
+</html>

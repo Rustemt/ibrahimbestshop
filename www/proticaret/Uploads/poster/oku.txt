@@ -1,0 +1,11 @@
+ürün listesine ugun yere aþaðýdaki link ekle
+<asp:HyperLink ID="lnkseeinframe" runat="server" ImageUrl="/uploads/poster/images/see_it_frame.gif" ToolTip="Çerçeveli Göster" CssClass="UrunListesi_Cerceve_Link" Visible='<%# iif(container.dataitem("Code10")="poster",True,False) %>' NavigateUrl='<%# BaseUrl & "/emarket/productdetailsinframe.aspx?id=" & container.dataitem("ProductId") %>'></asp:HyperLink>
+
+
+ürün detayýna ugun yere aþaðýdaki link ekle
+
+<a href='<%= string.format("/emarket/productdetailsinframe.aspx?id={0}",ProductId) %>' style="visibility:<%= iif(Code10="poster","","hidden") %>"  ><img  style="border:0" alt="Çerçeveli göster" src="/uploads/poster/images/see_it_frame.gif" /></a>
+
+*ürünlerde Kod10 alanýna poster yazýldýðýnda ürünler çerceve linkleri görünür
+*Kod15 alanýna poster boyutlarý girilir Örnek : 30 x 24 cm
+

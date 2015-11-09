@@ -1,0 +1,1494 @@
+<PUBLIC:COMPONENT>
+ <PUBLIC:PROPERTY name="onfireevents" internalname="o6" />
+ <!--PUBLIC:EVENT name="helper3execevent" ID="o21" /-->
+
+ <!-- client events -->
+ <PUBLIC:ATTACH event="oncontentready" onevent="o57()" />
+ <!--PUBLIC:ATTACH event="ondocumentready" onevent="o83()" /-->
+ 
+ 
+ <PUBLIC:ATTACH event="onscroll" onevent="o49()" />
+ <!-- objects -->
+ <PUBLIC:PROPERTY name="NodeTypes" internalname="o8" />
+ <PUBLIC:PROPERTY name="DefaultNodeType" internalname="o26" />
+ <PUBLIC:PROPERTY name="NodesXmlDoc" internalname="o11" />
+
+ <!--PUBLIC:PROPERTY name="OverrideNodesState" internalname="o5" /-->
+ <PUBLIC:PROPERTY name="SelectedNode" internalname="o1" />
+ <PUBLIC:PROPERTY name="FocusedNode" internalname="o23"/>
+ <PUBLIC:PROPERTY name="RestoredValues" internalname="o2" />
+
+ <!-- string client set properties -->
+ <PUBLIC:PROPERTY name="ClientRuntimePath"/>
+ <PUBLIC:PROPERTY name="IconSetPath"/>
+ <PUBLIC:PROPERTY name="IconSetFullPath" internalname="o18"/>
+ <PUBLIC:PROPERTY name="LoadingMessage"/>
+ <PUBLIC:PROPERTY name="ChildIndent"/>
+ <PUBLIC:PROPERTY name="ShowLines" />
+ <PUBLIC:PROPERTY name="UseFadeEffect" />
+ <PUBLIC:PROPERTY name="ChildrenFilter" />
+ <PUBLIC:PROPERTY name="HelperID"/>
+ <PUBLIC:PROPERTY name="ForceInit"/>
+ <PUBLIC:PROPERTY name="Helper2ID"/>
+ <!--PUBLIC:PROPERTY name="Helper3ID"/-->
+ <PUBLIC:PROPERTY name="IsPostBack" internalname="o16" />
+ <!--PUBLIC:PROPERTY name="BackgroundImage"/-->
+ <PUBLIC:PROPERTY name="NodeSrc" />
+ <PUBLIC:PROPERTY name="NodesXML" />
+ <PUBLIC:PROPERTY name="NodeTypesXML" />
+ <PUBLIC:PROPERTY name="JobsNum" internalname="o15" />
+ 
+ <!-- restore state client set properties -->
+ <!--PUBLIC:PROPERTY name="OverrideNodesStateXML" /-->
+ <PUBLIC:PROPERTY name="SelectedNodeKeyList" /> <!-- Set from server and from this htc-->
+ <PUBLIC:PROPERTY name="ExpandToNodeKeyList" internalname="o24" />
+ <PUBLIC:PROPERTY name="RestoreValuesXML" />
+
+ <PUBLIC:METHOD name="setSelectedNode" internalname="o41">
+ <PUBLIC:METHOD name="setFocusedNode" internalname="o42" />
+ <PUBLIC:METHOD name="getClientRuntimeUrl" internalname="o71" />
+ <PUBLIC:METHOD name="getMSXMLObject" internalname="o68" />
+ <PUBLIC:METHOD name="trasformXmlDoc2HTML" internalname="o35" />
+ <PUBLIC:METHOD name="checkXmlError" internalname="o81" />
+ <PUBLIC:METHOD name="queueEvent" internalname="o44" />
+ <PUBLIC:METHOD name="queueNodeEvent" internalname="o43" />
+ <PUBLIC:METHOD name="handleError" internalname="o61" />
+ <PUBLIC:METHOD name="onsubmit" internalname="o48" />
+
+ <!-- utils -->
+ <PUBLIC:PROPERTY name="LogData" internalname="o13" />
+ <PUBLIC:METHOD name="log" internalname="o53" />
+ <PUBLIC:METHOD name="showLog" internalname="o39" />
+ <PUBLIC:METHOD name="OnPreCacheImageReady" internalname="o50" />
+ 
+
+ <PUBLIC:METHOD name="es" internalname="o76" />
+ <PUBLIC:METHOD name="isTrue" internalname="o56" />
+ <PUBLIC:METHOD name="getString" internalname="o63" />
+ <PUBLIC:METHOD name="keyEscape" internalname="o55" />
+ <PUBLIC:METHOD name="keyUnescape" internalname="o54" />
+ 
+ <PUBLIC:METHOD name="IncJobsNum" internalname="o58"/>
+ <PUBLIC:METHOD name="DecJobsNum" internalname="o78"/>
+
+ <PUBLIC:METHOD name="doFireEvents" internalname="o77" />
+ <!--PUBLIC:METHOD name="helper3Exec" internalname="o59" /-->
+ <PUBLIC:METHOD name="navigateTo" internalname="o51" />
+ <PUBLIC:METHOD name="showContextMenu" internalname="o40" />
+ 
+ 
+ <PUBLIC:EVENT NAME="onInitLoadFinished" ID="o96" />
+ <PUBLIC:EVENT NAME="onNodeClientEvent" ID="o95" />
+ 
+
+ <PUBLIC:METHOD name="ExpandToNode" internalname="o38" />
+ <PUBLIC:METHOD name="StartTryToFocus" internalname="o36" />
+ <PUBLIC:METHOD name="FindNodeByKeyList" internalname="o74" />
+ <PUBLIC:METHOD name="FindNodesByText" internalname="o73" />
+ <PUBLIC:PROPERTY name="Nodes"/>
+ <PUBLIC:PROPERTY name="HelperElement" internalname="o20" />
+ 
+
+ 
+
+</PUBLIC:COMPONENT>
+<!--SCRIPT language="jscript"></SCRIPT-->
+<SCRIPT language="jscript">
+var o18;
+var o26;
+var o17 = false;
+var o11;
+var o19;
+
+var o20;
+var o22;
+var o1 = null;
+var o23 = null;
+
+var o27 = true;
+var o2;
+var o13 = "";
+var o6 = "";
+var o91;
+
+var o25;
+var o16;
+var o7;
+var o15 = 0;
+var o24 = null;
+
+function o58(){
+ o15 ++;
+ o29 = false;
+}
+function o78(){
+ o15 --;
+ if (o15 == 0) {
+ o29 = true;
+ window.setTimeout(o72, 200);
+ }
+}
+var o29 = false;
+var o28 = true;
+function o72(){
+ if (!o29) return;
+ if (!o28) return;
+ o28 = false;
+ o96.fire();
+ if (o24.length > 0)
+ o38(o24);
+
+}
+
+
+
+
+
+
+
+
+
+function o57() {
+ o58();
+ o53("Init started");
+
+
+ o18 = o70(IconSetPath);
+ ShowLines = o56(ShowLines);
+ ForceInit = o56(ForceInit);
+ UseFadeEffect = o56(UseFadeEffect);
+ if (UseFadeEffect) { ChildrenFilter = "filter:progid:DXImageTransform.Microsoft.Fade(duration=0.2);"; }
+ o24 = o33(o24);
+ 
+ o19 = o68();
+ o19.documentElement = o19.createElement("HELPERDATA");
+ o20 = window.document.getElementById(HelperID);
+ o22 = window.document.getElementById(Helper2ID);
+
+ if (!o47()) return;
+
+ o91 = o35(o11);
+ if (!o56(o16)) {
+
+
+ o46();
+
+
+ } else {
+ window.setTimeout(o82, 50);
+ }
+ element.onkeydown = o60;
+
+
+
+}
+var o14 = null;
+function o42(node, cancelFocus){
+ if (o23 == node) return;
+ var o97 = o23;
+ o23 = node;
+ if (node != null) { o14 = node; }
+ if (o23 != null) 
+ { 
+ if (!cancelFocus) o23.HtmlElement.focus();
+ o23.UpdateView(); 
+ }
+ if (o97 != null) o97.UpdateView();
+}
+function o32(){
+ var ret = false;
+ if (o23 == null) {
+ if (o14 != null){
+
+ o42(o14);
+ } else if (o1 != null) {
+ o42(o1);
+ }
+ else if (Nodes.length > 0) {
+ o42(Nodes[0]);
+ }
+ } else {
+ ret = true;
+ }
+ if (o23 != null) o23.UpdateView();
+ return ret;
+}
+function o60(){
+
+ var c = event.keyCode;
+
+ if (c == 40) {
+ if (!o32()) { return false; }
+ var n = o67(o23);
+ if (o23.Expanded && o23.Nodes.length > 0) {
+ n = o23.Nodes[0];
+ }
+ if (n != null) o42(n);
+ return false;
+ } else if (c == 38){
+ if (!o32()) { return false; }
+ var n = o64(o23);
+ if (n != null && n.Expanded && n.Nodes.length > 0) {
+ n = n.Nodes[n.Nodes.length - 1];
+ }
+ if (n == null) {
+ n = o23.ParentNode;
+ }
+ if (n != null) o42(n);
+ return false;
+ } else if (c == 37){
+ if (!o32()) { return false; }
+ if (o23 != null && o23.Expanded && o23.Nodes.length != 0)
+ o23.Collapse();
+ else {
+ var n = o23.ParentNode;
+ if (n != null) o42(n);
+ }
+ return false;
+ } else if (c == 39){
+ if (!o32()) { return false; }
+ if (o23.Expanded && o23.Nodes.length > 0){
+ var n = o23.Nodes[0];
+ if (n != null) o42(n);
+ } else if (!o23.Expanded) {
+ if (o23 != null) o23.Expand();
+ }
+ return false;
+ } else if (c == 107){
+ o32();
+ if (o23 != null) o23.Expand();
+ return false;
+ } else if (c == 109){
+ o32();
+ if (o23 != null) o23.Collapse();
+ return false;
+ } else if (c == 32){
+ o32();
+ if (o23 != null) o23.Select();
+ if (o23 != null && o23.IsCheckBox) o23.CheckBoxChange();
+ return false;
+ } else if (c == 13){
+ if (!o32()) { return false; }
+ if (!event.shiftKey){
+ if (o23 != null) o23.OnContentClick();
+ }
+ else 
+ if (o23 != null) o23.OnContextMenu();
+ return false;
+ } else if (c == 93){
+ o32();
+ if (o23 != null) o23.OnContextMenu(true);
+ return false;
+ } else if (c == 27){
+ if (!o32()) { return false; }
+
+ }
+}
+function o64(o100){
+ if (o100 == null) return null;
+ var o94 = o100.ParentNode == null ? Nodes : o100.ParentNode.Nodes;
+ var res = null;
+ for(var i = 0; i < o94.length; i++){
+ if (o94[i] == o100) return res;
+ res = o94[i];
+ }
+ return null;
+}
+function o66(o100){
+ if (o100 == null) return null;
+ var o94 = o100.ParentNode == null ? Nodes : o100.ParentNode.Nodes;
+ var res = null;
+ for(var i = o94.length - 1; i >= 0; i--){
+ if (o94[i] == o100) return res;
+ res = o94[i];
+ }
+ return null;
+}
+function o67(o100){
+ if (o100 == null) return null;
+ var nextNode = o66(o100);
+ if (nextNode == null) {
+ return o67(o100.ParentNode);
+ }
+ return nextNode;
+}
+var o108 = null;
+function o36(ch_object){
+
+ if (!o27 || o76(o2.ScrollTop)) return;
+ o108 = ch_object;
+ o34();
+}
+function o34(){
+ if (!o27 || o76(o2.ScrollTop)) return;
+ if (o108 == null) return;
+ try{
+ o108.focus();
+ o108 = null;
+
+ }
+ catch(e){
+
+ window.setTimeout(o34, 200);
+ }
+}
+/*function o65(o100){
+ if (o100 == null) return null;
+ var nextNode = o64(o100);
+ if (nextNode == null) {
+ return o100.ParentNode;
+ }
+ return nextNode;
+}
+
+
+function o42(){
+ if (o23 == null) { 
+ o23 = o1; 
+ }
+ if (o23 != null){
+ o23.OnMouseOver();
+ return false;
+ }
+ if (Nodes.length == 0) return false;
+ o23 = Nodes[0];
+ o23.OnMouseOver();
+ return false;
+
+
+}*/
+
+var o3;
+function o46(){
+
+
+
+
+ o53("PreCache started");
+
+
+ o25 = new Array();
+
+ o45(o71("pix.gif"));
+
+
+
+ if (o76(IconSetPath)){
+ o45(o18 + "dot.gif");
+ o45(o18 + "plus.gif");
+ o45(o18 + "minus.gif");
+ o45(o18 + "T.gif"); 
+ o45(o18 + "I.gif"); 
+ o45(o18 + "Z2.gif"); 
+ o45(o18 + "Z.gif"); 
+ o45(o18 + "L.gif"); 
+ o45(o18 + "P.gif"); 
+ o45(o18 + "_.gif"); 
+ o45(o18 + "chb0.gif");
+ o45(o18 + "chb1.gif");
+ }
+ 
+ 
+
+ o53("PreCache finished");
+ element.innerHTML = o4;
+
+ 
+}
+function o70(o107){
+ if (!o76(o107)) return "";
+ if (o107.length > 0 && o107.charAt(0) == '/') return o107;
+ return o71("iconsets/" + o107);
+}
+var o4 = "";
+var o30 = 0;
+function o45(o105){
+ o30 ++;
+
+ o53("Precache:" + o105);
+ 
+ o4 += "<img src='"+o105+"' onreadystatechange='this.parentNode.OnPreCacheImageReady(" + o30 + ")' width='1' height='1' style='visibility: hidden'>";
+
+
+
+
+
+
+
+
+}
+
+var o31 = false;
+function o50(num){
+
+ o53('Here ' + num);
+ if (window.event.srcElement.readyState == 'complete')
+ o30 --;
+
+ if (o30 <= 1 && !o31)
+ {
+ o31 = true;
+ window.setTimeout(o82, 100);
+ }
+ 
+}
+
+function o74(keyList, nodes){
+ if (nodes == null) nodes = Nodes;
+ var curKey = keyList[0];
+ o53(curKey);
+ var foundNode = null;
+ var nodesLength = new Number(nodes.length);
+ for(var i = 0; i < nodesLength; i++){
+ var curNode = nodes[i];
+
+
+ if (curNode.Key == curKey) {
+
+ foundNode = curNode;
+ break;
+ }
+ }
+
+
+ if (keyList.length == 1) return foundNode;
+ if (foundNode == null) return null;
+ keyList.shift();
+ return o74(keyList, foundNode.Nodes);
+}
+function o73(text, nodes, retArray) {
+ if (nodes == null) nodes = Nodes;
+ if (retArray == null) retArray = new Array();
+ var nodesLength = new Number(nodes.length);
+ for(var i = 0; i < nodesLength; i++){
+ var o121 = nodes[i];
+ if (o121.Text == text) {
+ retArray.push(o121);
+ }
+ o73(text, o121.Nodes, retArray);
+ }
+ return retArray;
+}
+function o38(keyList, nodes){
+ if (keyList.length == 0) return;
+ if (nodes == null) nodes = Nodes;
+ var curKey = keyList[0];
+ var foundNode = null;
+ var nodesLength = new Number(nodes.length);
+ for(var i = 0; i < nodesLength; i++){
+ var curNode = nodes[i];
+ if (curNode.Key == curKey) {
+ foundNode = curNode;
+ break;
+ }
+ }
+ if (foundNode == null) return;
+ keyList.shift();
+
+ foundNode.Expand();
+ o123 = keyList;
+ o122 = foundNode;
+ o80();
+
+}
+var o123 = null;
+var o122 = null;
+function o80(){
+
+ if (typeof(o122.stIsLoaded) != "undefined" && o122.stIsLoaded()){
+ if (o122.Nodes.length > 0){
+ o38(o123, o122.Nodes);
+ return;
+ } else return;
+ }
+ window.setTimeout(o80, 100);
+}
+
+
+
+
+
+
+
+
+
+
+function o47() {
+ o53("ParseAndLoadInitialData started");
+ o11 = o68();
+ o11.async = false;
+
+ if (o76(NodesXML)) {
+ o11.loadXML(NodesXML);
+ o81(o11, o116);
+ } else if (o76(NodeSrc)) {
+ o11.load(NodeSrc);
+ o81(o11, o115);
+ } else return false;
+
+ 
+ 
+ var o87 = o68();
+ var o104;
+ var o120;
+ var oNodeList;
+ var value; 
+
+
+
+ o79();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ o2 = new Object();
+ if (o76(RestoreValuesXML)) {
+ o53(RestoreValuesXML); 
+ o87.loadXML(RestoreValuesXML);
+ o81(o87, o114);
+ oNodeList = o87.documentElement.childNodes;
+ for (var i=0; i < oNodeList.length; i++) {
+ o104 = oNodeList.item(i);
+ o2[o104.attributes.getNamedItem("Name").text] = o104.attributes.getNamedItem("Value").text;
+ }
+ }
+ o53("ParseAndLoadInitialData finished");
+ return true;
+}
+
+
+
+function o79()
+{
+
+ var o88 = o68();
+
+
+
+ 
+ o88.loadXML(NodeTypesXML);
+ o81(o88, o117);
+
+
+ var o102 = o68();
+ o102.loadXML(XML_NODETYPES_1.xml);
+
+ o88.loadXML(o88.transformNode(o102));
+
+
+ o102.loadXML(XML_NODETYPES_2.xml);
+ o88.loadXML(o88.transformNode(o102));
+
+ o102.loadXML(XML_NODETYPES_3.xml);
+ o88.loadXML(o88.transformNode(o102));
+
+ 
+ o7 = o88;
+
+ 
+ o81(o88, o111);
+ 
+
+ 
+ 
+}
+
+
+
+function o82() {
+
+
+
+ element.innerHTML = o91;// + element.innerHTML;
+ o17 = true;
+ o37();
+
+
+
+ for(var i = 0; i < element.children.length; i++) {
+
+
+ element.children(i).style.behavior = "url(" + o71("node.htc") + ")";
+ }
+ Nodes = element.children;
+ o78();
+}
+
+
+
+
+
+function o41(value){
+ if (o1 == value) return false;
+ var o93 = o1;
+ var o92 = SelectedNodeKeyList;
+ o1 = value;
+ if (o93 != null) { o93.UpdateView(); o93.NotifyDeselect();}
+ if (o1 != null) { 
+ o1.UpdateView();
+ try {
+ o1.HtmlElement.focus();
+ } catch (e) {}
+ SelectedNodeKeyList = o1.FullKey;
+ } else {
+ SelectedNodeKeyList = "";
+ }
+
+
+ return true;
+
+}
+
+
+
+var o9 = null;
+var o10 = null;
+function o35(o87, o90, o85) {
+ o53("TrasformXmlDoc2HTML started");
+
+ if (o9 == null) {
+
+
+
+
+ var t = o68();
+ t.loadXML(XML_NODES.xml);
+ o9 = t;
+ o9.documentElement.childNodes.item(0).setAttribute("select", o75(o71('pix.gif')));
+ o9.documentElement.childNodes.item(1).setAttribute("select", ChildIndent);
+ o9.documentElement.childNodes.item(2).setAttribute("select", o75(LoadingMessage));
+
+ o9.documentElement.childNodes.item(3).setAttribute("select", o75(" "));//display: none;
+ o9.documentElement.childNodes.item(5).setAttribute("select", o75(ClientRuntimePath));
+
+ o9.documentElement.childNodes.item(6).setAttribute("select", ShowLines ? 1 : 0);
+
+ o9.documentElement.childNodes.item(7).setAttribute("select", o75(o18));
+
+
+ }
+ 
+ if (!o76(o85)){
+ o85 = 0;
+ }
+ o9.documentElement.childNodes.item(8).setAttribute("select", o85);
+ 
+ if (o10 == null) {
+
+
+
+ var t1 = o68();
+ t1.loadXML(XML_NODES_1.xml);
+ o10 = t1;
+
+ }
+
+ if (!o76(o90)) {
+ o10.documentElement.childNodes.item(0).setAttribute("select", "'DEFAULT_NODETYPE_1843DD68-688E-45b7-BE2A-B23FCBAC1ECF'");
+
+ o9.documentElement.childNodes.item(4).setAttribute("select", "0");
+ } else {
+ o10.documentElement.childNodes.item(0).setAttribute("select", o75(o90));
+ o9.documentElement.childNodes.item(4).setAttribute("select", "1");
+ }
+
+
+ var o86 = o68();
+ o86.loadXML(o99 + o87.documentElement.xml);
+ o81(o86, o113);
+
+
+ o86.loadXML(o86.transformNode(o10));
+
+
+ o86.loadXML(o86.transformNode(o7));
+
+
+
+ var result = o86.transformNode(o9);
+ o81(o86, o112);
+
+ o53("TrasformXmlDoc2HTML finished");
+ return result;
+}
+
+
+function o49() {
+ o27 = false;
+}
+
+function o48(){
+ if (!o17) return;
+ o84("TREEVIEW", "SELECTEDNODEKEYLIST", SelectedNodeKeyList);
+ 
+ o84("RESTORE", "ScrollTop", element.scrollTop);
+ o84("RESTORE", "ScrollLeft", element.scrollLeft);
+
+ o20.value = encodeURIComponent(o19.xml);
+ o22.value = encodeURIComponent(o11.xml);
+}
+
+
+function o37(){
+
+ if (!o27 || !o76(o2.ScrollTop)) return;
+ if (o2.ScrollTop - 10 <= element.scrollHeight - element.clientHeight) {
+ element.scrollTop = o2.ScrollTop;
+ element.scrollLeft = o2.ScrollLeft;
+ } else {
+ window.setTimeout(o37, 300);
+ }
+}
+
+
+function o71(name){
+ if (name.length > 0 && name.charAt(0) == '/') return name;
+ return ClientRuntimePath + name;
+}
+
+
+function o44(p0, p1, p2, p3, p4, p5) {
+ o84("EVENT", p0, p1, p2, p3, p4, p5);
+}
+
+function o43(node, eventName, o119, p0, p1) {
+ if (!o119) o44("NODE", node.FullKey, eventName, p0, p1);
+ var o98 = createEventObject();
+ o98.node = node;
+ o98.eventName = eventName;
+ o95.fire(o98);
+}
+
+function o84(tagName, p0, p1, p2, p3, p4, p5) {
+ var o89 = o19.createElement(tagName);
+ if(o76(p0)) o89.setAttribute("p0", p0);
+ if(o76(p1)) o89.setAttribute("p1", p1);
+ if(o76(p2)) o89.setAttribute("p2", p2);
+ if(o76(p3)) o89.setAttribute("p3", p3);
+ if(o76(p4)) o89.setAttribute("p4", p4);
+ if(o76(p5)) o89.setAttribute("p5", p5);
+ o19.documentElement.appendChild(o89);
+}
+
+
+
+
+
+
+function o68(){
+ var t = null;
+ try{
+ t = new ActiveXObject("Msxml2.FreeThreadedDOMDocument.3.0");
+ }
+ catch(e){
+ o61(o118 + "\n" + e.description); 
+ }
+ return t;
+}
+
+
+function o81(xmlDoc, errDescr){
+ if (xmlDoc.parseError.errorCode != 0) {
+ o61("Description: " + errDescr + "\nDetails: " + xmlDoc.parseError.reason);
+ }
+}
+
+
+
+function o61(strErrorText, strErrorType){
+ alert ("Error occured: " + (strErrorType != null? strErrorType : "" )+ "\n" + strErrorText);
+ throw strErrorText;
+}
+
+
+
+function o76(s){
+ if (s == null) return false;
+ s = s.toString();
+ return s != '';
+}
+
+function o56(s){
+ return s != null && s.toString() == "True";
+}
+
+function o63(s){
+ if (s == null) return "";
+ return s.toString();
+}
+
+function o55(str) {
+ str = str.replace(/%/g, "%25");
+ str = str.replace(/ /g, "%20");
+ return str;
+}
+
+function o54(str) {
+ str = str.replace(/%20/g, " ");
+ str = str.replace(/%25/g, "%");
+ return str;
+}
+
+function o33(ch_keyListStr){
+ if (!o76(ch_keyListStr)) { return new Array(); }
+ var o103 = ch_keyListStr.split(" ");
+ for(var i = 0; i < o103.length; i++){
+ o103[i] = o54(o103[i]);
+ }
+ return o103;
+}
+
+function o75(str) {
+ return "concat('','" + str.replace(/'/g, "', \"'\", '") + "')";
+}
+
+var o12;
+function o52(){
+ o12();
+}
+function o51(url, target){
+ if (o76(url)) {
+ var o101 = window.document.getElementById("NRFTV_NAVIGATE_HELPER");
+ o101.href = url;
+ if (o76(target)) o101.target = target;
+
+ o12 = o101.click;
+ setTimeout(o52, 50); // f * c k i n g IE security hack
+
+
+ }
+}
+
+function o40(o106, o110, useOffset){
+ var o0 = window.document.getElementsByTagName("table");
+ for(var i = 0; i < o0.length; i++ ){
+ var ttt = o0[i];
+ if (ttt.serverID == o106) {
+
+
+ if (useOffset) {
+ ttt.style.top = o62(o110.HtmlElement) + o110.HtmlElement.offsetHeight;
+ ttt.style.left = o69(o110.HtmlElement) + 4;
+ } else {
+ ttt.style.top = window.event.clientY + 3 + window.document.body.scrollTop;
+ ttt.style.left = window.event.clientX + window.document.body.scrollLeft;
+ }
+ ttt.style.display = "block";
+ ttt.eventNode = o110;
+ ttt.restoreFocus = o23;
+ ttt.focus();
+
+ }
+
+ }
+}
+function o69(obj)
+{
+ var curleft = 0;
+ while (obj.offsetParent != null)
+ {
+ curleft += obj.offsetLeft - obj.scrollLeft;
+ obj = obj.offsetParent;
+ }
+ return curleft;
+}
+
+function o62(obj)
+{
+ var curtop = 0;
+ while (obj.offsetParent != null)
+ {
+ curtop += obj.offsetTop - obj.scrollTop;
+ obj = obj.offsetParent;
+ }
+ return curtop;
+}
+
+var o109 = false;
+function o77(){
+ if (!o109) {
+ o109 = true;
+
+
+
+
+ window.setTimeout(o6, 200);
+ }
+}
+
+
+function o53(message) 
+{
+ var dt = new Date();
+ o13 += dt.getSeconds() + "." + dt.getMilliseconds() + "\t" + message + "\n";
+}
+function o39(){
+ window.showModelessDialog(o71("log.htm"), element, "dialogWidth:300px;dialogHeight:700px;status:off;help:no;resizable: yes; scroll: yes;");
+}
+
+
+
+
+var o116 = "Error trying to get root nodes.";
+var o115 = "Error trying to load root nodes.";
+var o117 = "Error trying to parse nodetypes.";
+var o114 = "Error parsing restore state data.";
+var o118 = "Error creating MSXML object. Please make sure the MSXML library is installed on your computer.";
+var o112 = "Error applying XSLT template. Please make sure the nodes XML has correct format.";
+var o111 = "Error applying XSLT template.";
+var o113 = "Error validating against DTD.";
+
+var o99 = "<!DOCTYPE NODES [<!ELEMENT NODES (NODE)*> "
+ + "<!ELEMENT NODE (NODE)*> "
+ + "<!ATTLIST NODE "
+ + "Key CDATA #REQUIRED " // NODE
+ + "Text CDATA #IMPLIED " // NODE 
+ + "ToolTip CDATA #IMPLIED " // NODE
+ + "Data CDATA #IMPLIED " // NODE
+ + "Disabled CDATA #IMPLIED " // NODE
+ 
+ + "NavigateUrl CDATA #IMPLIED "
+ + "NavigateTarget CDATA #IMPLIED "
+ 
+ + "ChildNodeType CDATA #IMPLIED "
+ + "NodeType CDATA #IMPLIED " // NODE
+ + "NodeSrc CDATA #IMPLIED " // NODE
+ + "Expanded (True|False) #IMPLIED " // NODE
+ + "ExpandLevel CDATA #IMPLIED " // NODE
+ 
+ + "DefaultStyle CDATA #IMPLIED "
+ + "HoverStyle CDATA #IMPLIED "
+ + "SelectedStyle CDATA #IMPLIED "
+ + "SelectedHoverStyle CDATA #IMPLIED "
+
+ + "ImageUrl CDATA #IMPLIED "
+ + "SelectedImageUrl CDATA #IMPLIED "
+ + "ExpandedImageUrl CDATA #IMPLIED "
+ + "SelectedExpandedImageUrl CDATA #IMPLIED "
+
+ 
+ + "PostBackOnExpand (True|False) #IMPLIED "
+ + "PostBackOnCollapse (True|False) #IMPLIED "
+ + "PostBackOnSelect (True|False) #IMPLIED "
+ + "PostBackOnDeselect (True|False) #IMPLIED "
+ + "PostBackOnCheck (True|False) #IMPLIED "
+ + "PostBackOnUncheck (True|False) #IMPLIED "
+ 
+ + "SelectExpands (True|False) #IMPLIED "
+ + "SelectCollapses (True|False) #IMPLIED "
+ 
+ + "CanBeSelected (True|False) #IMPLIED "
+ 
+ + "IsCheckBox (True|False) #IMPLIED "
+ 
+ + "IsChecked (True|False) #IMPLIED " // NODE
+ 
+ + "ContextMenuID CDATA #IMPLIED "
+ 
+ + "DragDropName CDATA #IMPLIED "
+ + "DragDropAcceptNames CDATA #IMPLIED "
+ + "DragDropJavascript CDATA #IMPLIED "
+ + "> ]>";
+
+</SCRIPT>
+
+
+<XML ID="XML_NODES_1">
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+ <xsl:variable name="RootNodeType" select="" />
+ <xsl:output method="xml" />
+ <xsl:template match="/NODES">
+ <NODES>
+ <xsl:apply-templates select="NODE">
+ <xsl:with-param name="NodeType" select="$RootNodeType"/>
+ </xsl:apply-templates>
+ </NODES>
+ </xsl:template>
+ <xsl:template match="NODE">
+ <xsl:param name="NodeType"/>
+ <xsl:element name="NODE">
+ <xsl:copy-of select="@*" />
+ <xsl:if test="not(@NodeType)"><xsl:attribute name="NodeType"><xsl:value-of select="$NodeType" /></xsl:attribute></xsl:if>
+ <xsl:choose>
+ <xsl:when test="@ChildNodeType"><xsl:apply-templates><xsl:with-param name="NodeType" select="@ChildNodeType"/></xsl:apply-templates></xsl:when>
+ <xsl:when test="@NodeType">
+ <xsl:attribute name="ChildNodeType"><xsl:value-of select="@NodeType" /></xsl:attribute>
+ <xsl:apply-templates><xsl:with-param name="NodeType" select="@NodeType"/></xsl:apply-templates>
+ </xsl:when>
+ <xsl:otherwise>
+ <xsl:attribute name="ChildNodeType"><xsl:value-of select="$NodeType" /></xsl:attribute>
+ <xsl:apply-templates><xsl:with-param name="NodeType" select="$NodeType"/></xsl:apply-templates>
+ </xsl:otherwise>
+ </xsl:choose>
+ </xsl:element>
+ </xsl:template>
+</xsl:stylesheet>
+</XML>
+
+
+<XML ID="XML_NODETYPES_1">
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+ <xsl:output method="xml" />
+ <xsl:template match="/">
+ <TREENODETYPES>
+ <xsl:apply-templates />
+ </TREENODETYPES>
+ </xsl:template>
+ <xsl:template match="DEFAULTNODETYPE">
+ <xsl:element name="DEFAULTNODETYPE">
+ <xsl:copy-of select="@*" />
+ <xsl:if test="boolean(@ImageUrl) and not(@ImageUrl = '')">
+ <xsl:if test="not(@SelectedImageUrl) or @SelectedImageUrl = ''">
+ <xsl:attribute name="SelectedImageUrl">
+ <xsl:value-of select="@ImageUrl" />
+ </xsl:attribute>
+ </xsl:if>
+ <xsl:if test="not(@ExpandedImageUrl) or @ExpandedImageUrl = ''">
+ <xsl:attribute name="ExpandedImageUrl">
+ <xsl:value-of select="@ImageUrl" />
+ </xsl:attribute>
+ </xsl:if>
+ <xsl:if test="not(@SelectedExpandedImageUrl) or @SelectedExpandedImageUrl = ''">
+ <xsl:attribute name="SelectedExpandedImageUrl">
+ <xsl:choose>
+ <xsl:when test="not(@SelectedImageUrl) or @SelectedImageUrl = ''">
+ <xsl:value-of select="@ImageUrl" />
+ </xsl:when>
+ <xsl:otherwise>
+ <xsl:value-of select="@SelectedImageUrl" />
+ </xsl:otherwise>
+ </xsl:choose>
+ </xsl:attribute>
+ </xsl:if>
+ </xsl:if>
+ <xsl:choose>
+ <xsl:when test="not(@DefaultStyle) or @DefaultStyle = ''">
+ <xsl:attribute name="DefaultStyle">padding: 3px 5px 3px 5px; FONT-FAMILY: Tahoma; FONT-SIZE: 11px;</xsl:attribute>
+ <xsl:if test="not(@HoverStyle) or @HoverStyle = ''">
+ <xsl:attribute name="HoverStyle">padding: 3px 5px 3px 5px; FONT-FAMILY: Tahoma; FONT-SIZE: 11px; cursor: hand; TEXT-DECORATION: none;</xsl:attribute>
+ </xsl:if>
+ <xsl:if test="not(@SelectedStyle) or @SelectedStyle = ''">
+ <xsl:attribute name="SelectedStyle">padding: 2px 4px 2px 4px; border: #aaaaaa 1px solid; FONT-FAMILY: Tahoma; FONT-SIZE: 11px; background-color: whitesmoke; cursor: hand;</xsl:attribute>
+ </xsl:if>
+ <xsl:if test="not(@SelectedHoverStyle) or @SelectedHoverStyle = ''">
+ <xsl:attribute name="SelectedHoverStyle">padding: 2px 4px 2px 4px; border: #aaaaaa 1px solid; FONT-FAMILY: Tahoma; FONT-SIZE: 11px; background-color: whitesmoke; cursor: hand; TEXT-DECORATION: none;</xsl:attribute>
+ </xsl:if>
+ </xsl:when>
+ <xsl:otherwise>
+ <xsl:if test="not(@HoverStyle) or @HoverStyle = ''">
+ <xsl:attribute name="HoverStyle">
+ <xsl:value-of select="@DefaultStyle" />
+ </xsl:attribute>
+ </xsl:if>
+ <xsl:if test="not(@SelectedStyle) or @SelectedStyle = ''">
+ <xsl:attribute name="SelectedStyle">
+ <xsl:value-of select="@DefaultStyle" />
+ </xsl:attribute>
+ </xsl:if>
+ <xsl:if test="not(@SelectedHoverStyle) or @SelectedHoverStyle = ''">
+ <xsl:attribute name="SelectedHoverStyle">
+ <xsl:choose>
+ <xsl:when test="not(@HoverStyle) or @HoverStyle = ''">
+ <xsl:value-of select="@DefaultStyle" />
+ </xsl:when>
+ <xsl:otherwise>
+ <xsl:value-of select="@HoverStyle" />
+ </xsl:otherwise>
+ </xsl:choose>
+ 
+ </xsl:attribute>
+ </xsl:if>
+ </xsl:otherwise>
+ </xsl:choose>
+ </xsl:element>
+ </xsl:template>
+ <xsl:template match="TREENODETYPE">
+ <xsl:copy-of select="." />
+ </xsl:template>
+</xsl:stylesheet>
+</XML>
+
+
+
+<XML ID="XML_NODETYPES_2">
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+ <xsl:output method="xml" />
+ <xsl:template match="/">
+ <TREENODETYPES>
+ <xsl:apply-templates />
+ </TREENODETYPES>
+ </xsl:template>
+ <xsl:template match="DEFAULTNODETYPE">
+ <xsl:element name="TREENODETYPE">
+ <xsl:attribute name="Name">DEFAULT_NODETYPE_1843DD68-688E-45b7-BE2A-B23FCBAC1ECF</xsl:attribute>
+ <xsl:copy-of select="@*" />
+ </xsl:element>
+ </xsl:template>
+ <xsl:template match="TREENODETYPE">
+ <xsl:element name="TREENODETYPE">
+ <xsl:copy-of select="@*" />
+ <xsl:if test="not(@NavigateUrl)"><xsl:attribute name="NavigateUrl"><xsl:value-of select="../DEFAULTNODETYPE/@NavigateUrl"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@NavigateTarget)"><xsl:attribute name="NavigateTarget"><xsl:value-of select="../DEFAULTNODETYPE/@NavigateTarget"/></xsl:attribute></xsl:if>
+ <!--xsl:if test="not(@IconSetPath)"><xsl:attribute name="IconSetPath"><xsl:value-of select="../DEFAULTNODETYPE/@IconSetPath"/></xsl:attribute></xsl:if-->
+ <xsl:if test="not(@PostBackOnExpand)"><xsl:attribute name="PostBackOnExpand"><xsl:value-of select="../DEFAULTNODETYPE/@PostBackOnExpand"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@PostBackOnCollapse)"><xsl:attribute name="PostBackOnCollapse"><xsl:value-of select="../DEFAULTNODETYPE/@PostBackOnCollapse"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@PostBackOnSelect)"><xsl:attribute name="PostBackOnSelect"><xsl:value-of select="../DEFAULTNODETYPE/@PostBackOnSelect"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@PostBackOnDeselect)"><xsl:attribute name="PostBackOnDeselect"><xsl:value-of select="../DEFAULTNODETYPE/@PostBackOnDeselect"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@PostBackOnCheck)"><xsl:attribute name="PostBackOnCheck"><xsl:value-of select="../DEFAULTNODETYPE/@PostBackOnCheck"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@PostBackOnUncheck)"><xsl:attribute name="PostBackOnUncheck"><xsl:value-of select="../DEFAULTNODETYPE/@PostBackOnUncheck"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@SelectExpands)"><xsl:attribute name="SelectExpands"><xsl:value-of select="../DEFAULTNODETYPE/@SelectExpands"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@SelectCollapses)"><xsl:attribute name="SelectCollapses"><xsl:value-of select="../DEFAULTNODETYPE/@SelectCollapses"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@CanBeSelected)"><xsl:attribute name="CanBeSelected"><xsl:value-of select="../DEFAULTNODETYPE/@CanBeSelected"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@IsCheckBox)"><xsl:attribute name="IsCheckBox"><xsl:value-of select="../DEFAULTNODETYPE/@IsCheckBox"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@ContextMenuID)"><xsl:attribute name="ContextMenuID"><xsl:value-of select="../DEFAULTNODETYPE/@ContextMenuID"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@DragDropName)"><xsl:attribute name="DragDropName"><xsl:value-of select="../DEFAULTNODETYPE/@DragDropName"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@DragDropAcceptNames)"><xsl:attribute name="DragDropAcceptNames"><xsl:value-of select="../DEFAULTNODETYPE/@DragDropAcceptNames"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@DragDropJavascript)"><xsl:attribute name="DragDropJavascript"><xsl:value-of select="../DEFAULTNODETYPE/@DragDropJavascript"/></xsl:attribute></xsl:if>
+ 
+ <xsl:choose>
+ <xsl:when test="@DefaultStyle">
+ <xsl:if test="not(@HoverStyle)"><xsl:attribute name="HoverStyle"><xsl:value-of select="@DefaultStyle"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@SelectedStyle)"><xsl:attribute name="SelectedStyle"><xsl:value-of select="@DefaultStyle"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@SelectedHoverStyle)">
+ <xsl:attribute name="SelectedHoverStyle"><xsl:choose>
+ <xsl:when test="@HoverStyle"><xsl:value-of select="@HoverStyle"/></xsl:when>
+ <xsl:otherwise><xsl:value-of select="@DefaultStyle"/></xsl:otherwise>
+ </xsl:choose></xsl:attribute>
+ </xsl:if>
+ </xsl:when>
+ <xsl:otherwise>
+ <xsl:attribute name="DefaultStyle"><xsl:value-of select="../DEFAULTNODETYPE/@DefaultStyle"/></xsl:attribute>
+ <xsl:if test="not(@HoverStyle)"><xsl:attribute name="HoverStyle"><xsl:value-of select="../DEFAULTNODETYPE/@HoverStyle"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@SelectedStyle)"><xsl:attribute name="SelectedStyle"><xsl:value-of select="../DEFAULTNODETYPE/@SelectedStyle"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@SelectedHoverStyle)"><xsl:attribute name="SelectedHoverStyle"><xsl:value-of select="../DEFAULTNODETYPE/@SelectedHoverStyle"/></xsl:attribute></xsl:if> 
+ </xsl:otherwise>
+ </xsl:choose>
+
+ <xsl:choose>
+ <xsl:when test="@ImageUrl">
+ <xsl:if test="not(@SelectedImageUrl)"><xsl:attribute name="SelectedImageUrl"><xsl:value-of select="@ImageUrl"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@ExpandedImageUrl)"><xsl:attribute name="ExpandedImageUrl"><xsl:value-of select="@ImageUrl"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@SelectedExpandedImageUrl)">
+ <xsl:attribute name="SelectedExpandedImageUrl"><xsl:choose>
+ <xsl:when test="@SelectedImageUrl"><xsl:value-of select="@SelectedImageUrl"/></xsl:when>
+ <xsl:otherwise><xsl:value-of select="@ImageUrl"/></xsl:otherwise>
+ </xsl:choose></xsl:attribute>
+ </xsl:if>
+ </xsl:when>
+ <xsl:otherwise>
+ <xsl:attribute name="ImageUrl"><xsl:value-of select="../DEFAULTNODETYPE/@ImageUrl"/></xsl:attribute>
+ <xsl:if test="not(@SelectedImageUrl)"><xsl:attribute name="SelectedImageUrl"><xsl:value-of select="../DEFAULTNODETYPE/@SelectedImageUrl"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@ExpandedImageUrl)"><xsl:attribute name="ExpandedImageUrl"><xsl:value-of select="../DEFAULTNODETYPE/@ExpandedImageUrl"/></xsl:attribute></xsl:if>
+ <xsl:if test="not(@SelectedExpandedImageUrl)"><xsl:attribute name="SelectedExpandedImageUrl"><xsl:value-of select="../DEFAULTNODETYPE/@SelectedExpandedImageUrl"/></xsl:attribute></xsl:if> 
+ </xsl:otherwise>
+ </xsl:choose> 
+ </xsl:element>
+ </xsl:template>
+</xsl:stylesheet>
+</XML>
+
+
+
+<XML ID="XML_NODETYPES_3">
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:axsl="http://www.w3.org/1999/XSL/Transform/Alias"
+ version="1.0">
+ <xsl:namespace-alias stylesheet-prefix="axsl" result-prefix="xsl" />
+ <xsl:output method="xml" />
+ <xsl:template match="/">
+ <axsl:stylesheet version="1.0">
+ <axsl:template match="/NODES">
+ <NODES>
+ <axsl:apply-templates select="NODE" />
+ </NODES>
+ </axsl:template>
+ <axsl:template match="NODE">
+ <axsl:element name="NODE">
+ <axsl:copy-of select="@*" />
+ <axsl:choose>
+ <axsl:when test="false()"></axsl:when>
+ <xsl:apply-templates />
+ </axsl:choose>
+ <axsl:apply-templates />
+ </axsl:element>
+ </axsl:template>
+ </axsl:stylesheet>
+ </xsl:template>
+ <xsl:template match="TREENODETYPE">
+ <!--Hope that the last node is DEFAULTNODETYPE-->
+ <xsl:variable name="ElementName">
+ <xsl:choose>
+ <xsl:when test="last() = position()">xsl:otherwise</xsl:when>
+ <xsl:otherwise>xsl:when</xsl:otherwise>
+ </xsl:choose>
+ </xsl:variable>
+ <xsl:element name="{$ElementName}">
+ <xsl:if test="$ElementName = 'xsl:when'"><xsl:attribute name="test">@NodeType = '<xsl:value-of select="@Name"/>'</xsl:attribute></xsl:if>
+ <!--props-->
+ <axsl:if test="not(@NavigateUrl)"><axsl:attribute name="NavigateUrl"><xsl:value-of select="@NavigateUrl"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@NavigateTarget)"><axsl:attribute name="NavigateTarget"><xsl:value-of select="@NavigateTarget"/></axsl:attribute></axsl:if>
+ <!--axsl:if test="not(@IconSetPath)"><axsl:attribute name="IconSetPath"><xsl:value-of select="@IconSetPath"/></axsl:attribute></axsl:if-->
+ <axsl:if test="not(@PostBackOnExpand)"><axsl:attribute name="PostBackOnExpand"><xsl:value-of select="@PostBackOnExpand"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@PostBackOnCollapse)"><axsl:attribute name="PostBackOnCollapse"><xsl:value-of select="@PostBackOnCollapse"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@PostBackOnSelect)"><axsl:attribute name="PostBackOnSelect"><xsl:value-of select="@PostBackOnSelect"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@PostBackOnDeselect)"><axsl:attribute name="PostBackOnDeselect"><xsl:value-of select="@PostBackOnDeselect"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@PostBackOnCheck)"><axsl:attribute name="PostBackOnCheck"><xsl:value-of select="@PostBackOnCheck"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@PostBackOnUncheck)"><axsl:attribute name="PostBackOnUncheck"><xsl:value-of select="@PostBackOnUncheck"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@SelectExpands)"><axsl:attribute name="SelectExpands"><xsl:value-of select="@SelectExpands"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@SelectCollapses)"><axsl:attribute name="SelectCollapses"><xsl:value-of select="@SelectCollapses"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@CanBeSelected)"><axsl:attribute name="CanBeSelected"><xsl:value-of select="@CanBeSelected"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@IsCheckBox)"><axsl:attribute name="IsCheckBox"><xsl:value-of select="@IsCheckBox"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@ContextMenuID)"><axsl:attribute name="ContextMenuID"><xsl:value-of select="@ContextMenuID"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@DragDropName)"><axsl:attribute name="DragDropName"><xsl:value-of select="@DragDropName"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@DragDropAcceptNames)"><axsl:attribute name="DragDropAcceptNames"><xsl:value-of select="@DragDropAcceptNames"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@DragDropJavascript)"><axsl:attribute name="DragDropJavascript"><xsl:value-of select="@DragDropJavascript"/></axsl:attribute></axsl:if>
+ 
+ <axsl:choose>
+ <axsl:when test="@DefaultStyle">
+ <axsl:if test="not(@HoverStyle)"><axsl:attribute name="HoverStyle"><axsl:value-of select="@DefaultStyle"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@SelectedStyle)"><axsl:attribute name="SelectedStyle"><axsl:value-of select="@DefaultStyle"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@SelectedHoverStyle)">
+ <axsl:attribute name="SelectedHoverStyle"><axsl:choose>
+ <axsl:when test="@HoverStyle"><axsl:value-of select="@HoverStyle"/></axsl:when>
+ <axsl:otherwise><axsl:value-of select="@DefaultStyle"/></axsl:otherwise>
+ </axsl:choose></axsl:attribute>
+ </axsl:if>
+ </axsl:when>
+ <axsl:otherwise>
+ <axsl:attribute name="DefaultStyle"><xsl:value-of select="@DefaultStyle"/></axsl:attribute>
+ <axsl:if test="not(@HoverStyle)"><axsl:attribute name="HoverStyle"><xsl:value-of select="@HoverStyle"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@SelectedStyle)"><axsl:attribute name="SelectedStyle"><xsl:value-of select="@SelectedStyle"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@SelectedHoverStyle)"><axsl:attribute name="SelectedHoverStyle"><xsl:value-of select="@SelectedHoverStyle"/></axsl:attribute></axsl:if> 
+ </axsl:otherwise>
+ </axsl:choose>
+
+ <axsl:choose>
+ <axsl:when test="@ImageUrl">
+ <axsl:if test="not(@SelectedImageUrl)"><axsl:attribute name="SelectedImageUrl"><axsl:value-of select="@ImageUrl"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@ExpandedImageUrl)"><axsl:attribute name="ExpandedImageUrl"><axsl:value-of select="@ImageUrl"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@SelectedExpandedImageUrl)">
+ <axsl:attribute name="SelectedExpandedImageUrl"><axsl:choose>
+ <axsl:when test="@SelectedImageUrl"><axsl:value-of select="@SelectedImageUrl"/></axsl:when>
+ <axsl:otherwise><axsl:value-of select="@ImageUrl"/></axsl:otherwise>
+ </axsl:choose></axsl:attribute>
+ </axsl:if>
+ </axsl:when>
+ <axsl:otherwise>
+ <axsl:attribute name="ImageUrl"><xsl:value-of select="@ImageUrl"/></axsl:attribute>
+ <axsl:if test="not(@SelectedImageUrl)"><axsl:attribute name="SelectedImageUrl"><xsl:value-of select="@SelectedImageUrl"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@ExpandedImageUrl)"><axsl:attribute name="ExpandedImageUrl"><xsl:value-of select="@ExpandedImageUrl"/></axsl:attribute></axsl:if>
+ <axsl:if test="not(@SelectedExpandedImageUrl)"><axsl:attribute name="SelectedExpandedImageUrl"><xsl:value-of select="@SelectedExpandedImageUrl"/></axsl:attribute></axsl:if> 
+ </axsl:otherwise>
+ </axsl:choose> 
+ 
+ </xsl:element> 
+ </xsl:template>
+</xsl:stylesheet>
+
+</XML>
+
+
+<XML ID="XML_NODES">
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+ <xsl:variable name="BlankImageUrl" select="" />
+ <xsl:variable name="ChildIndent" select="" />
+ <xsl:variable name="LoadingMessageText" select="" />
+ <xsl:variable name="TableStyle" select="" />
+ <xsl:variable name="HasParent" select="" />
+ <xsl:variable name="ClientRuntimePath" select="" />
+ <xsl:variable name="ShowLines" select="" />
+ 
+ <xsl:variable name="IconSetFullPath" select="" />
+ 
+ <xsl:variable name="XmlPositionPlus" select="0" />
+ 
+ <xsl:output method="xml" omit-xml-declaration="yes" />
+ 
+ 
+ <!--xsl:variable name="IconSetFullPath"><xsl:choose>
+ <xsl:when test="starts-with($IconSetPath, '/')"><xsl:value-of select="$IconSetPath"/></xsl:when>
+ <xsl:otherwise><xsl:value-of select="concat($ClientRuntimePath, 'iconsets/', $IconSetPath)"/></xsl:otherwise>
+ </xsl:choose></xsl:variable-->
+ 
+ <xsl:variable name="ZImageStyle">
+ <xsl:choose>
+ <xsl:when test="$ShowLines and string-length($IconSetFullPath) > 0">background-Image:url('<xsl:value-of select="$IconSetFullPath"/>Z2.gif');background-repeat:no-repeat;background-position-x: <xsl:value-of select="$ChildIndent - 64"/>px;</xsl:when>
+ <xsl:otherwise></xsl:otherwise>
+ </xsl:choose>
+ </xsl:variable>
+ 
+ <xsl:variable name="IconSetTDStyle"><xsl:choose>
+ <xsl:when test="string-length($IconSetFullPath) = 0">display: none;</xsl:when>
+ <xsl:otherwise></xsl:otherwise>
+ </xsl:choose></xsl:variable>
+ <xsl:variable name="IconSetFullPathDot"><xsl:choose>
+ <xsl:when test="string-length($IconSetFullPath) = 0"><xsl:value-of select="$BlankImageUrl"/></xsl:when>
+ <xsl:otherwise><xsl:value-of select="$IconSetFullPath"/>dot.gif</xsl:otherwise>
+ </xsl:choose></xsl:variable>
+ 
+ <xsl:template match="NODE">
+ <xsl:param name="position_plus" select="$XmlPositionPlus"/>
+ <table border="0" style="{$TableStyle}" Index="{position() + $position_plus - 1}"
+ Key="{@Key}" cellpadding="0" cellspacing="0"
+ NodeType="{@NodeType}"
+ NodeSrc="{@NodeSrc}" ID="Table1">
+ 
+ <xsl:if test="@Data"><xsl:attribute name="Data"><xsl:value-of select="@Data"/></xsl:attribute></xsl:if>
+ 
+ <xsl:if test="@ChildNodeType"><xsl:attribute name="ChildNodeType"><xsl:value-of select="@ChildNodeType"/></xsl:attribute></xsl:if>
+ <xsl:if test="@NavigateTarget"><xsl:attribute name="NavigateTarget"><xsl:value-of select="@NavigateTarget"/></xsl:attribute></xsl:if>
+ <xsl:if test="@NavigateUrl"><xsl:attribute name="NavigateUrl"><xsl:value-of select="@NavigateUrl"/></xsl:attribute></xsl:if>
+ <xsl:if test="@Expanded"><xsl:attribute name="Expanded"><xsl:value-of select="@Expanded"/></xsl:attribute></xsl:if>
+ <xsl:if test="@ExpandLevel"><xsl:attribute name="ExpandLevel"><xsl:value-of select="@ExpandLevel"/></xsl:attribute></xsl:if>
+ 
+ <xsl:if test="@DefaultStyle"><xsl:attribute name="DefaultStyle"><xsl:value-of select="@DefaultStyle"/></xsl:attribute></xsl:if>
+ <xsl:if test="@HoverStyle"><xsl:attribute name="HoverStyle"><xsl:value-of select="@HoverStyle"/></xsl:attribute></xsl:if>
+ <xsl:if test="@SelectedStyle"><xsl:attribute name="SelectedStyle"><xsl:value-of select="@SelectedStyle"/></xsl:attribute></xsl:if>
+ <xsl:if test="@SelectedHoverStyle"><xsl:attribute name="SelectedHoverStyle"><xsl:value-of select="@SelectedHoverStyle"/></xsl:attribute></xsl:if>
+ 
+ <xsl:if test="@ImageUrl"><xsl:attribute name="ImageUrl"><xsl:value-of select="@ImageUrl"/></xsl:attribute></xsl:if>
+ <xsl:if test="@SelectedImageUrl"><xsl:attribute name="SelectedImageUrl"><xsl:value-of select="@SelectedImageUrl"/></xsl:attribute></xsl:if>
+ <xsl:if test="@ExpandedImageUrl"><xsl:attribute name="ExpandedImageUrl"><xsl:value-of select="@ExpandedImageUrl"/></xsl:attribute></xsl:if>
+ <xsl:if test="@SelectedExpandedImageUrl"><xsl:attribute name="SelectedExpandedImageUrl"><xsl:value-of select="@SelectedExpandedImageUrl"/></xsl:attribute></xsl:if>
+ <!--xsl:attribute name="IconSetFullPath"><xsl:value-of select="$IconSetPath"/></xsl:attribute-->
+ 
+ <xsl:if test="@PostBackOnExpand"><xsl:attribute name="PostBackOnExpand"><xsl:value-of select="@PostBackOnExpand"/></xsl:attribute></xsl:if>
+ <xsl:if test="@PostBackOnCollapse"><xsl:attribute name="PostBackOnCollapse"><xsl:value-of select="@PostBackOnCollapse"/></xsl:attribute></xsl:if>
+ <xsl:if test="@PostBackOnSelect"><xsl:attribute name="PostBackOnSelect"><xsl:value-of select="@PostBackOnSelect"/></xsl:attribute></xsl:if>
+ <xsl:if test="@PostBackOnDeselect"><xsl:attribute name="PostBackOnDeselect"><xsl:value-of select="@PostBackOnDeselect"/></xsl:attribute></xsl:if>
+ <xsl:if test="@PostBackOnCheck"><xsl:attribute name="PostBackOnCheck"><xsl:value-of select="@PostBackOnCheck"/></xsl:attribute></xsl:if>
+ <xsl:if test="@PostBackOnUncheck"><xsl:attribute name="PostBackOnUncheck"><xsl:value-of select="@PostBackOnUncheck"/></xsl:attribute></xsl:if>
+ 
+ <xsl:if test="@SelectExpands"><xsl:attribute name="SelectExpands"><xsl:value-of select="@SelectExpands"/></xsl:attribute></xsl:if>
+ <xsl:if test="@SelectCollapses"><xsl:attribute name="SelectCollapses"><xsl:value-of select="@SelectCollapses"/></xsl:attribute></xsl:if>
+ 
+ <xsl:if test="@CanBeSelected"><xsl:attribute name="CanBeSelected"><xsl:value-of select="@CanBeSelected"/></xsl:attribute></xsl:if>
+ 
+ <xsl:if test="@IsCheckBox"><xsl:attribute name="IsCheckBox"><xsl:value-of select="@IsCheckBox"/></xsl:attribute></xsl:if>
+ <xsl:if test="@IsChecked"><xsl:attribute name="IsChecked"><xsl:value-of select="@IsChecked"/></xsl:attribute></xsl:if>
+ <xsl:if test="@ContextMenuID"><xsl:attribute name="ContextMenuID"><xsl:value-of select="@ContextMenuID"/></xsl:attribute></xsl:if>
+ <xsl:if test="@DragDropName"><xsl:attribute name="DragDropName"><xsl:value-of select="@DragDropName"/></xsl:attribute></xsl:if>
+ <xsl:if test="@DragDropAcceptNames"><xsl:attribute name="DragDropAcceptNames"><xsl:value-of select="@DragDropAcceptNames"/></xsl:attribute></xsl:if>
+ <xsl:if test="@DragDropJavascript"><xsl:attribute name="DragDropJavascript"><xsl:value-of select="@DragDropJavascript"/></xsl:attribute></xsl:if>
+ 
+ <xsl:if test="@Disabled"><xsl:attribute name="nodeDisabled"><xsl:value-of select="@Disabled"/></xsl:attribute></xsl:if>
+ 
+ <!--xsl:if test="$ChildrenFilter"><xsl:attribute name="ChildrenFilter"><xsl:value-of select="$ChildrenFilter"/></xsl:attribute></xsl:if-->
+ 
+ <xsl:attribute name="XmlPosition"><xsl:value-of select="position() + $position_plus"/></xsl:attribute>
+ <xsl:attribute name="xml_last"><xsl:value-of select="last() + $position_plus"/></xsl:attribute>
+ 
+ <xsl:variable name="HasParentLocal"><xsl:choose>
+ <xsl:when test="parent::NODES and position() + $position_plus = 1 and not($HasParent)">0</xsl:when>
+ <xsl:otherwise>1</xsl:otherwise>
+ </xsl:choose></xsl:variable>
+ 
+
+ 
+ <xsl:variable name="LineImage">
+ <xsl:choose>
+ <xsl:when test="$HasParentLocal = 1 and position() = last()">L</xsl:when>
+ <xsl:when test="$HasParentLocal = 1">T</xsl:when>
+ <xsl:when test="position() = last()">_</xsl:when>
+ <xsl:otherwise>P</xsl:otherwise>
+ </xsl:choose>
+ </xsl:variable>
+ <xsl:variable name="IndentLineImage"><xsl:choose>
+ <xsl:when test="position() = last() or not($ShowLines)"></xsl:when>
+ <xsl:otherwise>background-Image:url(&quot;<xsl:value-of select="$IconSetFullPath"/>I.gif&quot;)</xsl:otherwise>
+ </xsl:choose></xsl:variable>
+
+ <xsl:variable name="LineImageStyle">
+ <xsl:choose>
+ <xsl:when test="$ShowLines">background-Image:url('<xsl:value-of select="concat($IconSetFullPath, $LineImage, '.gif')"/>');background-repeat:no-repeat</xsl:when>
+ <xsl:otherwise></xsl:otherwise>
+ </xsl:choose>
+ </xsl:variable>
+ 
+ <xsl:variable name="LineImageAppend">
+ <xsl:choose>
+ <xsl:when test="$HasParentLocal = 1">T</xsl:when>
+ <xsl:otherwise>P</xsl:otherwise>
+ </xsl:choose>
+ </xsl:variable> 
+ <xsl:variable name="LineImageStyleAppend">
+ <xsl:choose>
+ <xsl:when test="$ShowLines">background-Image:url('<xsl:value-of select="concat($IconSetFullPath, $LineImageAppend, '.gif')"/>');background-repeat:no-repeat</xsl:when>
+ <xsl:otherwise></xsl:otherwise>
+ </xsl:choose>
+ </xsl:variable> 
+ 
+ <tbody>
+ <tr>
+ <td colspan="2">
+ <table border="0" cellpadding="0" cellspacing="0" width="1">
+ <tbody>
+ <tr valign="top">
+ <td style="{$IconSetTDStyle}{$LineImageStyle}" appendStyle="{$LineImageStyleAppend}" ><img src="{$IconSetFullPathDot}" alt="" border="0"/></td>
+ <td style="display:none;{$ZImageStyle}"><img src="{$BlankImageUrl}" alt="" border="0"/></td>
+ <xsl:if test="@IsCheckBox = 'True'">
+ <td><img src="{$BlankImageUrl}" alt="" border="0"/></td>
+ </xsl:if>
+ <td nowrap="true" title="{@ToolTip}" style="{@DefaultStyle}" width="100%">
+ <xsl:value-of select="@Text" disable-output-escaping="yes" />
+ <!--xsl:value-of select="@ContextMenuID" /-->
+ 
+ </td>
+ <td width="99%"></td>
+ </tr>
+ <tr style="display: none;">
+ <td style="{$IconSetTDStyle};background-repeat:repeat-y;{$IndentLineImage}"></td>
+ <td style="display:none"></td>
+ <xsl:if test="@IsCheckBox = 'True'">
+ <td></td>
+ </xsl:if>
+ <td align="left" colspan="2">
+ <table border="0" cellpadding="0" cellspacing="0">
+ <tbody>
+ <tr>
+ <td nowrap="true" style="{@DefaultStyle}"><xsl:value-of select="$LoadingMessageText" disable-output-escaping="yes" /></td>
+ </tr>
+ </tbody>
+ </table>
+ </td>
+ </tr> 
+ </tbody>
+ </table>
+ <!--xsl:number value="position() - 1" format="1" /-->
+ </td>
+ </tr>
+
+ <tr style="display: none;" >
+ <!--xsl:attribute name="style"><xsl:choose>
+ <xsl:when test="@Expanded = 'True'"></xsl:when>
+ <xsl:otherwise>display: none;</xsl:otherwise>
+ </xsl:choose></xsl:attribute-->
+ <td style="width: {$ChildIndent}px;background-repeat:repeat-y;{$IndentLineImage}"><img src="{$BlankImageUrl}" width="{$ChildIndent}" height="1" alt="" border="0"/></td><!--; background-Image: url('client_runtime/iconsets/default/I.gif')-->
+ <td style="width: 100%;">
+ <xsl:apply-templates>
+ <xsl:with-param name="position_plus" select="0" />
+ </xsl:apply-templates>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ </xsl:template>
+</xsl:stylesheet>
+</XML>

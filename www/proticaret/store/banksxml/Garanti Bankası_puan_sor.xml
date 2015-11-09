@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<CC5Request>
+	<Name>[%Name%]</Name>
+	<Password>[%Password%]</Password>
+	<ClientId>[%ClientId%]</ClientId>
+	<IPAddress></IPAddress>
+	<Email></Email>
+	<Mode>P</Mode>
+	<OrderId>[%OrderId%]</OrderId>
+	<GroupId></GroupId>
+	<TransId></TransId>
+	<UserId>[%UserId%]</UserId>
+	<Type>[%Paytype%]</Type>
+	<Number>[%Number%]</Number>
+	<Expires>[%Expires%]</Expires>
+	<Cvv2Val>[%Cvv2Val%]</Cvv2Val>
+	<Total>[%Total%]</Total>
+	<Currency>949</Currency>
+	<Taksit>[%Taksit%]</Taksit>
+  [%3d%]  
+	<Extra>
+    <MRSORGU>SOR</MRSORGU>
+  </Extra>
+</CC5Request>

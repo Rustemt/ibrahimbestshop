@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<serviceRequest>
+  <type>pay</type>
+  <user>
+    <id>[%serviceId%]</id>
+    <token>[%token%]</token>
+    <storeId>[%storeId%]</storeId>
+    <accountId>[%accountId%]</accountId>
+  </user>
+  <params>
+    <bankName>[%bankName%]</bankName>
+    <amount>[%amount%]</amount>
+    <currencyCode>try</currencyCode>
+    <cardNumber>[%cardNumber%]</cardNumber>
+    <cvv2>[%cvv2%]</cvv2>
+    <cardType>[%cardType%]</cardType>
+    <expiresMonth>[%expiresMonth%]</expiresMonth>
+    <expiresYear>[%expiresYear%]</expiresYear>
+    <cardHolderName>[%cardHolderName%]</cardHolderName>
+    <orderId>[%orderId%]</orderId>
+    <installment>[%installment%]</installment>
+    <ip>[%ip%]</ip>
+  </params>
+</serviceRequest>

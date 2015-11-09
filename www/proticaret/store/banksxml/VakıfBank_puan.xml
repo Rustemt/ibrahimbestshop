@@ -1,0 +1,1 @@
+kullanici=[%Name%]&sifre=[%Password%]&islem=[%Paytype0%]&uyeno=[%ClientId%]&posno=[%posNo%]&kkno=[%Number%]&gectar=[%Expires%]&cvc=[%Cvv2Val%]&tutar=[%Total%]&provno=000000&taksits=[%Taksit%]&islemyeri=I&uyeref=[%OrderId2%]&vbref=0&khip=[%IPAddress%]&xcip=[%Xcip%]

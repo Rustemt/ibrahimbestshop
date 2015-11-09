@@ -1,0 +1,474 @@
+<div id="mail-container" style="width:600px; font-size:12px; color:#000; font-family:Tahoma;">
+	<div id="mail-logo"><a href="[BaseUrl]" target="_blank"><img src="http://www.proticaretg5d.com/themes/default/images/logo.png" border="0" /></a></div>
+	<div id="mail-content" style="border: 10px solid #f9f8f4; padding: 10px;">
+    
+    <h4>Sipariþ Bilgi Formu</h4>
+	<table cellspacing="0" cellpadding="5" width="100%" border="0">
+  <tr>
+    <td colspan="7">Sipariþin Tarihi : [Date]</td>
+  </tr>
+  <tr>
+    <td colspan="7">
+    <p>Sayýn <b>[UserName]</b></p>
+    Alýþveriþ Sepetinizdeki ürünleri <b>[ÖdemeTipi]</b> ile satýn almayý tercih ettiniz.
+    <p>Size gelen bu maildeki sipariþin detaylarýna sitemizin <a href="[BaseUrl]/account.aspx">Müþteri Hizmetleri</a> bölümünden ulaþabilirsiniz.</p>
+    Sipariþ No : <b>[OrderId]</b>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="7"><b>Ürün Bilgileri</b></td>
+  </tr>
+  <tr>
+    <td>Ürün Kodu</td>
+    <td>Malýn Cinsi</td>
+    <td>Döviz Tutar</td>
+    <td>Miktar</td>
+    <td>Birim Fiyatý</td>
+    <td>Ýndirim</td>
+    <td>Toplam</td>
+  </tr>
+  <tr>
+    <td colspan="7">[Ürün Bilgileri]</td>
+  </tr>
+  <tr>
+    <td colspan="6">TOPLAM ÝNDÝRÝM:</td>
+    <td>[lblToplamIndirim]</td>
+  </tr>
+  <tr>
+    <td colspan="6">ÜRÜN ve HÝZMET BEDELÝ:</td>
+    <td>[lblToplamTutar]</td>
+  </tr>
+  <tr>
+    <td colspan="6">TOPLAM KDV:</td>
+    <td>[lblToplamKdv]</td>
+  </tr>
+  <tr>
+    <td colspan="6">ARA TOPLAM:</td>
+    <td>[lblAraToplam]</td>
+  </tr>
+  <tr>
+    <td colspan="6">HEDÝYE ÇEKÝ ÝNDÝRÝMÝ:</td>
+    <td>[lblCekIndirimi]</td>
+  </tr>
+  <tr>
+    <td colspan="6">ÖDENECEK TOPLAM TUTAR:</td>
+    <td>[lblKdvDahilToplam]</td>
+  </tr>
+  <tr>
+    <td colspan="6">KARGO BEDELÝ:</td>
+    <td>[lblKargoToplam]</td>
+  </tr>
+  <tr>
+    <td colspan="6">KARGO DAHÝL TOPLAM:</td>
+    <td>[lblKargoDahilToplam]</td>
+  </tr>
+  <tr>
+    <td colspan="6">[ÖdemeTipi] ileÖDENECEK TOPLAM:</td>
+    <td>[BankaToplamTutar]</td>
+  </tr>
+  <tr>
+    <td colspan="7"></td>
+  </tr>
+  <tr>
+    <td colspan="7"></td>
+  </tr>
+  <tr>
+    <td colspan="7"></td>
+  </tr>
+  <tr>
+    <td colspan="7">
+    <table cellpadding="5" cellspacing="0" width="100%" border="0">
+        <tr>
+          <td colspan="2">SATIÞ SÖZLEÞMESÝ</td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>MADDE 1 - TARAFLAR</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2">1.1.SATICI:</td>
+        </tr>
+        <tr>
+          <td colspan="2">Adý/Unvaný : </td>
+        </tr>
+        <tr>
+          <td colspan="2">Adresi :</td>
+        </tr>
+        <tr>
+          <td colspan="2">Telefon : </td>
+        </tr>
+        <tr>
+          <td colspan="2">Fax : </td>
+        </tr>
+        <tr>
+          <td colspan="2">1.2. ALICI:</td>
+        </tr>
+        <tr>
+          <td colspan="2">Adý/Unvaný : [customername]</td>
+        </tr>
+        <tr>
+          <td colspan="2">Adresi : [customeraddress]</td>
+        </tr>
+        <tr>
+          <td colspan="2">Telefon : [customerphone]</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>MADDE 2 - KONU</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2">Ýþbu sözleþmenin konusu, ALICI'nýn SATICI'ya ait "[SiteName]" internet aliþveriþ sitesinden elektronik ortamda sipariþini yaptýðý aþaðýda nitelikleri ve satýþ
+            fiyatý belirtilen ürünün satýþý ve teslimi ile ilgili olarak "4077 Sayýlý Tüketicilerin Korunmasý Hakkýndaki Kanun" ve "Mesafeli Sözleþmeler Uygulama Usul ve Esaslarý Hakkýnda Yönetmelik" hükümleri gereðince taraflarýn hak ve yükümlülüklerinin saptanmasýdýr.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>MADDE 3 - ÜRÜNÜN NÝTELÝK VE NÝCELÝKLERÝ,FÝYATI,ÖDEME ÞEKLÝ</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2">3.1.Sözleþmeye konu ürünün cinsi, türü, miktarý/adedi, marka/modeli, rengi, tüm vergiler dahil peþin ve taksitli toplam satýþ bedeli ve ödeme þekli, kredi kartý ile taksitli satýþlarda vadeye göre ödenecek Türk Lirasý olarak toplam satýþ fiyatý, taksit sayýsýna göre ödenmesi gereken peþinat tutarý,
+            kalan taksitlere iliþkin ödeme planý aþaðýdaki gibidir.<br />
+            <table cellspacing="0" cellpadding="0" width="100%" border="0" >
+              <tr>
+                <td colspan="7">Ürün Bilgileri</td>
+              </tr>
+              <tr>
+                <td>Ürün Kodu</td>
+                <td>Malýn Cinsi</td>
+                <td>Döviz Tutar</td>
+                <td>Miktar</td>
+                <td>Birim Fiyatý</td>
+                <td>Ýndirim</td>
+                <td>Toplam </td>
+              </tr>
+              <tr>
+                <td colspan="7">[Ürün Bilgileri]</td>
+              </tr>
+              <tr>
+                <td colspan="6" >TOPLAM ÝNDÝRÝM:</td>
+                <td  >[lblToplamIndirim]</td>
+              </tr>
+              <tr>
+                <td colspan="6">ÜRÜN ve HÝZMET BEDELÝ:</td>
+                <td>[lblToplamTutar]</td>
+              </tr>
+              <tr>
+                <td colspan="6">TOPLAM KDV:</td>
+                <td>[lblToplamKdv]</td>
+              </tr>
+              <tr>
+                <td colspan="6">ARA TOPLAM:</td>
+                <td>[lblAraToplam]</td>
+              </tr>
+              <tr>
+                <td colspan="6">HEDÝYE ÇEKÝ ÝNDÝRÝMÝ:</td>
+                <td>[lblCekIndirimi]</td>
+              </tr>
+              <tr>
+                <td colspan="6">ÖDENECEK TOPLAM TUTAR:</td>
+                <td>[lblKdvDahilToplam]</td>
+              </tr>
+              <tr>
+                <td colspan="6">-----------</td>
+                <td>-----------</td>
+              </tr>
+              <tr>
+                <td colspan="6">KARGO BEDELÝ:</td>
+                <td>[lblKargoToplam]</td>
+              </tr>
+              <tr>
+                <td colspan="6">KARGO DAHÝL TOPLAM:</td>
+                <td>[lblKargoDahilToplam]</td>
+              </tr>
+              <tr>
+                <td colspan="6" >[ÖdemeTipi]</td>
+                <td  >[BankaToplamTutar]</td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td colspan="2" ></td>
+        </tr>
+        <tr>
+          <td colspan="2"> 3.2. Ödeme Þekli : Havale / EFT ile Ödeme</td>
+        </tr>
+        <tr>
+          <td colspan="2" ></td>
+        </tr>
+        <tr>
+          <td colspan="2"> 3.3. Diðer yandan vadeli satýþlarýn sadece Bankalara ait kredi kartlarý ile yapýlmasý
+            nedeniyle, alýcý, ilgili faiz oranlarýný ve temerrüt faizi ile ilgili bilgileri
+            bankasýndan ayrýca teyit edeceðini, yürürlükte bulunan mevzuat hükümleri gereðince
+            faiz ve temerrüt faizi ile ilgili hükümlerin Banka ve alýcý arasýndaki kredi kartý
+            sözleþmesi kapsamýnda uygulanacaðýný kabul, beyan ve taahhüt eder.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> Kredi kartýna Ýade Prosedürü:<br />
+            Alýcýnýn cayma hakkýný kullandýðý durumlarda ya da sipariþe konu olan ürünün çeþitli
+            sebeplerle tedarik edilememesi veya Hakem heyeti kararlarý ile Tüketiciye bedel
+            iadesine karar verilen durumlarda ,alýþveriþ kredi kartý ile ve taksitli olarak
+            yapýlmýþsa, kredi kartýna iade prosedürü aþaðýda belirtilmiþtir:<br />
+            <br />
+            Müþterimiz ürünü kaç taksit ile aldýysa Banka müþteriye geri ödemesini taksitle
+            yapmaktadýr.[SiteName] bankaya ürün bedelinin tamamýný
+            tek seferde ödedikten sonra ,Banka poslarýndan yapýlan taksitli harcamalarýn Müþterimizin
+            kredi kartýna iadesi durumunda,konuya müdahil taraflarýn maðdur duruma düþmemesi
+            için talep edilen iade tutarlarý,yine taksitli olarak hamil taraf hesaplarýna Banka
+            tarafýndan aktarýlýr.Müþterinin satýþ iptaline kadar ödemiþ olduðu taksit tutarlarý
+            ,eðer iade tarihi ile kartýn hesap kesim tarihleri çakýþmazsa her ay karta 1 iade
+            yansýyacak ve müþteri iade öncesinde ödemiþ olduðu taksitleri satýþýn taksitleri
+            bittikten sonra , iade öncesinde ödemiþ olduðu taksitleri sayýsý kadar ay daha alacak
+            ve mevcut borçlarýndan düþmüþ olacaktýr.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> Kart ile alýnmýþ mal ve hizmetin iadesi durumunda [SiteName],Banka
+            ile yapmýþ olduðu sözleþme gereði Müþteriye nakit para ile ödeme yapamaz.Üye iþyeri
+            yani [SiteName],bir iade iþlemi sözkonusu olduðunda ilgili yazýlým
+            aracýlýðý ile iadesini yapacak olup,Üye iþyeri yani [SiteName] ilgili
+            tutarý Bankaya nakden veya mahsuben ödemekle yükümlü olduðundan yukarýda anlatmýþ
+            olduðumuz prosedür gereðince Müþteriye nakit olarak ödeme yapýlamamaktadýr. Kredi
+            kartýna iade , [SiteName] in Bankaya bedeli tek seferde ödemesinden
+            sonra ,Banka tarafýndan yukarýdaki prosedür gereðince yapýlacaktýr.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> Alýcý, bu prosedürü okuduðunu ve kabul ettiðini kabul ve taahhüd eder.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> 3.4- Teslimat Þekli ve Adresi :<br />
+            Teslimat Adresi : [customeraddress]<br />
+            Teslim Edilecek Kiþi: [customername]<br />
+            Fatura Adresi : [customeraddress]</td>
+        </tr>
+        <tr>
+          <td colspan="2" ></td>
+        </tr>
+        <tr>
+          <td colspan="2"> Teslimat kargo þirketi aracýlýðý ile Alýcýnýn yukarýda belirtilen adresinde elden
+            teslim edilecektir. Teslim anýnda alýcýnýn adresinde bulunmamasý durumunda dahi
+            SATICI edimini tam ve eksiksiz olarak yerine getirmiþ olarak kabul edilecektir.
+            Bu nedenle, alýcýnýn ürünü geç teslim almasýndan kaynaklanan her türlü zarar ile
+            ürünün kargo þirketinde beklemiþ olmasý ve/veya kargonun SATICI'ya geri iade edilmesinden
+            dolayý da oluþan giderler de ALICI'ya aittir.</td>
+        </tr>
+        <tr>
+          <td colspan="2" ></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Kargo Ücreti :</strong> [lblKargoToplam] olup, kargo
+            fiyatý sipariþ toplam tutarýna eklenmekte ve müþteri tarafýndan ödenmektedir. Ürün
+            bedeline dahil deðildir.</td>
+        </tr>
+        <tr>
+          <td colspan="2" ></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>MADDE 4 - GENEL HÜKÜMLER</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2">4.1.ALICI, "[SiteName]" internet sitesinde "4077 Sayýlý Kanun" ve "Kapýdan Satýþlara
+            Ýliþkin Uygulama Usul ve Esaslarý Hakkýnda Yönetmelik" hükümlerine göre düzenlenen " bilgilendirme formunu" ve yine sözleþmenin 3.maddesinde belirtilen, sözleþmeye konu ürünün/ürünlerin/hizmetlerin temel nitelikleri satýþ fiyatý ve ödeme þekli ile teslimata iliþkin tüm ön bilgileri okuyup bilgi sahibi
+            olduðunu ve elektronik ortamda gerekli teyidi verdiðini beyan eder.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2">4.2. Sözleþme konusu ürün,
+            yasal 30 günlük süreyi aþmamak koþulu ile her bir ürün için ALICI'nýn yerleþim yerinin uzaklýðýna baðlý olarak internet sitesinde ön bilgiler içinde açýklanan süre içinde ALICI veya gösterdiði adresteki kiþi/kuruluþa teslim
+            edilir.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2">4.3.Sözleþme konusu ürün,
+            ALICI'dan baþka bir kiþi/kuruluþa teslim
+            edilecek ise, teslim edilecek kiþi/kuruluþun teslimatý kabul etmemesinden SATICI sorumlu tutulamaz.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> 4.4.SATICI, sözleþme konusu ürünün saðlam, eksiksiz, sipariþte belirtilen niteliklere uygun ve varsa garanti belgeleri ve kullaným kýlavuzlarý ile teslim edilmesinden sorumludur.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> 4.5- Sözleþme konusu ürünün teslimatý için iþbu sözleþmenin imzalý nüshasýnýn SATICI'ya
+            ulaþtýrýlmýþ olmasý ve bedelinin ALICI'nýn tercih ettiði ödeme þekli ile ödenmiþ olmasý þarttýr. Herhangi bir nedenle ürün bedeli ödenmez veya banka kayýtlarýnda iptal edilir ise, SATICI ürünün teslimi yükümlülüðünden kurtulmuþ kabul edilir.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> 4.6- Ürünün
+            tesliminden sonra ALICI'ya ait kredi kartýnýn ALICI'nýn kusurundan kaynaklanmayan bir þekilde yetkisiz kiþilerce haksýz veya hukuka aykýrý olarak kullanýlmasý nedeni ile ilgili banka veya finans kuruluþun ürün bedelini SATICI'ya ödememesi halinde, ALICI'nýn kendisine teslim edilmiþ olmasý kaydýyla ürünün
+            3 gün içinde SATICI'ya
+            gönderilmesi zorunludur. Bu takdirde nakliye giderleri ALICI'ya aittir.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> 4.7- Garanti belgesi ile satýlan ürünlerden olan veya olmayan ürünlerin arýzalý
+            veya bozuk olanlar, (ayýplý) garanti þartlarý içinde gerekli onarýmýn yetkili servise
+            yaptýrýlmasý için SATICI'ya gönderilebilir, bu takdirde kargo giderleri SATICI tarafýndan
+            karþýlanacaktýr.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>MADDE 5 - CAYMA HAKKI</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2"> ALICI, sözleþme konusu ürürünün kendisine veya gösterdiði adresteki kiþi/kuruluþa
+            tesliminden itibaren 7 gün içinde cayma hakkýna sahiptir. Cayma hakkýnýn kullanýlmasý için bu süre içinde SATICI'ya faks, email veya telefon ile bildirimde bulunulmasý ve ürünün 6. madde hükümleri çerçevesinde kullanýlmamýþ olmasý þarttýr. Bu hakkýn kullanýlmasý halinde, 3. kiþiye veya
+            ALICI'ya teslim edilen ürünün SATICI'ya gönderildiðine iliþkin kargo teslim tutanaðý örneði ile fatura aslýnýn iadesi zorunludur. Bu belgelerin ulaþmasýný takip eden 7 gün içinde ürün bedeli ALICI'ya iade edilir. Fatura aslý gönderilmez ise KDV ve varsa sair yasal yükümlülükler iade edilemez. Cayma hakký
+            nedeni ile iade edilen ürünün kargo bedeli SATICI tarafýndan karþýlanýr.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Tüketicinin hiçbir hukuki ve cezai sorumluluk
+            üstlenmeksizin ve hiçbir gerekçe göstermeksizin malý teslim aldýðý veya sözleþmenin imzalandýðý tarihten itibaren yedi gün içerisinde malý veya hizmeti reddederek sözleþmeden cayma hakkýnýn var olduðunu ve cayma bildiriminin satýcý veya saðlayýcýya ulaþmasý tarihinden itibaren malý geri almayý
+            taahhüt ederiz.</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>385 sayýlý vergi usul kanunu genel tebliði uyarýnca iade iþlemlerinin yapýlabilmesi
+            için tarafýnýza göndermiþ olduðumuz iade bölümü bulunan faturada ilgili bölümlerin
+            eksiksiz olarak doldurulmasý ve imzalandýktan sonra tarafýmýza ürün ile birlikte
+            geri gönderilmesi gerekmektedir.</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> Ancak, <strong>KKTC ve yurtdýþý gönderilerinde</strong> Müþterilerimiz sipariþlerinde
+            KDV ödemediði için, gümrükte almýþ olduðu ürünlerin vergilerini ödemekle yükümlüdür.Gümrükten
+            her ne þekilde olursa olsun teslim alýnmayan ürünler için Müþterilerin cayma hakký
+            bulunmamaktadýr. Çünkü MESAFELÝ SÖZLEÞMELER UYGULAMA USUL VE ESASLARI HAKKINDA YÖNETMELÝÐÝN
+            8.maddesi uyarýnca Tüketici mal satýþýna iliþkin mesafeli sözleþmelerde, teslim
+            aldýðý tarihten itibaren yedi gün içerisinde hiçbir hukuki ve cezai sorumluluk üstlenmeksizin
+            ve hiçbir gerekçe göstermeksizin malý reddederek sözleþmeden cayma hakkýna sahiptir.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>MADDE 6 - CAYMA HAKKI KULLANILAMAYACAK ÜRÜNLER</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2"> Niteliði itibarýyla iade edilemeyecek ürünler, tek kullanýmlýk ürünler, son kullaným
+            tarihi geçen ürünler için cayma hakký kullanýlamaz. Aþaðýdaki ürünlerde cayma hakkýnýn
+            kullanýlmasý, ürünün ambalajýnýn açýlmamýþ, bozulmamýþ ve ürünün kullanýlmamýþ olmasý
+            þartýna baðlýdýr.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> - Bitkisel Tablet Ürünler <br />
+            - Niteliði itibarýyla iade edilemeyecek ürünler ( ürünün arýzalý veya ayýplý
+            çýkmasý halleri dýþýnda, açýldýktan sonra saðlýk açýsýndan tehlike arzedebilen ürünler örn : kullaným esnasýnda vücut ile birebir temas gerektiren ürünler (), tek kullanýmlýk
+            ürünler, hýzlý bozulan veya son kullaným tarihi
+            geçen ürünler ve iadesi mümkün deðildir.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>MADDE 7- TEMERRÜT HÜKÜMLERÝ</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2"> Taraflarýn iþbu sözleþmeden kaynaklarýndan edimlerini yerine getirmemesi durumunda
+            Borçlar Kanunu'nun 106-108.maddesinde yer alan Borçlunun Temerrüdü hükümleri uygulanacaktýr.
+            Temerrüt durumlarýnda, herhangi bir tarafýn edimlerini süresi içinde haklý bir sebebi
+            olmaksýzýn yerine getirmemesi durumunda diðer taraf söz konusu edimin yerine getirilmesi
+            için edimini yerine getirmeyen tarafa 7 günlük süre verecektir. Bu süre zarfýnda
+            da yerine getirilmesi durumunda edimini yerine getirmeyen taraf mütemerrit olarak
+            addolunacak ve alacaklý edimin ifasýný talep etmek suretiyle malýn teslimini, ve/veya
+            sözleþmenin feshini ve bedelin iadesini talep etme hakkýna sahiptir.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> Mesafeli Sözleþmeler Hakkýnda Yönetmeliðin 9.maddesinin son fýkrasý gereðince satýcý
+            "[SiteName]",sipariþ konusu mal veye hizmetin yerine getirilmesinin imkansýzlaþtýðý
+            ileri sürerek (tedarikçi Firmadan ürünün hiçbir þekilde tedarik edilememesi durumu)
+            ,sözleþme konusu yükümlülüklerini yerine getiremiyorsa ,bu durumu sözleþmeden doðan
+            ifa yükümlülüðünün süresi dolmadan tüketiciye bildirmeyi taahhüd eder.Bu durumda
+            , [SiteName] sözleþmeyi derhal fesih etme hakkýna haiz olup,Müþterinin
+            sipariþ verdiði ürünün bedelini ve varsa borç altýna sokan tüm belgeleri geri iade
+            edeceðini taahhüd eder.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2">"[SiteName]" 'un iþbu yükümlülüðünü yerine getirmesini engelleyebilecek mücbir sebepler
+            veya nakliyeyi engelleyen hava muhalefetleri,ulaþýmýn kesilmesi,yangýn ,deprem,sel
+            baskýný gibi olaðanüstü olaylar nedeni ile sözleþme konusu ürünü süresi içerisinde
+            teslim edemez ise , Bu tip durumlarda Alýcý,"[SiteName]" un hiçbir sorumluluðu
+            olmadýðýný,sipariþin iptal edilmesini veya teslimat süresinin engelleyici durumunun
+            ortadan kalkmasýna kadar ertelenmesi haklarýndan birini kullanabilir. ALICInýn sipariþi
+            iptal etmesi halinde ödediði tutar 10 gün içerisinde kendisine ödenir.(kredi kartý
+            ile yapýlan taksitli alýþveriþlerde ise kredi kartýna iade için yukarýdaki prosedür
+            ALICI tarafýndan kabul edilir)</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>MADDE 8 - YETKÝLÝ MAHKEME</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2"> Ýþbu sözleþmenin uygulanmasýnda, Sanayi ve Ticaret Bakanlýðýnca ilan edilen deðere kadar Tüketici Hakem
+            Heyetleri ile ALICI'nýn veya SATICI'nýn yerleþim yerindeki Tüketici Mahkemeleri yetkilidir.</td>
+        </tr>
+        <tr>
+          <td colspan="2"> Sipariþin gerçekleþmesi durumunda ALICI iþbu sözleþmenin tüm koþullarýný kabul etmiþ
+            sayýlýr.</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"> SATICI :<br />
+            ALICI : [customername]<br />
+            Tarih :[date]</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+</table>
+    
+    </div>
+    <div id="mail-footer" style="padding: 0 10px; font-size: 11px;">
+    <p>Bu mail <a href="[BaseUrl]" target="_blank">[BaseUrl]</a> sitesi tarafýndan otomatik olarak gönderilmektedir.</p>
+    <p>Lütfen, otomatik olarak gönderilen bu mesajý cevaplamayýn.</p>
+    </div>
+</div>

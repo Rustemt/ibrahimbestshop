@@ -1,0 +1,1176 @@
+<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="admin.master.vb" Inherits=".admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
+    <title runat="server" id="Title">Proticaret Yönetim</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link href="assets/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/admin/assets/css/font-awesome.css" />
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/fckeditor/pick.js"></script>
+    <script src="assets/js/global.js" type="text/javascript"></script>
+    <!-- FANCYBOX -->
+    <script type="text/javascript" src="assets/js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="assets/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="assets/js/fancybox/jquery.fancybox.css?v=2.1.5"
+        media="screen" />
+    <!-- FANCYBOX END-->
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <div class="siteContainer">
+            <div class="siteHeader">
+                <div class="headerLogo">
+                    <span class="text">PROTİCARET</span>
+                    <span class="version"><%= versiyon_no%></span><span class="switch"></span>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="headerMenu">
+                    <ul>
+                        <li class="home"><a href="/default.aspx"><i class="icon fa fa-home"></i>
+                            <%=GetGlobalResourceObject("admin", "HomePage")%></a></li>
+                        <li class="admin"><a href="#"><i class="icon fa fa-cog"></i>
+                            <%=GetGlobalResourceObject("admin", "Management")%><span class="down fa fa-angle-down"></span></a>
+                            <ul class="menuHover">
+                                <% If PortalSecurity.IsInRole("Yöneticiler;Eticaret Yöneticileri;Kategori Yöneticileri;Ürün Yöneticileri;Sipariş Yöneticileri") Then%>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=ecommerce"><%=GetGlobalResourceObject("lang", "StoreAdminPage")%><span runat="server" visible="false" id="spnecommerce" class="icon"></span></a></li>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=cms"><%=GetGlobalResourceObject("admin", "AdminPage")%><span runat="server" visible="false" id="spncms" class="icon"></span></a></li>
+                                <% End If%>
+                                <% If PortalSecurity.IsInRoles("Yöneticiler;Eticaret Yöneticileri;Kategori Yöneticileri;Ürün Yöneticileri;Sipariş Yöneticileri") Or IsSupplier Then%>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=supplieradmin"><%=GetGlobalResourceObject("admin", "ProviderManagement")%><span runat="server" visible="false" id="spnsupplier" class="icon"></span></a></li>
+                                <% End If%>
+                                <% If PortalSecurity.IsInRole("Yöneticiler;Eticaret Yöneticileri;Kategori Yöneticileri;Ürün Yöneticileri;Sipariş Yöneticileri") Then%>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=multiadmin"><%=GetGlobalResourceObject("admin", "MultiAdmin")%><span runat="server" visible="false" id="spnmultiadmin" class="icon"></span></a></li>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=socialadmin"><%=GetGlobalResourceObject("admin", "SocialMediaManagement")%><span runat="server" visible="false" id="spnsocial" class="icon"></span></a></li>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=networkmarketing"><%=GetGlobalResourceObject("admin", "NetworkMarketingManagement")%><span runat="server" visible="false" id="spnnm" class="icon"></span></a></li>
+                                <% End If%>
+                                <% If PortalSecurity.IsInRole("Yöneticiler;Eticaret Yöneticileri;Kategori Yöneticileri;Ürün Yöneticileri;Sipariş Yöneticileri;Destek Yöneticileri;Destek Grubu") Then%>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=supportadmin"><%=GetGlobalResourceObject("admin", "SupportManagement")%><span runat="server" visible="false" id="spnsupport" class="icon"></span></a></li>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=supportadminfree"><%=GetGlobalResourceObject("admin", "SupportandEmailManagement")%><span runat="server" visible="false" id="spnsupportfree" class="icon"></span></a></li>
+                                <% End If%>
+                                <% If PortalSecurity.IsInRoles("Yöneticiler;Eticaret Yöneticileri;Kategori Yöneticileri;Ürün Yöneticileri;Sipariş Yöneticileri") Or IsSalesman Then%>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=salesman"><%=GetGlobalResourceObject("admin", "CustomerRepresentativeManagement")%><span runat="server" visible="false" id="spnsalesman" class="icon"></span></a></li>
+                                <% End If%>
+                                <% If PortalSecurity.IsInRoles("Yöneticiler;Eticaret Yöneticileri;Kategori Yöneticileri;Ürün Yöneticileri;Sipariş Yöneticileri") Then%>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=guaranty">Servis Yönetimi<span runat="server" visible="false" id="spnguranty" class="icon"></span></a></li>
+                                <% End If%>
+                                <% If PortalSecurity.IsInRoles("Yöneticiler;Teklif Yöneticisi;Teklif Personeli") Then%>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=offer">Teklif Yönetimi<span runat="server" visible="false" id="spnoffer" class="icon"></span></a></li>
+                                <% End If%>
+                                <% If PortalSecurity.IsInRoles("Yöneticiler;Eticaret Yöneticileri;Kategori Yöneticileri;Ürün Yöneticileri;Sipariş Yöneticileri") Then%>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=n11"><%=GetGlobalResourceObject("admin", "N11Integration")%><span runat="server" visible="false" id="spnN11" class="icon"></span></a></li>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=GG"><%=GetGlobalResourceObject("admin", "GGIntegration")%><span runat="server" visible="false" id="spnGG" class="icon"></span></a></li>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=price"><%=GetGlobalResourceObject("admin", "PriceListManagement")%><span runat="server" visible="false" id="spnprice" class="icon"></span></a></li>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=mail"><%=GetGlobalResourceObject("admin", "BulkMailManagement")%><span runat="server" visible="false" id="spnmail" class="icon"></span></a></li>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=licance"><%=GetGlobalResourceObject("admin", "Licenses")%><span runat="server" visible="false" id="spnlicance" class="icon"></span></a></li>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=kbadmin"><%=GetGlobalResourceObject("admin", "KnowledgeBaseManagement")%><span runat="server" visible="false" id="spnkbadmin" class="icon"></span></a></li>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=reports"><%=GetGlobalResourceObject("admin", "ReportManagement")%><span runat="server" visible="false" id="spnreports" class="icon"></span></a></li>
+                                <% End If%>
+                                <% If PortalSecurity.IsInRoles("Yöneticiler;Eticaret Yöneticileri;Kategori Yöneticileri;Ürün Yöneticileri;Sipariş Yöneticileri") Or IsC2C Then%>
+                                <li><a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=c2c">C2C Yönetimi<span runat="server" visible="false" id="spnc2c" class="icon"></span></a></li>
+                                <% End If%>
+                            </ul>
+                        </li>
+                        <li class="site"><a href="#"><i class="icon fa fa-desktop"></i>
+                            <%=GetGlobalResourceObject("admin", "SelectSites")%><span class="down fa fa-angle-down"></span></a>
+                            <asp:Repeater runat="server" ID="rptmulti">
+                                <HeaderTemplate>
+                                    <ul>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <li><a href="#">
+                                        <%# (Container.DataItem("SiteName"))%>
+                                        <span class="icon"></span></a></li>
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                    </ul>
+                                </FooterTemplate>
+                            </asp:Repeater>
+                        </li>
+                        <li class="lang"><a href="#"><i class="icon fa fa-globe"></i>
+                            <%=GetGlobalResourceObject("admin", "SelectLanguage")%><span class="down fa fa-angle-down"></span></a>
+                            <ul>
+                                <li><a href="?lang=tr-TR">Türkçe<span runat="server" id="tr" visible="false" class="icon"></span></a></li>
+                                <li><a href="?lang=en-US">English<span runat="server" id="en" visible="false" class="icon"></span></a></li>
+                            </ul>
+                        </li>
+                        <li class="exit"><a href="/logoff.aspx"><i class="icon fa fa-close"></i>
+                            <%=GetGlobalResourceObject("admin", "LogOut")%></a></li>
+                        <li class="messages"><a href="#"><i class="icon fa fa-bell"></i>
+                            <%=GetGlobalResourceObject("admin", "Notifications")%><span id="spntotnot" runat="server"
+                                class="bubble white">5</span></a>
+                            <asp:Repeater runat="server" ID="rptmessages">
+                                <HeaderTemplate>
+                                    <ul>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <li><a href='<%# (Container.DataItem("SubjectLink"))%>' target="_blank"><span class="m-name clearfix">
+                                        <i class="fa fa-user"></i>
+                                        <%# (Container.DataItem("NotificationSubject"))%><span class="bubble blue">Mesaj</span></span>
+                                        <span class="m-text">
+                                            <%# (Container.DataItem("NotificationDetail"))%></span> </a></li>
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                    </ul>
+                                </FooterTemplate>
+                            </asp:Repeater>
+                        </li>
+                        <li class="notification"><a href="#"><i class="icon fa fa-envelope"></i>
+                            <%=GetGlobalResourceObject("admin", "Messages")%><span runat="server" id="spntotal"
+                                class="bubble white"></span></a>
+                            <ul>
+                                <li><a href="/store/messages.aspx" target="_blank">
+                                    <%=GetGlobalResourceObject("admin", "NewMessage")%>
+                                    <span runat="server" id="spnmsg" class="bubble blue"></span></a></li>
+                                <li><a href="/admin/default.aspx?MNID=109" target="_blank">
+                                    <%=GetGlobalResourceObject("admin", "NewTicket")%>
+                                    <span runat="server" id="spnticket" class="bubble green"></span></a></li>
+                                <li><a href="/admin/default.aspx?MNID=111" target="_blank">
+                                    <%=GetGlobalResourceObject("admin", "NewMail")%>
+                                    <span runat="server" id="spn_mail" class="bubble red"></span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="siteMain">
+                <div class="sideBar">
+                    <% If IsAllowedOnDemo() = "False" Then%>
+                    <div id="alert" class="alert">
+                        <p class="textRed">
+                            Demo Sitesinde Bazi Fonksyonlar Kısıtlanmıştır.
+                        </p>
+                    </div>
+                    <% End If%>
+                    <asp:Panel ID="pnlBookMarks" runat="server">
+                        <div class="barTitle"><%=GetGlobalResourceObject("admin", "BookMarkMenu")%></div>
+                        <div class="barMenu">
+                            <ul>
+                                <li class="sub">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-star"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "BookMark")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul>
+                                        <asp:Repeater runat="server" ID="rptBookMarks">
+                                            <ItemTemplate>
+                                                <li class="used">
+                                                    <label>
+                                                        <a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=<%#Container.DataItem("MenuID")%>"><%#Container.DataItem("MenuName") %></a>
+                                                        <asp:LinkButton ID="lnkiptal" CommandName="Delete" CommandArgument='<%# Container.DataItem("MenuID")%>' runat="server"><i class="fa fa-close"></i></asp:LinkButton></label>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlcms" runat="server" Visible="false">
+                        <div class="barTitle"><%=GetGlobalResourceObject("admin", "ContentManagement")%></div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=cms">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                                <li class="sub" runat="server" id="subsitemanagement">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-cog"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "SiteManegement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subsitemanagementul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=1"><%=GetGlobalResourceObject("admin", "SiteSettings")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="pagemanagement">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-edit"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "PageManegement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="pagemanagementul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=2"><%=GetGlobalResourceObject("admin", "PageDefinitions")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="usermanagement">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-group"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "UserManegement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="usermanagementul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=3"><%=GetGlobalResourceObject("admin", "UserRoles")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=4"><%=GetGlobalResourceObject("admin", "UserList")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="modulemanagement">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-cube"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ModuleManegement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="modulemanagementul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=5"><%=GetGlobalResourceObject("admin", "MeduleDefinitions")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="systemlogs">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-pie-chart"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "Reports")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="systemlogsul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=6"><%=GetGlobalResourceObject("admin", "SystemLogs")%></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlecommerce" runat="server" Visible="false">
+                        <div class="barTitle"><%=GetGlobalResourceObject("lang", "StoreAdminPage")%></div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="/admin/default.aspx?MNID=ecommerce">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                                <li class="sub" runat="server" id="sitesettings">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-cog"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "SiteSettings")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="sitesettingsul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=89"><%=GetGlobalResourceObject("admin", "Settings")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=88"><%=GetGlobalResourceObject("admin", "AccountingIntegration")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=90"><%=GetGlobalResourceObject("admin", "SeoTitle")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="sitedefinition">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-edit"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "SiteDefinitions")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="sitedefinitionul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=17"><%=GetGlobalResourceObject("admin", "CargoDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=67"><%=GetGlobalResourceObject("admin", "SuppliersDefinitionsXML")%></a></li>
+                                        <li><a href="#">Ödeme Tanımları</a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=11">Banka Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=66">ProTahsilat Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=82">Tesan Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=42">Kvk Pos Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=44">PayU Api Pos Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=41">Ipara Api Pos Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=40">Genpa Pos Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=43">Paymec Pos Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=37">iPara Ödeme Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=206">Iyzico Ödeme Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=38">Paypal Ödeme Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=39">PayU Ödeme Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=36">Diğer Ödeme Tipi Tanımları</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "CountryCityDistrictDefinitions")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=19"><%=GetGlobalResourceObject("admin", "CountryDefinitions")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=20"><%=GetGlobalResourceObject("admin", "CityDefinitions")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=21"><%=GetGlobalResourceObject("admin", "DistrictDefinitions")%></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=24"><%=GetGlobalResourceObject("admin", "CurrencyDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=57"><%=GetGlobalResourceObject("admin", "TaxDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=58"><%=GetGlobalResourceObject("admin", "GiftPackageDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=59"><%=GetGlobalResourceObject("admin", "TextileDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=25"><%=GetGlobalResourceObject("admin", "CurtainDefinitions")%></a></li>
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "FlowerDefinitions")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=61"><%=GetGlobalResourceObject("admin", "MessageCardDefinitions")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=63"><%=GetGlobalResourceObject("admin", "ShippingPlaceDefinitions")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=62"><%=GetGlobalResourceObject("admin", "ShippingPurposeDefinitions")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=64"><%=GetGlobalResourceObject("admin", "ShippingTimeDefinitions")%></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "FoodDefinitions")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=65"><%=GetGlobalResourceObject("admin", "OrderLocationDefinitions")%></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Ürün İade & Değişim Tanımları</a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=188">Ürün İade & Değişim Ayarları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=189">Ürün İade & Değişim Nedenleri</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=190">Ürün İade İstekleri</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Ürün Rezervasyon Tanımları</a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=192">Ürün Rezervasyon Ayarları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=193">Ürün Rezervasyon Durumları</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=60"><%=GetGlobalResourceObject("admin", "VariantDefinitions")%></a></li>
+                                        <li runat="server"><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=179">Ürün Teknik Özellik Tanımları</a></li>
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "GiftCertificates")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=22"><%=GetGlobalResourceObject("admin", "SinglesGiftVoucher")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=23"><%=GetGlobalResourceObject("admin", "MultipleGiftCertificates")%></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=45"><%=GetGlobalResourceObject("admin", "GiftRatings")%></a></li>
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "SmsDefinitions")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=80"><%=GetGlobalResourceObject("admin", "SmsSettings")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=81"><%=GetGlobalResourceObject("admin", "SendingBulkSMS")%></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "BookDefinitions")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=13"><%=GetGlobalResourceObject("admin", "AuthorDefinitions")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=14"><%=GetGlobalResourceObject("admin", "PublisherDefinitions")%></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=12"><%=GetGlobalResourceObject("admin", "BatchJobs")%></a></li>
+                                        <li style="display: none;"><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=181">Siteyi Update Et</a></li>
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "PosterDefinitions")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=46"><%=GetGlobalResourceObject("admin", "FrameDefinitions")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=47"><%=GetGlobalResourceObject("admin", "PaspartuDefinitions")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=48"><%=GetGlobalResourceObject("admin", "GlassSettings")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=49"><%=GetGlobalResourceObject("admin", "WorkmanshipSettings")%></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subuser">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-group"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "UserManegement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subuserul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=26"><%=GetGlobalResourceObject("admin", "UsersExcelIntegration")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=83"><%=GetGlobalResourceObject("admin", "UserCustomCodeDescriptions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=84"><%=GetGlobalResourceObject("admin", "UserList")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=85"><%=GetGlobalResourceObject("admin", "UserListBulkUpdate")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=86"><%=GetGlobalResourceObject("admin", "EBulletinUserList")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=87"><%=GetGlobalResourceObject("admin", "UsersBulkMessage")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subproduct">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-cube"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ProductManagement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subproductul">
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "XMLIntegration")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=30"><%=GetGlobalResourceObject("admin", "XmlProductsImport")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=28"><%=GetGlobalResourceObject("admin", "XmlProductsExport")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=29"><%=GetGlobalResourceObject("admin", "ExportXmlProductDefinitions")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=31"><%=GetGlobalResourceObject("admin", "XmlProductImportPenta")%></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=27"><%=GetGlobalResourceObject("admin", "ExcelProductIntegration")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=208">Excel Toplu Ürün Fiyat-Stok Güncelleme</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=18"><%=GetGlobalResourceObject("admin", "CategoryManagement")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=53"><%=GetGlobalResourceObject("admin", "BrandManagement")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=54"><%=GetGlobalResourceObject("admin", "ProductSpecialCodeDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=55"><%=GetGlobalResourceObject("admin", "ProductReviewsMenu")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=51"><%=GetGlobalResourceObject("admin", "ProductRecommendations")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=52"><%=GetGlobalResourceObject("admin", "ProductList")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=50"><%=GetGlobalResourceObject("admin", "BulkProductPriceUpdate")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=176">Toplu Tekstil Stok Güncelleme</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=56"><%=GetGlobalResourceObject("admin", "BulkProductUpdate")%></a></li>
+                                        <%--<li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=210">Toplu Kategori Güncelleme</a></li>--%>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="suborder">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-shopping-cart"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "OrderManagement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="suborderul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=34"><%=GetGlobalResourceObject("admin", "OrderStatusDefinitions")%></a></li>
+										<li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=32"><%=GetGlobalResourceObject("admin", "OrdersReceived")%></a></li>
+										<li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=33"><%=GetGlobalResourceObject("admin", "OrdersReceivedDetail")%></a></li>
+										<li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=186">Kullanıcı Bazlı Sipariş Listesi</a></li>
+										<li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=191">İade & Değişim Talep Listesi (Özet)</a></li>
+										<li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=207">İade & Değişim Talep Listesi (Detay)</a></li>  
+                                                                                 <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=194">Ürün Rezervasyon Listesi</a></li>
+										<li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=35"><%=GetGlobalResourceObject("admin", "PaymentsReceived")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subcampaign">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-star"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "CampaignDefinitions")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subcampaignul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=15"><%=GetGlobalResourceObject("admin", "CartCampaignDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=16"><%=GetGlobalResourceObject("admin", "DefinitionsFinancialCampaign")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subAffiliates">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-bar-chart"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "Affiliates")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subAffiliatesul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=7"><%=GetGlobalResourceObject("admin", "AffiliatesAdvertisingDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=10"><%=GetGlobalResourceObject("admin", "AffiliatesMembers")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=9"><%=GetGlobalResourceObject("admin", "AffiliateSales")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=8"><%=GetGlobalResourceObject("admin", "AffiliatePayments")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subReports">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-pie-chart"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "Reports")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subReportsul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=78"><%=GetGlobalResourceObject("admin", "CartInProducts")%></a></li>
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "OrderReports")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=71"><%=GetGlobalResourceObject("admin", "OrderByCities")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=68"><%=GetGlobalResourceObject("admin", "OrderByBanks")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=79"><%=GetGlobalResourceObject("admin", "OrderByTypeofPayment")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=70"><%=GetGlobalResourceObject("admin", "OrderByCargo")%></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "RevenueReports")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=74"><%=GetGlobalResourceObject("admin", "RevenueByYear")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=73"><%=GetGlobalResourceObject("admin", "RevenueByMonth")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=72"><%=GetGlobalResourceObject("admin", "RevenueByDay")%></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "MemberReports")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=77"><%=GetGlobalResourceObject("admin", "MemberByYear")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=76"><%=GetGlobalResourceObject("admin", "MemberByMonth")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=75"><%=GetGlobalResourceObject("admin", "MemberByDay")%></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Ürün Raporları</a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=69"><%=GetGlobalResourceObject("admin", "Top20ProductsSold")%></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=91">
+                                        <span class="menuIcon fa fa-file-text-o"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "SystemLogs")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlsocial" runat="server" Visible="false">
+                        <div class="barTitle"><%=GetGlobalResourceObject("admin", "SocialMediaManagement")%></div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=socialadmin">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                                <li class="sub" runat="server" id="subFacebook">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-facebook"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "FacebookManagement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subFacebookul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=92">
+                                            <%=GetGlobalResourceObject("admin", "FacebookSettings")%></a></li>
+                                        <li><a>
+                                            <%=GetGlobalResourceObject("admin", "UserManegement")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=93">
+                                                    <%=GetGlobalResourceObject("admin", "Users")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=94">
+                                                    <%=GetGlobalResourceObject("admin", "FacebookWriteUsersWall")%></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subQapel"><a href="#"><span class="menuIcon fa fa-edit"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "QapelManagement")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subQapelul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=95">
+                                            <%=GetGlobalResourceObject("admin", "QapelSettings")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subproductm"><a href="#"><span class="menuIcon fa fa-cube"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ProductManagement")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subproductmul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=96">
+                                            <%=GetGlobalResourceObject("admin", "ProductList")%></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlmultiadmin" runat="server" Visible="false">
+                        <div class="barTitle">
+                            Multi Admin
+                        </div>
+                        <div class="barMenu">
+                            <ul>
+                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=multiadmin"><span class="menuIcon fa fa-home"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ManagementHome")%></span> <span class="menuDown"></span></a></li>
+                                <li class="sub" runat="server" id="subsite"><a href="#"><span class="menuIcon fa fa-edit"></span><span class="menuText">
+                                    <%= GetGlobalResourceObject("admin","SiteDefinitions") %></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subsiteul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=98">
+                                            <%= GetGlobalResourceObject("admin","WebSiteList") %></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlnetworkmarketing" runat="server" Visible="false">
+                        <div class="barTitle">
+                            <%=GetGlobalResourceObject("admin", "NetworkMarketingManagement")%>
+                        </div>
+                        <div class="barMenu">
+                            <ul>
+                                <li><a href="/admin/default.aspx?MNID=networkmarketing"><span class="menuIcon fa fa-home"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ManagementHome")%></span> <span class="menuDown"></span></a></li>
+                                <li class="sub" runat="server" id="subnm"><a href="#"><span class="menuIcon fa fa-users"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "NetworkMarketingManagement")%></span><span class="menuDown"></span></a>
+                                    <ul runat="server" id="subnmul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=99"><%=GetGlobalResourceObject("admin", "NetworkMarketingSettings")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=100"><%=GetGlobalResourceObject("admin", "NetworkMarketingUsers")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=101"><%=GetGlobalResourceObject("admin", "NetworkMarketingSalesDetail")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=102"><%=GetGlobalResourceObject("admin", "NetworkMarketingSales")%></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlsupplieradmin" runat="server" Visible="false">
+                        <div class="barTitle">
+                            <%=GetGlobalResourceObject("admin", "ProviderManagement")%>
+                        </div>
+                        <div class="barMenu">
+                            <ul>
+                                <li><a href="/admin/default.aspx?MNID=supplieradmin"><span class="menuIcon fa fa-home"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ManagementHome")%></span> <span class="menuDown"></span></a></li>
+                                <%If IsSupplier = False Then%>
+                                <li class="sub" runat="server" id="subprovider"><a href="#"><span class="menuIcon fa fa-cog"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ProviderManagement")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subproviderul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=103">
+                                            <%=GetGlobalResourceObject("admin", "AllProvider")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subProductmn"><a href="#"><span class="menuIcon fa fa-cube"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ProductManagement")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subProductmnul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=104">
+                                            <%=GetGlobalResourceObject("admin", "ProductList")%></a></li>
+                                    </ul>
+                                </li>
+                                <%Else%>
+                                <li class="sub" runat="server" id="subproductmng"><a href="#"><span class="menuIcon fa fa-cube"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ProductManagement")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subproductmngul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=105">
+                                            <%=GetGlobalResourceObject("admin", "ProductList")%></a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="sub" runat="server" id="suborderm"><a href="#"><span class="menuIcon fa fa-cube"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "OrderManagement")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subordermul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=202">
+                                            <%=GetGlobalResourceObject("admin", "OrdersReceivedDetail")%></a></li>
+                                    </ul>
+                                </li>
+                                <%End If%>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlsupportadminfree" runat="server" Visible="false">
+                        <div class="barTitle"><%=GetGlobalResourceObject("admin", "SupportandEmailManagement")%></div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="/admin/default.aspx?MNID=supportadminfree">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                                <li class="sub" runat="server" id="subdefinitions">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-edit"></span>
+                                        <span class="menuText"><%= GetGlobalResourceObject("admin","Definitions") %></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subdefinitionsul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=106"><%= GetGlobalResourceObject("admin","StatusDefinitions") %></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=107"><%= GetGlobalResourceObject("admin","CategoryDefinitions") %></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subsupport">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-life-ring"></span>
+                                        <span class="menuText"><%= GetGlobalResourceObject("admin","SupportManagement") %></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subsupportul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=108"><%= GetGlobalResourceObject("admin","SupportSystemSettings") %></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=109"><%= GetGlobalResourceObject("admin","SupportRequests") %></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subemail">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-envelope"></span>
+                                        <span class="menuText"><%= GetGlobalResourceObject("admin","EmailManagement") %></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subemailul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=110"><%= GetGlobalResourceObject("admin","EmailSystemSettings") %></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=111"><%= GetGlobalResourceObject("admin","EmailRequests") %></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subreport">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-pie-chart"></span>
+                                        <span class="menuText"><%= GetGlobalResourceObject("admin","Reports") %></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subreportul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=112"><%= GetGlobalResourceObject("admin","DetailSupportReports") %></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=113"><%= GetGlobalResourceObject("admin","DetailEmailReports") %></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlsupportadmin" runat="server" Visible="false">
+                        <div class="barTitle"><%=GetGlobalResourceObject("admin", "SupportManagement")%></div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="/admin/default.aspx?MNID=supportadmin">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                                <li class="sub" runat="server" id="subsupportm">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-cog"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "SupportManagement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subsupportmul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=114"><%=GetGlobalResourceObject("admin", "SupportSystemSettings")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subdefinition">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-edit"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "DefinitionsManagement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subdefinitionul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=115"><%=GetGlobalResourceObject("admin", "StatusDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=116"><%=GetGlobalResourceObject("admin", "CategoryDefinitions")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subsupportrequest">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-life-ring"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "SupportRequests")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subsupportrequestul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=117"><%=GetGlobalResourceObject("admin", "Requests")%></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlsalesman" runat="server" Visible="false">
+                        <div class="barTitle">
+                            <%= GetGlobalResourceObject("admin","CustomerRepresentativeManagement") %>
+                        </div>
+                        <div class="barMenu">
+                            <ul>
+                                <li><a href="/admin/default.aspx?MNID=salesman"><span class="menuIcon fa fa-home"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ManagementHome")%></span> <span class="menuDown"></span></a></li>
+                                <% If PortalSecurity.IsInRoles("Yöneticiler;Eticaret Yöneticileri;Kategori Yöneticileri;Ürün Yöneticileri;Sipariş Yöneticileri") Then%>
+                                <li class="sub" runat="server" id="subdefinitionsls"><a href="#"><span class="menuIcon fa fa-cog"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "Settings")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subdefinitionslsul">
+                                        <li><a href="#"><%= GetGlobalResourceObject("admin","Definitions") %></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=118"><%= GetGlobalResourceObject("admin","SalesAreaDefinitions") %></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=119"><%= GetGlobalResourceObject("admin","SalesPlacesDefinitions") %></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=120"><%= GetGlobalResourceObject("admin","SalesGroupDefinitions") %></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=121"><%= GetGlobalResourceObject("admin", "CustomerRepresentativeList(BulkUpdate)")%>
+                                        </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subcpm"><a href="#"><span class="menuIcon fa fa-edit"></span><span class="menuText">
+                                    <%= GetGlobalResourceObject("admin","CustomerRepresentativeManagement") %></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subcpmul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=122"><%= GetGlobalResourceObject("admin", "CustomerRepresentativeList")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=123"><%= GetGlobalResourceObject("admin", "CustomerRepresentativeAppointedUser")%>
+                                        </a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=124"><%= GetGlobalResourceObject("admin", "CustomerRepresentativePremium")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subordercpm"><a href="#"><span class="menuIcon fa fa-shopping-cart"></span><span
+                                    class="menuText"><%= GetGlobalResourceObject("admin", "OrderManagement")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subordercpmul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=125"><%= GetGlobalResourceObject("admin", "OrdersReceived")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="suborderreportcpm"><a href="#"><span class="menuIcon fa fa-pie-chart"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "Reports")%></span><span class="menuDown"></span></a>
+                                    <ul runat="server" id="suborderreportcpmul">
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "CustomerRepresentativeOrderReports")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=126"><%=GetGlobalResourceObject("admin", "OrderReportSummary")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=127"><%=GetGlobalResourceObject("admin", "OrderReportDetail")%></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul runat="server" id="subrevenuereportul">
+                                        <li><a href="#"><%=GetGlobalResourceObject("admin", "CustomerRepresentativeRevenueReports")%></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=128"><%=GetGlobalResourceObject("admin", "RevenueByYear")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=129"><%=GetGlobalResourceObject("admin", "RevenueByMonth")%></a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=130"><%=GetGlobalResourceObject("admin", "RevenueByDay")%></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <% End If%>
+                                <%If IsSalesman = True Then%>
+                                <li class="sub" runat="server" id="subcpm2">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-edit"></span>
+                                        <span class="menuText"><%= GetGlobalResourceObject("admin","CustomerRepresentativeManagement2") %></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subcpm2ul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=131"><%= GetGlobalResourceObject("admin", "UserList")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=132"><%= GetGlobalResourceObject("admin", "UserOrders")%></a></li>
+                                    </ul>
+                                </li>
+                                <%   End If%>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlguaranty" runat="server" Visible="false">
+                        <div class="barTitle">Servis ve Garanti Yönetim Paneli</div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="/admin/default.aspx?MNID=guaranty">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                                <li class="sub" runat="server" id="subguaranty">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-edit"></span>
+                                        <span class="menuText">Genel Tanımlar</span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subguarantyul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=182">Personel Tanımları</a></li>
+                                        <li><a href="#">Servis Yeri Tanımları</a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=133">Merkez Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=134">Departman Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=135">Bölüm Tanımları</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Servis Tanımları</a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=136">Servis Tip Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=137">Servis Kategorileri</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=138">Servis Alt Kategorileri</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">İş Tanımları</a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=139">Proje Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=140">İş Grubu Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=141">İş Tanımları</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Durum Tanımları</a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=142">Arıza Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=143">Bakım Sonucu Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=144">Müşteri Şikayet Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=187">Servis Durum Tanımları</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Cihaz Tanımları</a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=211">Marka Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=145">Model Tanımları</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=146">Cihaz Tanımları</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=147">Form Özel Alan Tanımı</a></li>
+                                    </ul>
+
+                                </li>
+                                <li class="sub" runat="server" id="subguarantylist">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-pie-chart"></span>
+                                        <span class="menuText">Servis İstekleri</span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subguarantylistul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=148">Servis İstekleri</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnloffer" runat="server" Visible="false">
+                        <div class="barTitle">Teklif Yönetim Paneli</div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="/admin/default.aspx?MNID=offer">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                                <li class="sub" runat="server" id="suboffer">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-edit"></span>
+                                        <span class="menuText">Genel Tanımlar</span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subofferul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=209">Personel Tanımları</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=149">Teklif Özel Tanımları</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=150">Teklif Tipi Tanımları</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=151">Teklif Durumu Tanımları</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=152">Teklif Sevk Tanımları</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=153">Teklif Ödeme Tanımları</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=154">Teklif Proje Tanımları</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subofferlist">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-pie-chart"></span>
+                                        <span class="menuText">Teklif Listesi</span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subofferlistul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=155">Teklif Listesi</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlN11" runat="server" Visible="false">
+                        <div class="barTitle"><%=GetGlobalResourceObject("admin", "N11Integration")%></div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="/admin/default.aspx?MNID=n11">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                                <li class="sub" runat="server" id="subn11">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-cog"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "N11Integration")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subn11ul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=156"><%=GetGlobalResourceObject("admin", "N11Settings")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=157"><%=GetGlobalResourceObject("admin", "N11TemplateSettings")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=158"><%=GetGlobalResourceObject("admin", "N11MatchingCategories")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=159"><%=GetGlobalResourceObject("admin", "N11MatchedCategories")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=160"><%=GetGlobalResourceObject("admin", "N11ProductTransferList")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=161"><%=GetGlobalResourceObject("admin", "N11BulkProductUpdate")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=162"><%=GetGlobalResourceObject("admin", "N11Orders")%></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlGG" runat="server" Visible="false">
+                        <div class="barTitle">
+                            <%=GetGlobalResourceObject("admin", "GGIntegration")%>
+                        </div>
+                        <div class="barMenu">
+                            <ul>
+                                <li><a href="/admin/default.aspx?MNID=GG"><span class="menuIcon fa fa-home"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ManagementHome")%></span> <span class="menuDown"></span></a></li>
+                                <li class="sub" runat="server" id="subgg"><a href="#"><span class="menuIcon fa fa-cog"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "GGIntegration")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subggul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=163"><%=GetGlobalResourceObject("admin", "GGSettings")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=165"><%=GetGlobalResourceObject("admin", "GGMatchingCategories")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=164"><%=GetGlobalResourceObject("admin", "GGMatchedCategories")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=166"><%=GetGlobalResourceObject("admin", "GGProducts")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=185"><%=GetGlobalResourceObject("admin", "GGProductsUpdate")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=167"><%=GetGlobalResourceObject("admin", "GGOrder")%></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlPrice" runat="server" Visible="false">
+                        <div class="barTitle">
+                            <%=GetGlobalResourceObject("admin", "PriceListManagement")%>
+                        </div>
+                        <div class="barMenu">
+                            <ul>
+                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=price"><span class="menuIcon fa fa-home"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ManagementHome")%></span> <span class="menuDown"></span></a></li>
+                                <li class="sub" runat="server" id="subprice"><a href="#"><span class="menuIcon fa fa-cog"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "PricePaymentManagement")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subpriceul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=168"><%=GetGlobalResourceObject("admin", "PriceList")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=169"><%=GetGlobalResourceObject("admin", "PaymentList")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="substorage"><a href="#"><span class="menuIcon fa fa-edit"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "StorageCompanyManagement")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="substorageul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=170"><%=GetGlobalResourceObject("admin", "CompanyDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=171"><%=GetGlobalResourceObject("admin", "SalesPlacesDefinitions")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=172"><%=GetGlobalResourceObject("admin", "StorageDefinitions")%></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlmail" runat="server" Visible="false">
+                        <div class="barTitle">
+                            <%=GetGlobalResourceObject("admin", "BulkMailManagement")%>
+                        </div>
+                        <div class="barMenu">
+                            <ul>
+                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=mail"><span class="menuIcon fa fa-home"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ManagementHome")%></span> <span class="menuDown"></span></a></li>
+                                <li class="sub" runat="server" id="subulkmail"><a href="#"><span class="menuIcon fa fa-envelope"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "BulkMailManagement")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subulkmailul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=173"><%=GetGlobalResourceObject("admin", "MailSettings2")%></a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=174"><%=GetGlobalResourceObject("admin", "BulkMailNewsletter")%></a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub" runat="server" id="subulkmailreport"><a href="#"><span class="menuIcon fa fa-pie-chart"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "Reports")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="subulkmailreportul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=175"><%=GetGlobalResourceObject("admin", "Reports")%></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnllicance" runat="server" Visible="false">
+                        <div class="barTitle">
+                            <%=GetGlobalResourceObject("admin", "Licenses")%>
+                        </div>
+                        <div class="barMenu">
+                            <ul>
+                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=licance"><span class="menuIcon fa fa-home"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "ManagementHome")%></span> <span class="menuDown"></span></a></li>
+                                <li class="sub" runat="server" id="sublicences"><a href="#"><span class="menuIcon fa fa-cog"></span><span class="menuText">
+                                    <%=GetGlobalResourceObject("admin", "Licenses")%></span> <span class="menuDown"></span></a>
+                                    <ul runat="server" id="sublicencesul">
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=178"><%=GetGlobalResourceObject("admin", "AddNewLicenses")%></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlkbadmin" runat="server" Visible="false">
+                        <div class="barTitle"><%=GetGlobalResourceObject("admin", "KnowledgeBaseManagement")%></div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=kbadmin">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=180">
+                                        <span class="menuIcon fa fa-file-text-o"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "KnowledgeBaseManagement")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlreports" runat="server" Visible="false">
+                        <div class="barTitle"><%=GetGlobalResourceObject("admin", "ReportManagement")%></div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=reports">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=183">
+                                        <span class="menuIcon fa fa-file-text-o"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "StandardReports")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=184">
+                                        <span class="menuIcon fa fa-file-text-o"></span>
+                                        <span class="menuText">Özel Raporlar</span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlc2c" runat="server" Visible="false">
+                        <div class="barTitle">C2C Yönetimi</div>
+                        <div class="barMenu">
+                            <ul>
+                                <li>
+                                    <a href="<% =GetBaseUrl() %>/admin/default.aspx?MNID=c2c">
+                                        <span class="menuIcon fa fa-home"></span>
+                                        <span class="menuText"><%=GetGlobalResourceObject("admin", "ManagementHome")%></span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                </li>
+                                <li class="sub" runat="server" id="subc2c">
+                                    <a href="#">
+                                        <span class="menuIcon fa fa-cog"></span>
+                                        <span class="menuText">C2C Yönetimi</span>
+                                        <span class="menuDown"></span>
+                                    </a>
+                                    <ul runat="server" id="subc2cul">
+                                        <% If PortalSecurity.IsInRoles("Yöneticiler;Eticaret Yöneticileri;Kategori Yöneticileri;Ürün Yöneticileri;Sipariş Yöneticileri") Then%>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=195">C2C Kategori Bazlı Komisyon Ayarları</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=204">C2C Teslimat Kargoları</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=196">C2C Mağazaları</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=197">C2C Ürünleri</a></li>
+                                        <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=198">C2C Siparişleri</a></li>
+                                        <% End If%>
+                                        <% If IsC2C Then%>
+                                        <li class="sub"><a href="#"><span class="menuText">Mağaza Yönetim Paneli</span><span class="menuDown"></span></a>
+                                            <ul>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=199">Mağaza Ayarlarım</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=203">Mağaza Teslimat Yönetimi</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=200">Mağaza Ürünlerim</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=201">Mağaza Siparişlerim</a></li>
+                                                <li><a href="<%=GetBaseUrl()%>/admin/default.aspx?MNID=205">Mağaza Bakiye Dökümü</a></li>
+                                            </ul>
+                                        </li>
+                                        <%   End If%>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
+                </div>
+                <div class="sideContent">
+                    <div class="contentTitle clearfix">
+                        <asp:Label ID="lblThisPage" CssClass="titleText fLeft" runat="server" />
+                        <asp:Label ID="lblVersion" runat="server" />
+                        <button id="addBookMarks" runat="server" class="titleBookMark fRight active" title="Sık Kullanılanlara Ekle">
+                            <i class="fa fa-star"></i>
+                        </button>
+                    </div>
+                    <div class="contentBreadCrumb">
+                        <ul runat="server" id="ulnavigate">
+                            <li class="home"><a href="/admin/default.aspx?MNID=ecommerce">Anasayfa</a></li>
+                            <li class="seperator">/</li>
+                            <asp:Label ID="lblNAvigation" runat="server"></asp:Label>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="contentPage">
+                        <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <script type="text/javascript" src="assets/js/default.js"></script>
+    </form>
+</body>
+</html>

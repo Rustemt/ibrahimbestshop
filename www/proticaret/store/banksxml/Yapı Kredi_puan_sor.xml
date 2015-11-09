@@ -1,0 +1,8 @@
+<posnetRequest>
+	<mid>[%Name%]</mid>
+	<tid>[%Password%]</tid>
+    <pointInquiry>
+     <ccno>[%Number%]</ccno>
+     <expDate>[%Expires%]</expDate>
+    </pointInquiry>
+</posnetRequest>

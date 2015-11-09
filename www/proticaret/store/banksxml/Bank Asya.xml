@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-9"?>
+<ePaymentMsg VersionInfo="2.0" TT="Request" RM="Direct" CT="Money">
+	<Operation ActionType="Sale">
+		<OpData>
+			<MerchantInfo MerchantId="[%ClientId%]" MerchantPassword="[%Password%]"/>
+			<ActionInfo>
+				<TrnxCommon TrnxID="[%OrderId%]" Protocol="156">
+				<AmountInfo Amount="[%Total%]" Currency="[%Currency%]"/>
+				<ProtocolData></ProtocolData>
+				</TrnxCommon>
+				<PaymentTypeInfo>
+					<InstallmentInfo NumberOfInstallments="[%Taksit%]"/>
+				</PaymentTypeInfo>
+			</ActionInfo>
+			<PANInfo PAN="[%Number%]" ExpiryDate="[%Expires%]" CVV2="[%Cvv2Val%]" BrandID="[%CardType%]"></PANInfo>
+			<OrgTrnxInfo>
+			<TrnxID>[%OrderId%]</TrnxID>
+			<AuthCode></AuthCode>
+			</OrgTrnxInfo>
+			<CustomData></CustomData>
+		</OpData>
+	</Operation>
+</ePaymentMsg>

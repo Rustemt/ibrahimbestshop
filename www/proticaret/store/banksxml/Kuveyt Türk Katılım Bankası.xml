@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<KuveytTurkVPosMessage>
+  <APIVersion>1.0.0</APIVersion>
+  <OkUrl>[%OkUrl%]</OkUrl>
+  <FailUrl>[%FailUrl%]</FailUrl>
+  <HashData>[%HashData%]</HashData>
+  <MerchantId>[%MerchantId%]</MerchantId>
+  <CustomerId>[%CustomerId%]</CustomerId>
+  <UserName>[%UserName%]</UserName>
+  <CustomerIPAddress>[%IPAddress2%]</CustomerIPAddress>
+  <CardNumber>[%Number%]</CardNumber>
+  <CardExpireDateYear>[%ExpireYear%]</CardExpireDateYear>
+  <CardExpireDateMonth>[%ExpireMonth%]</CardExpireDateMonth>
+  <CardCVV2>[%Cvv2Val%]</CardCVV2>
+  <CardHolderName>[%CardHolder%]</CardHolderName>
+  <CardType>[%CardType%]</CardType>
+  <BatchID>0</BatchID>
+  <TransactionType>Sale</TransactionType>
+  <InstallmentCount>[%Taksit%]</InstallmentCount>
+  <Amount>[%Total%]</Amount>
+  <DisplayAmount>[%DisplayAmount%]</DisplayAmount>
+  <CurrencyCode>0949</CurrencyCode>
+  <MerchantOrderId>[%OrderId2%]</MerchantOrderId>
+  <TransactionSecurity>1</TransactionSecurity>
+</KuveytTurkVPosMessage>

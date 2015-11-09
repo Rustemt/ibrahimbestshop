@@ -1,0 +1,16 @@
+Ýçerik Yönetimi / Site Yönetimi / Site Ayarlarý
+
+Tema Yedekleme butonuna týkladýktan sonra
+Açýlan pop-up daki default.zip dosyasýnýn yanýndaki geri yükle icon una týklýyoruz.
+Siteniz bundan sonra default temamýzda çalýþmaktadýr.
+Bazý modüllerinizin baþlýk kýsýmlarýnda sorun olabilir bunlarý düzeltmek için
+
+Ýçerik Yönetimi / Modül Yönetimi / Modül Tanýmlarý
+
+Sayfasýnda yer alan modül adý kýsmýnda düzenlemek istediðiniz modül ün adýna týkladýktan sonra
+açýlan pop-up da modül yolu yazan kýsýmdaki responsive yazan kýsým yerine default yazýyoruz
+
+Örnek: Html Modülü (Metin Editörü)
+(/themes/responsive/portal/HtmlModule.ascx)
+yerine
+(/themes/default/portal/HtmlModule.ascx)

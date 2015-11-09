@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://www.tdmtahsilat.com/VendorPayment2/VendorPaymentService.svc?wsdl" filename="VendorPaymentService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://www.tdmtahsilat.com/VendorPayment2/VendorPaymentService.svc?xsd=xsd4" filename="VendorPaymentService.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://www.tdmtahsilat.com/VendorPayment2/VendorPaymentService.svc?xsd=xsd5" filename="VendorPaymentService0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://www.tdmtahsilat.com/VendorPayment2/VendorPaymentService.svc?xsd=xsd0" filename="VendorPaymentService1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://www.tdmtahsilat.com/VendorPayment2/VendorPaymentService.svc?xsd=xsd2" filename="VendorPaymentService2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://www.tdmtahsilat.com/VendorPayment2/VendorPaymentService.svc?disco" filename="VendorPaymentService.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://www.tdmtahsilat.com/VendorPayment2/VendorPaymentService.svc?xsd=xsd3" filename="VendorPaymentService3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://www.tdmtahsilat.com/VendorPayment2/VendorPaymentService.svc?xsd=xsd1" filename="VendorPaymentService4.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

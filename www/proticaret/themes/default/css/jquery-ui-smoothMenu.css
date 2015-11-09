@@ -1,0 +1,58 @@
+.ui-smoothMenu-disabled * {
+	cursor: default;
+}
+.ui-smoothMenu-item {
+	padding:5px 15px 5px 10px;
+	position: relative;
+	margin:0 0 5px 0;
+}
+.ui-smoothMenu-item .ui-icon {
+	right: 4px;
+	margin-top: -8px;
+	position: absolute;
+	top: 50%;
+}
+.main_menu > li {
+	float: left;
+	padding:5px 15px 5px 10px;
+}
+.main_menu > li a {
+	display: block;
+}
+.main_menu > li ul {
+	padding:5px 15px 5px 10px;
+}
+/*vertival menu*/
+.main_menuv > li {
+	padding:2px 15px 2px 10px;
+}
+/*
+li .ui-smoothMenu-item {
+	padding:2px 15px 2px 10px !important;
+	position: relative;
+	margin:0 0 5px 0;
+}
+*/	 
+.main_menuv > li a {
+	display: block;
+}
+.main_menuv > li ul {
+	padding:5px 15px 5px 10px;
+}
+#ui_smooth_menu_containerh > div > ul {
+	width: 150px;
+}
+#ui_smooth_menu_containerh > div > ul > li > a {
+	display: block;
+}
+#ui_smooth_menu_containerv > div > ul {
+	width: 150px;
+}
+#ui_smooth_menu_containerv > div > ul > li > a {
+	display: block;
+}
+ul.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}

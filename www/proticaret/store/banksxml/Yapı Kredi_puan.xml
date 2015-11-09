@@ -1,0 +1,12 @@
+<posnetRequest>
+	<mid>[%Name%]</mid>
+	<tid>[%Password%]</tid>
+  <pointUsage>
+  <amount>[%Total%]</amount>
+		<ccno>[%Number%]</ccno>
+		<currencyCode>YT</currencyCode>
+		<cvc>[%Cvv2Val%]</cvc>
+		<expDate>[%Expires%]</expDate>
+		<orderID>[%OrderId%]</orderID>		
+	</pointUsage>
+</posnetRequest>

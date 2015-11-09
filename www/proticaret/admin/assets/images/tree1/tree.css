@@ -1,0 +1,4 @@
+DefaultStyle =  padding: 5px 4px 2px 4px; font-size: 12px; font-family: tahoma;	vertical-align: middle;	background-color: none;	padding-left:2px;	padding-right:2px;	text-decoration: none;cursor: hand;
+SelectedStyle = padding: 1px 3px 1px 3px; font-size: 12px;	vertical-align: middle;	font-family: tahoma;cursor: hand;
+HoverStyle = padding: 2px 4px 2px 4px; font-size: 12px;	vertical-align: middle;	font-family: tahoma;cursor: hand;
+SelectedHoverStyle = padding: 1px 3px 1px 3px; font-size: 12px;	vertical-align: middle;	font-family: tahoma;cursor: hand;

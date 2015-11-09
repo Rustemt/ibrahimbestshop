@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<CC5Request>
+	<Name>[%Name%]</Name>
+	<Password>[%Password%]</Password>
+	<ClientId>[%ClientId%]</ClientId>
+	<Mode>P</Mode>
+	<OrderId></OrderId>
+	<Type>[%Paytype%]</Type>
+	<Number>[%Number%]</Number>
+	<Expires>[%Expires%]</Expires>
+	<Cvv2Val></Cvv2Val>
+	<Total></Total>	
+	<Currency>949</Currency>	  
+  <BillTo>
+	</BillTo>
+	<ShipTo>	
+	</ShipTo>
+  <Extra>
+    <MAXIPUANSORGU>SOR</MAXIPUANSORGU>
+  </Extra>
+</CC5Request>

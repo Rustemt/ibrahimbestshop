@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<TITLE>FlyTreeView Log</TITLE>
+		<script>
+			var prevLogData = "";
+			function StartShowLog(){
+//				alert(window.dialogArguments.LogData);
+				if (prevLogData != window.dialogArguments.LogData) {
+					prevLogData = window.dialogArguments.LogData;
+					window.scrollBy(0, 1000);
+					log.innerHTML = window.dialogArguments.LogData.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>");
+				}
+				window.setTimeout("StartShowLog()", 200);
+			}
+			
+		</script>
+	</HEAD>
+	<BODY onload="StartShowLog()">
+		<pre id="log" style="FONT-SIZE: 11px;"></pre>
+	</BODY>
+</HTML>

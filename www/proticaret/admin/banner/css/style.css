@@ -1,0 +1,191 @@
+html{
+	width					: 100%;
+	height					: 100%;
+}
+body{
+	font-size				: 12px;
+	font-family				: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+	color					: #666;
+	margin					: 0;
+	padding					: 0;
+	width					: 100%;
+	height					: 100%;
+	background				: #fff;
+	-webkit-font-smoothing	: antialiased;
+	-moz-font-smoothing		: none;
+	font-smoothing			: antialiased;
+}
+a{
+	text-decoration			: none;
+	color					: #666;
+}
+input, select, textarea{
+	font-family				: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+	font-size				: 12px;
+	color					: #666;
+	border					: 1px solid #dcdcdc;
+	padding					: 5px;
+	margin					: 0;
+	background				: #FFF;
+}
+input[type="text"]{
+	min-width				: 178px;
+	height					: 22px;
+	line-height				: 22px;
+	padding					: 5px 10px;
+}
+input[type="radio"]{
+	border					: none;
+	margin					: 0;
+	background				: none;
+}
+input[type="checkbox"]{
+	border					: none;
+	margin					: 0;
+	background				: none;
+}
+textarea{
+	resize					: none;
+}
+.clear{
+	clear					: both;
+	margin					: 0px;
+	padding					: 0px;
+}
+.justify{
+	text-align				: justify;
+}
+.windowFrame .frameMenu ul li{
+	float					: left;
+	width					: 16%;
+	height					: 76px;
+	border-width			: 3px 1px 1px 1px;
+	border-style			: solid;
+	border-color			: #d6d7d9;
+	margin					: 0 0.8% 0.8% 0;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+	background				: url("../img/banner-menu.png") repeat-x scroll bottom left #fff;
+}
+.windowFrame .frameMenu ul li a{
+	text-align				: center;
+	display					: block;
+}
+.windowFrame .frameMenu ul li a .icon{
+	display					: inline-block;
+	width					: 30px;
+	height					: 30px;
+	margin					: 10px auto;
+}
+.windowFrame .frameMenu ul li a .text{
+	display					: block;
+	padding					: 0 5px;
+	white-space				: nowrap;
+	text-overflow			: ellipsis;
+	overflow				: hidden;
+}
+.windowFrame .frameMenu ul li.module{
+	border-top-color		: #00abc9;
+}
+.windowFrame .frameMenu ul li.module .icon{
+	background				: url("../img/banner-icons.png") no-repeat scroll 0 0 transparent;
+}
+.windowFrame .frameMenu ul li.theme{
+	border-top-color		: #bcd33f;
+}
+.windowFrame .frameMenu ul li.theme .icon{
+	background				: url("../img/banner-icons.png") no-repeat scroll -30px 0 transparent;
+}
+.windowFrame .frameMenu ul li.support{
+	border-top-color		: #ff7b3d;
+}
+.windowFrame .frameMenu ul li.support .icon{
+	background				: url("../img/banner-icons.png") no-repeat scroll -60px 0 transparent;
+}
+.windowFrame .frameMenu ul li.info{
+	border-top-color		: #00abc9;
+}
+.windowFrame .frameMenu ul li.info .icon{
+	background				: url("../img/banner-icons.png") no-repeat scroll -90px 0 transparent;
+}
+.windowFrame .frameMenu ul li.tv{
+	border-top-color		: #eb4d4d;
+}
+.windowFrame .frameMenu ul li.tv .icon{
+	background				: url("../img/banner-icons.png") no-repeat scroll -120px 0 transparent;
+}
+.windowFrame .frameMenu ul li.blog{
+	border-top-color		: #8728c3;
+}
+.windowFrame .frameMenu ul li.blog .icon{
+	background				: url("../img/banner-icons.png") no-repeat scroll -150px 0 transparent;
+}
+.windowFrame .frameMenu ul li.last{
+	margin-right			: 0;
+}
+.windowFrame .frameMenu ul li:hover{
+	background-image		: none;
+}
+.windowFrame .frameContent{
+	border					: 1px solid #d6d7d9;
+	height					: 170px;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+}
+.windowFrame .frameContent .contentLogo{
+	width					: 70%;
+	height					: 168px;
+	float					: left;
+}
+.windowFrame .frameContent .contentLogo .logoTable{
+	display					: table;
+	width					: inherit;
+	height					: 100%;
+}
+.windowFrame .frameContent .contentLogo .logoTable .tableCol{
+	display					: table-cell;
+	vertical-align			: middle;
+	height					: 100%;
+}
+.windowFrame .frameContent .contentLogo .logoTable .tableCol img{
+	width					: 90%;
+}
+.windowFrame .frameContent .contentList{
+	width					: 30%;
+	height					: 168px !important;
+	overflow				: hidden;
+	float					: right;
+	border-left				: 1px solid #d6d7d9;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+}
+.windowFrame .frameContent .contentList ul{
+	width					: 100%;
+	overflow				: hidden;
+	background				: url("../img/banner-borders.png") repeat-y scroll 0 0 #fff;
+}
+.windowFrame .frameContent .contentList ul li{
+	position				: relative;
+}
+.windowFrame .frameContent .contentList ul li a{
+	display					: block;
+	height					: 56px;
+	padding					: 0 14px;
+	border-bottom			: 1px solid #d6d7d9;
+}
+.windowFrame .frameContent .contentList ul li a span{
+	display					: block;
+}
+.windowFrame .frameContent .contentList ul li a span.listTitle,
+.windowFrame .frameContent .contentList ul li a span.listDesc{
+	white-space				: nowrap;
+	text-overflow			: ellipsis;
+	overflow				: hidden;
+}
+.windowFrame .frameContent .contentList ul li a span.listTitle{
+	padding					: 10px 0 5px 0;
+	font-weight				: bold;
+}

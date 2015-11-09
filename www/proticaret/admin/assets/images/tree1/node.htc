@@ -1,0 +1,916 @@
+<PUBLIC:COMPONENT lightWeight="true">
+ <PUBLIC:ATTACH event="oncontentready" onevent="o100()" />
+ <PUBLIC:PROPERTY name="TreeView" />
+ <PUBLIC:PROPERTY name="ParentNode" />
+ <!--PUBLIC:PROPERTY name="NodeType" /-->
+ <!-- -->
+ <PUBLIC:PROPERTY name="Key" internalname="o42" />
+ <PUBLIC:PROPERTY name="NodeType" internalname="o35" />
+ <PUBLIC:PROPERTY name="NodeSrc" internalname="o37" />
+ <PUBLIC:PROPERTY name="IsChecked" internalname="o44" />
+ <PUBLIC:PROPERTY name="Text" get="o103" put="o83" />
+ <PUBLIC:PROPERTY name="Data" get="o104" put="o84" />
+ <PUBLIC:PROPERTY name="nodeDisabled" internalname="o58" />
+ <PUBLIC:PROPERTY name="Disabled" internalname="o58" />
+ <PUBLIC:PROPERTY name="ChildNodeType" internalname="o63" />
+ <PUBLIC:PROPERTY name="NavigateTarget" internalname="o41" />
+ <PUBLIC:PROPERTY name="NavigateUrl" internalname="o40" />
+ <PUBLIC:PROPERTY name="Expanded" internalname="o54" />
+ <PUBLIC:PROPERTY name="ExpandLevel" internalname="o52" />
+ <PUBLIC:PROPERTY name="DefaultStyle" internalname="o59" />
+ <PUBLIC:PROPERTY name="HoverStyle" internalname="o49" />
+ <PUBLIC:PROPERTY name="SelectedStyle" internalname="o10" />
+ <PUBLIC:PROPERTY name="SelectedHoverStyle" internalname="o12" />
+ <PUBLIC:PROPERTY name="ImageUrl" internalname="o47" />
+ <PUBLIC:PROPERTY name="SelectedImageUrl" internalname="o11" />
+ <PUBLIC:PROPERTY name="ExpandedImageUrl" internalname="o53" />
+ <PUBLIC:PROPERTY name="SelectedExpandedImageUrl" internalname="o13" />
+ <!--PUBLIC:PROPERTY name="IconSetPath" internalname="o48" /-->
+ <PUBLIC:PROPERTY name="PostBackOnExpand" internalname="o17" />
+ <PUBLIC:PROPERTY name="PostBackOnCollapse" internalname="o19" />
+ <PUBLIC:PROPERTY name="PostBackOnSelect" internalname="o16" />
+ <PUBLIC:PROPERTY name="PostBackOnDeselect" internalname="o18" />
+ <PUBLIC:PROPERTY name="PostBackOnCheck" internalname="o20" />
+ <PUBLIC:PROPERTY name="PostBackOnUncheck" internalname="o15" />
+ <PUBLIC:PROPERTY name="SelectExpands" internalname="o9" />
+ <PUBLIC:PROPERTY name="SelectCollapses" internalname="o14" />
+ <PUBLIC:PROPERTY name="CanBeSelected" internalname="o64" />
+ <PUBLIC:PROPERTY name="IsCheckBox" internalname="o45" />
+ <PUBLIC:PROPERTY name="ContextMenuID" internalname="o61" />
+ <PUBLIC:PROPERTY name="DragDropName" internalname="o55" />
+ <PUBLIC:PROPERTY name="DragDropAcceptNames" internalname="o57" />
+ <PUBLIC:PROPERTY name="DragDropJavascript" internalname="o56" />
+ <PUBLIC:PROPERTY name="XmlPosition" internalname="o0" />
+ <PUBLIC:PROPERTY name="ChildrenFilter" />
+ <!-- -->
+ <PUBLIC:PROPERTY name="Nodes" internalname="o38" />
+ <PUBLIC:PROPERTY name="FullKey" internalname="o50" />
+ <PUBLIC:PROPERTY name="State" internalname="o7" />
+ <PUBLIC:PROPERTY name="XmlElement" internalname="o1" />
+ <PUBLIC:PROPERTY name="HtmlElement" internalname="o31" />
+ <!-- -->
+ <PUBLIC:METHOD name="UpdateView" internalname="o66" />
+ <PUBLIC:METHOD name="NotifyDeselect" internalname="o95" />
+ <PUBLIC:METHOD name="IsVisible" internalname="o97" />
+ <PUBLIC:METHOD name="Expand" internalname="o111" />
+ <PUBLIC:METHOD name="Collapse" internalname="o112" />
+ <PUBLIC:METHOD name="ExpandCollapse" internalname="o110" />
+ <PUBLIC:METHOD name="Select" internalname="o108" />
+ <PUBLIC:METHOD name="CheckBoxChange" internalname="o113" />
+ <PUBLIC:METHOD name="AddNodes" internalname="o118" />
+ <PUBLIC:METHOD name="AddNode" internalname="o119" />
+ <PUBLIC:METHOD name="IsParentForNode" internalname="o98" />
+ <PUBLIC:METHOD name="Remove" internalname="o82" />
+ <!--PUBLIC:METHOD name="OnMouseOver" internalname="o87" />
+ <PUBLIC:METHOD name="OnMouseOut" internalname="o88" /-->
+ <PUBLIC:METHOD name="OnContextMenu" internalname="o92" />
+ <!-- -->
+ <PUBLIC:METHOD name="OnContentClick" internalname="o93" />
+ <PUBLIC:METHOD name="stIsLoaded" internalname="o73" />
+ 
+</PUBLIC:COMPONENT>
+<!-- IE unspecified ability to speed up. Found by Evgeny Tukin. -->
+<SCRIPT language="jscript"></SCRIPT>
+<SCRIPT language="jscript">
+
+var o3 = 0; var o2 = 1; var o6 = 2; var o4 = 3; var o5 = 4;
+var o7 = -1; // unknown state
+
+var o46 = false;
+var o36;
+var o62 = false;
+var o43 = false;
+
+
+var o29;
+var o33;
+var o32;
+var o31;
+var o22;
+var o21;
+var o24;
+var o23;
+var o30;
+var o27;
+var o28;
+var o25;
+var o26;
+var o34;
+
+var o38;
+
+var o50;
+
+var o42;
+var o35;
+var o60;
+var o37;
+var o44;
+var o58;
+
+var o63;
+var o41;
+var o40;
+var o54;
+var o52;
+
+var o59;
+var o49;
+var o10;
+var o12;
+
+var o47;
+var o11;
+var o53;
+var o13;
+
+
+var o17;
+var o19;
+var o16;
+var o18;
+var o20;
+var o15;
+
+var o9;
+var o14;
+
+var o64;
+var o45;
+var o61;
+var o55;
+var o57;
+var o56;
+
+var o0;
+var o1 = null;
+
+
+
+
+function o105(){
+ o67();
+}
+function o100(){
+
+
+
+
+
+ if (element.parentNode.LoadingMessage != null ){
+ TreeView = element.parentNode;
+
+
+ try
+ {
+ if (typeof(TreeView.keyEscape) == "undefined") return;
+ o1 = TreeView.NodesXmlDoc.documentElement.childNodes.item(o0 - 1);
+ }
+ catch(e){ return; } 
+
+ } else {
+ ParentNode = element.parentNode.parentNode.parentNode.parentNode;
+ TreeView = ParentNode.TreeView;
+
+ try
+ {
+ if (typeof(TreeView.keyEscape) == "undefined") return;
+ }
+ catch(e){ return; } 
+
+ o1 = ParentNode.XmlElement.childNodes.item(o0 - 1);
+
+
+
+ }
+
+ TreeView.IncJobsNum();
+
+
+ if (ParentNode != null && ParentNode.FullKey != null) o50 = ParentNode.FullKey + " " + TreeView.keyEscape(o42);
+ else o50 = TreeView.keyEscape(o42);
+ o114();
+
+ if (o38.length == 0 && TreeView.es(o37)) o7 = o4;
+ else o7 = o6;
+ 
+ o77();
+
+ o115();
+
+ if (TreeView.ForceInit) 
+ o67();
+ 
+ o46 = true; 
+
+ 
+ o80(); // events bound only when node inited
+
+ element.style.display = "";
+ o116();
+
+ TreeView.DecJobsNum();
+
+}
+function o103(){
+ return o31.innerHTML;
+}
+function o83(s){
+ o31.innerHTML = s;
+ TreeView.queueNodeEvent(element, 'ONTEXTCHANGED'); 
+ o1.setAttribute("Text", s);
+}
+function o104(){
+ return o60;//.innerHTML;
+}
+function o84(s){
+
+ o60 = s;
+ if (o1 != null) {
+ TreeView.queueNodeEvent(element, 'ONDATACHANGED'); 
+ o1.setAttribute("Data", s);
+ }
+}
+
+
+
+
+
+
+
+function o114(){
+ o29 = element.children(0).children(0).children(0).children(0).children(0);
+ o30 = o29.children(0);
+ 
+ o22 = o29.children(1);
+ var o123 = TreeView.isTrue(o45) ? 1 : 0;
+
+
+ o24 = o22.children(0);
+ o23 = o22.children(1);
+ 
+ o27 = o30.children(0);
+ o28 = o27.children(0);
+ o25 = o30.children(1);
+ o26 = o25.children(0);
+ o31 = o30.children( 2 + o123);
+ 
+ 
+ if (o123 == 1) {
+ o34 = o30.children(2).children(0);
+ } 
+ 
+ 
+ o32 = element.children(0).children(1);
+ o33 = o32.children(1);
+ o38 = o33.children;
+}
+
+
+function o77(){
+
+
+
+
+
+
+
+
+
+
+
+ o17 = TreeView.isTrue(o17);
+ o19 = TreeView.isTrue(o19);
+ o16 = TreeView.isTrue(o16);
+ o18 = TreeView.isTrue(o18);
+ o20 = TreeView.isTrue(o20);
+ o15 = TreeView.isTrue(o15);
+ 
+ o9 = TreeView.isTrue(o9);
+ o14 = TreeView.isTrue(o14);
+ o64 = TreeView.isTrue(o64);
+ o45 = TreeView.isTrue(o45);
+ o44 = TreeView.isTrue(o44);
+ o58 = TreeView.isTrue(o58);
+ if (o54 != null) o54 = TreeView.isTrue(o54);
+
+ 
+ if (TreeView.es(o52)) {
+ o52 = parseInt(o52);
+ } else if (ParentNode == null) {
+ o52 = TreeView.ExpandLevel == null ? 0 : parseInt(TreeView.ExpandLevel);
+ } else if (ParentNode.ExpandLevel > 0) {
+ o52 = ParentNode.ExpandLevel - 1;
+ } else {
+ o52 = 0;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+}
+
+
+function o115(){
+
+
+
+ o79(true);
+ TreeView.log("Trace SetIcon")
+ o78();
+ TreeView.log("Trace SetImage")
+ o81();
+ o30.disabled = o58;
+
+
+
+
+}
+
+
+function o116(){
+
+ if (o54 || (o52 > 0 && o54 == null)) {
+ TreeView.IncJobsNum();
+ window.setTimeout(o109, 100);
+
+ }
+
+ if (TreeView.SelectedNodeKeyList == o50) { 
+ o108(true); // this will update view also
+ TreeView.StartTryToFocus(o31);//o25
+
+ }
+
+}
+
+
+
+function o67(){
+ 
+ if (!o73() || o62) return;
+
+ o62 = true;
+
+ for(var i = 0; i < o38.length; i++) {
+ o134 = o38(i);
+
+
+ o134.style.behavior = "url(" + TreeView.getClientRuntimeUrl("node.htc") + ")";
+ }
+}
+
+
+function o80(){
+ o31.onclick = o93;
+ o31.ondblclick = o93;
+ o31.oncontextmenu = o92;
+ o26.onclick = o93;
+ o26.ondblclick = o93;
+ o26.oncontextmenu = o92;
+ 
+ o26.ondragstart = o86;
+ o26.ondragenter = o91;
+ o26.ondragover = o91;
+ o26.ondrop = o90;
+ 
+ o31.ondragstart = o86;
+ o31.ondragenter = o91;
+ o31.ondragover = o91;
+ o31.ondrop = o90; 
+ o31.onselectstart = o31.dragDrop;
+ 
+ o31.onmouseover = o87;
+ o31.onmouseout = o88;
+ o26.onmouseover = o87;
+ o26.onmouseout = o88; 
+
+
+
+
+ 
+ o28.onclick = o89;
+ o28.ondblclick = o89;
+ 
+ if (o45) {
+ o34.onclick = o94;
+ o34.ondblclick = o94;
+ o34.oncontextmenu = o92;
+ }
+}
+
+
+function o86(){
+ if (TreeView.es(o55)){
+ event.dataTransfer.effectAllowed = "copyMove"; 
+ TreeView.DragNode = element;
+
+ }
+
+
+
+
+}
+function o91(){
+ if (TreeView.DragNode != null && !TreeView.DragNode.IsParentForNode(element) && TreeView.DragNode != element){
+ if (o99(TreeView.DragNode)){
+ event.returnValue = false; 
+ event.dataTransfer.dropEffect = "move"; 
+ } 
+ }
+}
+function o99(o126){
+ if (!TreeView.es(o57)) return false;
+ var o135 = o57.split(",");
+
+ for(var i = 0; i < o135.length; i++){
+ if (o135[i] == o126.DragDropName)
+ return true;
+ }
+ return false;
+}
+function o90(){
+ var o133 = false;
+
+ if (TreeView.es(TreeView.DragNode.DragDropJavascript)) {
+ var o131 = new Function("args", TreeView.DragNode.DragDropJavascript);
+ var args = new Object();
+ args.node = TreeView.DragNode;
+ args.targetNode = element;
+ args.cancelDrop = false;
+ var o130 = o131(args);
+ if (args.cancelDrop) return;
+ if (o130) o133 = true;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+ o119(TreeView.DragNode);
+ 
+ var o127 = o38[o38.length - 1];
+ var o39 = o50 + " " + TreeView.keyEscape(o127.Key);
+ 
+ TreeView.queueNodeEvent(TreeView.DragNode, 'ONDRAGDROP', false, o39, o50); 
+ 
+ 
+ TreeView.DragNode.Remove();
+ TreeView.DragNode = null;
+ 
+ if (o133) TreeView.doFireEvents();
+
+
+
+
+ 
+
+ 
+ 
+}
+
+function o98(o126){
+ if (o126.ParentNode == null) return false;
+ if (o126.ParentNode == element) return true;
+ return o98(o126.ParentNode);
+}
+
+function o118(o120) {
+ 
+ o36 = TreeView.getMSXMLObject();
+ o36.loadXML(o120);
+ var o128 = o38.length;
+ var o124 = TreeView.trasformXmlDoc2HTML(o36, o63, o128);
+
+ var o125 = o36.documentElement.childNodes.length;
+ for(var i = 0; i < o125; i++) {
+ o1.appendChild(o36.documentElement.childNodes.item(0));
+ } 
+ if (o38.length > 0){
+ var o129 = o38[o38.length - 1].children(0).children(0).children(0).children(0).children(0).children(0).children(0);
+ o129.style.cssText = o129.getAttribute("appendStyle");
+ }
+ 
+ o33.insertAdjacentHTML("beforeEnd", o124);
+ 
+ if (o62) {
+ for(var i = o128; i < o38.length; i++) {
+ var o134 = o38(i);
+ o134.style.behavior = "url(" + TreeView.getClientRuntimeUrl("node.htc") + ")";
+ }
+ }
+
+ o111();
+
+
+
+
+
+}
+function o119(o126){
+
+ o118('<?xml version="1.0" encoding="utf-8" ?><NODES>' + o126.XmlElement.xml + '</NODES>');
+}
+
+function o82(){
+ if (ParentNode != null && ParentNode.Nodes.length == 1) {
+ ParentNode.Collapse();
+ }
+ element.parentNode.removeChild(element);
+ o1.parentNode.removeChild(o1);
+ if (ParentNode != null) {
+ ParentNode.UpdateView();
+ } 
+}
+
+
+function o93(){
+ TreeView.queueNodeEvent(element, 'ONCLICK', true); 
+
+ if (!o58) o108();
+
+ if (o9 && o14)
+ o110();
+ else if (o9)
+ o111();
+ else if (o14)
+ o112();
+
+ o102();
+}
+function o89(){
+ o110();
+}
+function o87(){
+
+ TreeView.queueNodeEvent(element, 'ONMOUSEOVER', true); 
+ o43 = true;
+ o65();
+
+
+ TreeView.setFocusedNode(element, true);
+
+}
+function o88(){
+ TreeView.queueNodeEvent(element, 'ONMOUSEOUT', true); 
+ o43 = false;
+ TreeView.setFocusedNode(null, true);
+ o65();
+}
+function o94(){
+ if (!o58)
+ o113();
+}
+function o92(useOffset){
+
+
+ if (TreeView.es(o61) && !o58) {
+ TreeView.showContextMenu(o61, element, useOffset);
+ }
+ return false;
+}
+
+
+function o111(cancelEvent){
+ var result = false;
+ if (o74() || o96() == 0) return true;
+ if (!cancelEvent) o117();
+
+ if (o46 && !cancelEvent) {
+ TreeView.queueNodeEvent(element, 'ONBEFOREEXPAND'); 
+ if (o17) TreeView.doFireEvents();
+ }
+ if (o73()) {
+
+ o7 = o3;
+ o66();
+ o85();
+ result = true;
+
+ } else if (o71()) {
+ o7 = o2;
+ o76();
+ } else { // loading
+ o7 = o2;
+ o66();
+ o85();
+ }
+ o1.setAttribute("Expanded", "True");
+ o54 = true;
+ return result;
+ 
+}
+function o109(){
+ o111(true);
+ TreeView.DecJobsNum();
+}
+
+
+
+
+
+function o112(){
+ if (o75() || o96() == 0) return;
+ if (o46) { 
+ TreeView.queueNodeEvent(element, 'ONBEFORECOLLAPSE');
+ if (o19) TreeView.doFireEvents();
+ }
+
+ o70();
+ o66();
+ o1.setAttribute("Expanded", "False");
+ o54 = false;
+ o66();
+
+}
+function o110(){
+ if (o75()) o111();
+ else o112();
+}
+function o108(cancelEvent){
+
+ if (o64 && TreeView.setSelectedNode(element) && o46 && !cancelEvent) {
+
+ TreeView.queueNodeEvent(element, 'ONSELECTED');
+ if (o16) TreeView.doFireEvents();
+
+ }
+}
+function o95() {
+ if (o46) {
+ TreeView.queueNodeEvent(element, 'ONDESELECTED'); 
+ if (o18) TreeView.doFireEvents();
+ }
+}
+function o102(){
+ TreeView.navigateTo(o40, o41);
+}
+function o113(){
+ if (o46) {
+ o44 = !o44;
+ if (o44) {
+ TreeView.queueNodeEvent(element, 'ONCHECKED');
+ o1.setAttribute("IsChecked", "True");
+ if (o20) TreeView.doFireEvents();
+ } else {
+ TreeView.queueNodeEvent(element, 'ONUNCHECKED');
+ o1.setAttribute("IsChecked", "False");
+ if (o15) TreeView.doFireEvents();
+ }
+ o81();
+ }
+}
+
+
+function o76(){
+ TreeView.IncJobsNum();
+ o68();
+
+ o66();
+ o36 = TreeView.getMSXMLObject();
+ o36.async = true;
+ o36.onreadystatechange = o101;
+ o36.load(o37);
+}
+function o101(){
+
+ if (o36.readyState != 4) return;
+ TreeView.checkXmlError(o36, "Error while parsing loaded data.");
+
+ var o124 = TreeView.trasformXmlDoc2HTML(o36, o63);
+
+
+ var o125 = o36.documentElement.childNodes.length;
+ for(var i = 0; i < o125; i++) {
+ o1.appendChild(o36.documentElement.childNodes.item(0));
+ }
+
+ o33.innerHTML = o124;
+
+ o69();
+ o66();
+ TreeView.DecJobsNum();
+ o85();
+ TreeView.queueNodeEvent(element, 'ONLOADCHILDRENFINISHED', true); 
+
+}
+
+function o66(){
+
+ o30.disabled = o58;
+
+
+ if (o7 == o2) o22.style.display = "";
+ else o22.style.display = "none";
+
+ if (o7 == o3 && o96() > 0) 
+ {
+ o67();
+
+
+ 
+ o32.style.display = "";
+
+
+ o106();
+ }
+ else {
+ o32.style.display = "none";
+ o106();
+
+
+
+
+
+
+ }
+
+}
+
+
+
+
+function o106(){
+ o65();
+ o79();
+ o78();
+ o81();
+
+}
+function o65(){
+ if (!o43 && TreeView.FocusedNode != element) {
+ if (TreeView.SelectedNode != element) 
+ o31.style.cssText = o59;
+ else
+ o31.style.cssText = o10;
+ } else if (TreeView.SelectedNode == element)
+ o31.style.cssText = o12;
+ else
+ o31.style.cssText = o49;
+
+}
+
+function o79(o132) {
+
+ if (TreeView.es(TreeView.IconSetFullPath)) {
+
+ if (TreeView.ShowLines && !o132) {
+
+ if (o75() || o7 == o2 || o38.length == 0)
+ o25.style.backgroundImage = "url('" + TreeView.IconSetFullPath + "Z2.gif" + "')";
+ else
+ o25.style.backgroundImage = "url('" + TreeView.IconSetFullPath + "Z.gif" + "')";
+ }
+
+ var o121;
+ if (o96() != 0) {
+ if (o75()) o121 = "plus.gif"; 
+ else o121 = "minus.gif";
+ } 
+ else o121 = "dot.gif"; 
+
+ o28.src = TreeView.IconSetFullPath + o121;
+
+
+
+
+
+
+ } 
+
+
+
+
+ TreeView.log("Trace SetIcon END");
+
+}
+function o78(){
+ var o122;
+ if (o74()) {
+
+ if (TreeView.SelectedNode == element)
+ o122 = o13;
+ else
+ o122 = o53;
+ } else {
+ if (TreeView.SelectedNode != element){
+ o122 = o47;
+ } else 
+ o122 = o11;
+ }
+ 
+ if (TreeView.es(o122)) {
+ if (o122.charAt(0) != '/') {
+ o26.src = TreeView.getClientRuntimeUrl("images/" + o122);
+ } else {
+ o26.src = o122;
+ }
+ 
+ o25.style.display = "";
+ o23.style.display = "";
+
+ } else {
+ o25.style.display = "none";
+ o23.style.display = "none";
+
+ }
+}
+function o81(){
+ if (!o45) return;
+ if (o44) {
+ o34.src = TreeView.IconSetFullPath + "chb1.gif";
+ } else {
+ o34.src = TreeView.IconSetFullPath + "chb0.gif";
+ }
+}
+var o8;
+function o107(){
+ if (TreeView.es(TreeView.IconSetFullPath)) {
+ var o121;
+ if (o96() != 0) {
+ if (o75()) o121 = "plus.gif"; 
+ else o121 = "minus.gif";
+ } 
+ else o121 = "dot.gif"; 
+ o8 += o121;
+ } 
+}
+
+function o97(){
+ return element.offsetWidth > 0;
+}
+
+
+var o51 = false;
+function o117(){
+
+ if (TreeView.UseFadeEffect)
+ o33.style.cssText = "width: 100%;" + TreeView.ChildrenFilter;
+ if (o33.filters[0] != null){
+ o33.filters[0].Apply();
+ o51 = true;
+ }
+}
+function o85(){
+ if (o51 && o33.filters[0] != null){
+ o51 = false;
+ o33.filters[0].Play();
+ 
+ }
+}
+
+
+function o72(){
+ return o7 == o2 || o7 == o2;
+}
+function o73(){
+ return o7 == o3 || o7 == o6;
+}
+function o71(){
+ return o7 == o4;
+}
+function o75(){
+ return o7 == o6 || o7 == o5 || o7 == o4;
+}
+function o74(){
+ return o7 == o3 || o7 == o2;
+}
+
+function o70(){
+ if (o7 == o3) o7 = o6;
+ else if (o7 == o2) o7 = o5;
+}
+function o68(){
+ if (o74()) o7 = o2;
+ else o7 = o5;
+}
+function o69(){
+ if (o74()) o7 = o3;
+ else o7 = o6;
+}
+
+function o96(){ // -1, 0..n
+ if (o73()) return o38.length;
+ return -1;
+}
+
+
+
+</SCRIPT>

@@ -1,0 +1,1 @@
+<%@ WebService Language="vb" Codebehind="stok.asmx.vb" Class="StokServis" %> 

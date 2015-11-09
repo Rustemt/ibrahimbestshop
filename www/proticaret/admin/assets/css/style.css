@@ -1,0 +1,1950 @@
+html{
+	width					: 100%;
+	height					: 100%;
+}
+body{
+	font-size				: 12px;
+	font-family				: Arial, Verdana, sans-serif;
+	color					: #666;
+	margin					: 0;
+	padding					: 0;
+	width					: 100%;
+	height					: 100%;
+	background				: url("../img/bg.png") repeat-y scroll 0 0 #fff;
+	-webkit-font-smoothing	: antialiased;
+	-moz-font-smoothing		: none;
+	font-smoothing			: antialiased;
+}
+body.sideBarOff{
+	background-image		: none;
+}
+body.sideBarOff .siteContainer .siteMain{
+	padding-left			: 0;
+}
+body.sideBarOff .siteContainer .siteMain .sideBar{
+	display					: none;
+}
+body.sideBarOff .siteContainer .siteHeader .headerLogo .switch{
+	-ms-filter				: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter					: alpha(opacity=50);
+	-moz-opacity			: 0.5;
+	-khtml-opacity			: 0.5;
+	opacity					: 0.5;
+}
+*:disabled{
+	-ms-filter				: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter					: alpha(opacity=50);
+	-moz-opacity			: 0.5;
+	-khtml-opacity			: 0.5;
+	opacity					: 0.5;
+}
+a{
+	text-decoration			: none;
+	color					: #666;
+}
+hr{
+	padding					: 0;
+	margin					: 0 0 10px 0;
+	border					: 0;
+	border-bottom			: 1px solid #d8d9db;
+}
+input, select, textarea{
+	font-family				: Arial, Verdana, sans-serif;
+	font-size				: 13px;
+	color					: #666;
+	border					: 1px solid #d8d9db;
+	padding					: 5px;
+	margin					: 0;
+	background				: #FFF;
+}
+input[type="text"],
+input[type="file"]{
+	height					: 22px;
+	line-height				: 22px;
+	padding					: 5px 10px;
+}
+input[type="radio"]{
+	border					: none;
+	margin					: 0;
+	background				: none;
+}
+input[type="checkbox"]{
+	border					: none;
+	margin					: 0;
+	background				: none;
+}
+textarea{
+	resize					: none;
+}
+.clear{
+	clear					: both;
+	margin					: 0px;
+	padding					: 0px;
+}
+.circle{
+	-webkit-border-radius	: 50%;
+	-moz-border-radius		: 50%;
+	border-radius			: 50%;
+}
+.bubble{
+	display					: inline-block;
+	padding					: 0 5px;
+	min-width				: 14px;
+	height					: 20px;
+	line-height				: 20px;
+	text-align				: center;
+	font-size				: 11px;
+	font-weight				: bold;
+	color					: #fff;
+	background-color		: #000;
+	-webkit-border-radius	: 10px;
+	-moz-border-radius		: 10px;
+	border-radius			: 10px;
+}
+.bubble.blue{
+	background				: #438eb9;
+}
+.bubble.green{
+	background				: #82af6f;
+}
+.bubble.red{
+	background				: #cb4040;
+}
+.bubble.white{
+	color					: #666;
+	background				: #fff;
+}
+.justify{
+	text-align				: justify;
+}
+.alignRight{
+	text-align				: right;
+}
+.fLeft{
+	float					: left;
+}
+.fRight{
+	float					: right;
+}
+.Status{
+    display					: inline-block;    
+    padding					: 2px 4px;
+    -webkit-border-radius	: 4px;
+    -moz-border-radius		: 4px;
+    border-radius			: 4px;
+    color					: #FFF;
+}
+.Status0{
+    background				: #F89406;
+}
+.Status-11{
+    background				: #468847;
+}
+.Status-8{
+    background				: #468847;
+}
+.Status-12{
+    background				: #999;
+}
+.Status-9{
+    background				: #999;
+}
+.Status-10{
+    background				: #B94A48;
+}
+.Status-7{
+    background				: #F89406;
+}
+.Status-3{
+    background				: #468847;
+}
+.Status-1{
+    background				: #999;
+}
+.Status-2{
+    background				: #3A87AD;
+}
+.Status1{
+    background				: #999;
+}
+.Status2 {
+    background				: #3A87AD;
+}
+.Status3{
+    background				: #468847;
+}
+.Status4{
+    background				: #468847;
+}
+.Status5{
+    background				: #66ce00;
+}
+.Status6{
+    background				: #B94A48;
+}
+.Status7{
+    background				: #333;
+}
+.Status8{
+    background				: #F89406;
+}
+.Status9{
+    background				: #223e66;
+}
+.Status10{
+    background				: #f00;
+}
+.Status11{
+    background				: #3A87AD;
+}
+.Status12{
+    background				: #F89406;
+}
+.Status13{
+    background				: #B94A48;
+}
+.Status-5{
+    background				: #66ce00;
+}
+.Status-6{
+    background				: #B94A48;
+}
+.Status-4{
+    background				: #468847;
+}
+.boxToggle{
+	border					: 1px solid #d8d9db;
+	margin-bottom			: 20px;
+	background				: #fff;
+}
+.txtRedTitle {
+	color					: #cb4040;
+	padding					: 5px 0px;
+	margin-bottom			: 5px;
+	border-bottom			: 1px solid #d8d9db;	
+}
+.boxToggle .toggleTitle{
+	border-bottom			: 1px solid #d8d9db;
+	height					: 49px;
+	position				: relative;
+	background				: url("../img/box-toggle-title.png") repeat-x scroll bottom left transparent;
+}
+.boxToggle .toggleTitle:before,
+.boxToggle .toggleTitle:after {
+    content					: " ";
+    display					: table;
+}
+.boxToggle .toggleTitle:after {
+    clear					: both;
+}
+.boxToggle .toggleTitle .titleText{
+	height					: 49px;
+	line-height				: 49px;
+	float					: left;
+	font-size				: 18px;
+	padding-left			: 10px;
+}
+.boxToggle .toggleTitle .titleFilter{
+	float					: right;
+}
+.boxToggle .toggleTitle .titleFilterSelect{
+	float					: right;
+	margin-top				: 10px;
+}
+.boxToggle .toggleTitle .titleTab{
+	float					: left;
+	margin-left				: 20px;
+}
+.boxToggle .toggleTitle .titleToggle{
+	float					: right;
+	width					: 49px;
+	height					: 49px;
+	border-left				: 1px solid #d8d9db;
+	cursor					: pointer;
+	background				: url("../img/ico-down.png") no-repeat scroll center center transparent;
+}
+.boxToggle .toggleTitle .titleToggle.off{
+	background				: url("../img/ico-up.png") no-repeat scroll center center transparent;
+}
+.boxToggle .toggleTitle .titleAdvanced{
+	float					: right;
+	width					: 49px;
+	height					: 49px;
+	line-height				: 49px;
+	border-left				: 1px solid #d8d9db;
+	cursor					: pointer;
+	font-size				: 16px;
+	text-align				: center;
+}
+.boxToggle .toggleTitle .titleAdvanced .fa{
+	line-height				: 49px;
+}
+.boxToggle .toggleTitle .titleAdvanced.active{
+	color					: #cb4040;
+}
+.boxToggle .toggleTitle.toggleMini{
+	height					: 37px;
+}
+.boxToggle .toggleTitle.toggleMini .titleText{
+	height					: 37px;
+	line-height				: 37px;
+	font-size				: 14px;
+	color					: #cb4040;
+}
+.boxToggle .toggleTitle.toggleMini .titleTab ul li a{
+	font-size				: 13px;
+	height					: 33px;
+	line-height				: 33px;
+}
+.boxToggle .toggleTitle.toggleMini .titleToggle{
+	width					: 36px;
+	height					: 37px;
+}
+.boxToggle .toggleMini .settingsButton {
+	float					: right;
+	padding-top				: 12px;
+	width					: 36px;
+	height					: 25px;
+	font-size				: 15px;
+	border-left				: 1px solid #d8d9db;
+	cursor					: pointer;
+	text-align				: center;
+}
+.boxToggle .toggleTitle.toggleMini .titleAdvanced{
+	width					: 36px;
+	height					: 37px;
+	line-height				: 37px;
+}
+.boxToggle .toggleTitle.toggleMini .titleAdvanced .fa{
+	line-height				: 37px;
+}
+.boxToggle .toggleContent .tabContent{
+	background-color		: #f2f2f2;
+}
+.boxToggle .toggleContent .tabContent .dataTable table{
+	border					: 0;
+}
+.boxToggle.statics{
+	border					: none;
+}
+.boxToggle.statics .toggleTitle{
+	margin-bottom			: 10px;
+	background				: none;
+	height					: auto;
+}
+.boxToggle.statics .toggleTitle .titleToggle{
+	width					: 30px;
+	height					: 30px;
+	background-color		: #e5e6e8;
+}
+.boxToggle.statics .tabContent{
+	background				: none;
+}
+.toggleList > ul > li{
+	border					: 1px solid #d8d9db;
+	background				: #fff;
+}
+.toggleList > ul > li .toggleTitle{
+	font-size				: 150%;
+	border-bottom			: 1px solid #d8d9db;
+	height					: 33px;
+	line-height				: 34px;
+	padding					: 0 30px 0 10px;
+	cursor					: pointer;
+	color					: #666;
+	background				: url("../img/box-toggle-title.png") repeat-x scroll bottom left transparent;
+}
+.toggleList > ul > li .toggleContent{
+	display					: none;
+	padding					: 10px;
+	background-color		: #f2f2f2;
+}
+.toggleList > ul > li:first-child .toggleContent{
+	display					: block;
+}
+.titleFilter ul li{
+	float					: left;
+}
+.titleFilter ul li a{
+	display					: inline-block;
+	height					: 30px;
+	line-height				: 30px;
+	padding					: 0 15px;
+	font-size				: 13px;
+	color					: #666666;
+	border-left				: 1px solid #d6d7d9;
+	cursor					: pointer;
+	background				: #e5e6e8;
+}
+.titleFilter ul li .active{
+	color					: #fff;
+	border-left				: 1px solid #354052;
+	background				: #354052;
+}
+.titleTab ul li{
+	float					: left;
+}
+.titleTab ul li a{
+	display					: inline-block;
+	height					: 45px;
+	line-height				: 42px;
+	font-size				: 18px;
+	color					: #ababac;
+	padding					: 0 10px;
+	border-top				: 4px solid #c8e1b5;
+	border-left				: 1px solid #d8d9db;
+	cursor					: pointer;
+}
+.titleTab ul li .active{
+	color					: #666;
+	border-top-color		: #91c46b;
+	background-color		: #fff;
+}
+.titleTab ul li:last-child a,
+.titleTab ul li.last a{
+	border-right			: 1px solid #d8d9db;
+}
+.staticsList{
+	padding					: 15px;
+}
+.staticsList ul li{
+	float					: left;
+	width					: 14.2%;
+	height					: 100px;
+	padding					: 0 10px 0 30px;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+	background				: url("../img/main-statics.png") no-repeat scroll 0 0 transparent;
+}
+.staticsList ul li.col2{
+	background-position		: 0 -100px;
+}
+.staticsList ul li.col3{
+	background-position		: 0 -200px;
+}
+.staticsList ul li.col5{
+	background-position		: 0 -400px;
+}
+.staticsList ul li.col6{
+	background-position		: 0 -300px;
+}
+.staticsList ul li span{
+	display					: block;
+	white-space				: nowrap;
+	text-overflow			: ellipsis;
+	overflow				: hidden;
+}
+.staticsList ul li span.staticsNumber{
+	font-size				: 30px;
+	padding-top				: 20px;
+}
+.staticsList ul li span.staticsText{
+	font-size				: 14px;
+	color					: #999;
+}
+.dataTable.hidden {
+	overflow-x				: scroll;
+}
+.dataTable table{
+	width					: 100%;
+	border-collapse			: collapse;
+	border					: 1px solid #d8d9db;
+	font-size				: 13px;
+}
+.dataTable table thead tr th{
+	text-align				: left;
+	border					: 1px solid #d8d9db;
+	border-top				: 0;
+	padding					: 10px;
+	background				: #f1f1f1;
+}
+.dataTable table thead tr th:first-child{
+	border-left			: 0;
+}
+.dataTable table thead tr th:last-child{
+	border-right			: 0;
+}
+.dataTable table tbody tr.title td,
+.dataTable table tbody tr.title th{
+	font-weight				: bold;
+	white-space				: nowrap;
+	border					: 1px solid #d8d9db;
+	border-top				: 0;
+	padding					: 10px;
+	background				: url("../img/box-toggle-title.png") repeat-x scroll bottom left #fff !important;
+}
+.dataTable table tbody tr.title td:first-child,
+.dataTable table tbody tr.title th:first-child{
+	border-left				: 0;
+}
+.dataTable table tbody tr.title td:last-child,
+.dataTable table tbody tr.title th:last-child{
+	border-right			: 0;
+}
+.dataTable table tbody tr.title td a,
+.dataTable table tbody tr.title th a{
+	color					: #666;
+}
+.dataTable table tbody tr td{
+	padding					: 10px;
+	border-left				: 1px solid #d8d9db;
+}
+.dataTable table tbody tr td:first-child{
+	border-left				: 0;
+}
+.dataTable table tbody tr:nth-child(odd) td{
+	background-color		: #f7f7f7;
+}
+.dataTable table tbody tr:nth-child(even) td{
+	background-color		: #fff;
+}
+.dataTable table tbody tr:hover > td{
+	background-color		: #efefef;
+}
+.dataTableOne > div > table {
+	width					: 100%;
+}
+.dataTableOne .dataTable table tr,
+.dataTableOne .dataTable table td,
+.dataTableOne .dataTable table th {
+	border					: 1px solid #d8d9db;
+}
+.dataTableOne .linkContainer {
+	position				: relative;
+	z-index					: 9999;
+}
+.dataTableOne .linkContent {
+	width					: 500px;
+	display					: none;
+	position				: absolute;
+	top						: 0px;
+	right					: 100%;
+	background-color		: #FFF;
+	padding					: 15px;
+	-webkit-box-shadow		: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow			: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+	box-shadow				: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+}
+.dataTableOne .linkContent table {
+	border					: inherit;
+}
+.dataTableOne .btnLink:hover + .linkContent {
+	display					: block;
+}
+.dataTableOne .linkContent table tr,
+.dataTableOne .linkContent table td {
+	padding					: 3px;
+	font-size				: 11px;
+}
+.dataForm label{
+	display					: block;
+	margin-bottom			: 5px;
+	white-space				: nowrap;
+	font-size				: 13px;
+	font-weight				: bold;
+}
+.dataForm label label{
+	display					: inline-block;
+}
+.dataForm label input[type="checkbox"]{
+	float					: left;
+	margin-right			: 5px;
+}
+.dataForm .labelInput{
+	display					: block;
+	width					: 100%;
+	height					: 30px;
+	margin-bottom			: 0;
+	padding					: 7px;
+	border					: 1px solid #d8d9db;
+	background-color		: #FFFFFF;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+	overflow				: hidden;
+	-webkit-box-shadow		: 1px 1px 5px 0px rgba(50, 50, 50, 0.1);
+	-moz-box-shadow			: 1px 1px 5px 0px rgba(50, 50, 50, 0.1);
+	box-shadow				: 1px 1px 5px 0px rgba(50, 50, 50, 0.1);
+}
+.dataForm .labelInput label{
+	margin-bottom			: 0;
+}
+.dataForm input[type="text"],
+.dataForm input[type="password"],
+.dataForm input[type="file"],
+.dataForm select{
+	width					: 100%;
+	height					: 30px;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+	-webkit-box-shadow		: 1px 1px 5px 0px rgba(50, 50, 50, 0.1);
+	-moz-box-shadow			: 1px 1px 5px 0px rgba(50, 50, 50, 0.1);
+	box-shadow				: 1px 1px 5px 0px rgba(50, 50, 50, 0.1);
+}
+.dataForm  input[type="file"]{
+	width					: 100%;
+	height					: auto;
+	padding					: 5px 10px;
+}
+.dataForm textarea{
+	width					: 100%;
+	min-height				: 100px;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+}
+.detailMulti {
+	height					: 30px !important;
+	min-height				: 30px !important;
+}
+.dataForm input[type="text"]:focus,
+.dataForm input[type="password"]:focus,
+.dataForm input[type="file"]:focus,
+.dataForm select:focus,
+.dataForm textarea:focus{
+	border-color			: rgba(82, 168, 236, 0.8);
+	outline					: 0;
+	outline					: thin dotted \9;
+	/* IE6-9 */
+	-webkit-box-shadow		: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	-moz-box-shadow			: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	box-shadow				: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+.dataForm .row:before,
+.dataForm .row:after {
+    content					: " ";
+    display					: table;
+}
+.dataForm .row:after {
+    clear					: both;
+}
+.dataForm .colOne,
+.dataForm .colTwo,
+.dataForm .colThree,
+.dataForm .colFour,
+.dataForm .col1-1,
+.dataForm .col1-2,
+.dataForm .col1-3,
+.dataForm .col1-4{
+	float					: left;
+	margin-bottom			: 10px;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+}
+.dataForm .colOne{
+	width					: 100%;
+}
+.dataForm .colTwo{
+	width					: 50%;
+}
+.dataForm .colThree{
+	width					: 33.33%;
+}
+.dataForm .colFour{
+	width					: 25%;
+}
+.dataForm .col1-1{
+	width					: 25%;
+}
+.dataForm .col1-2{
+	width					: 50%;
+}
+.dataForm .col1-3{
+	width					: 75%;
+}
+.dataForm .col1-4{
+	width					: 100%;
+}
+.dataForm .col1-1,
+.dataForm .col1-2,
+.dataForm .col1-3{
+	padding-right			: 20px;
+}
+.dataForm .row .col1-1:last-child,
+.dataForm .row .col1-2:last-child,
+.dataForm .row .col1-3:last-child{
+	padding-right			: 0;
+}
+.dataForm .colTwo:first-child{
+	padding-right			: 20px;
+}
+.dataForm .colThree{
+	padding-right			: 20px;
+}
+.dataForm .colThree:last-child{
+	padding-right			: 0;
+}
+.dataForm .colBtn .btnDefault,
+.dataForm .colBtn input[type="button"]{
+	width					: 30%;
+	height					: 30px;
+	line-height				: 30px;
+	border					: 1px solid #354052;
+	border-left				: 0;
+	display					: inline-block;
+	margin					: 0;
+	padding					: 0;
+	outline					: none;
+	cursor					: pointer;
+	text-align				: center;
+	color					: #fff;
+	background-color		: #354052;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+}
+.dataForm .colBtn .btnDefault:hover,
+.dataForm .colBtn input[type="button"]:hover{
+	background-color		: #df4e4e;
+	border-color			: #df4e4e;
+}
+.dataForm .colBtn input[type="text"],
+.dataForm .colBtn input[type="password"],
+.dataForm .colBtn select,
+.dataForm .colBtn .labelInput{
+	width					: 70%;
+	float					: left;
+}
+.dataForm .colHalf input[type="text"],
+.dataForm .colHalf select{
+	width					: 48%;
+}
+.dataForm .colHalf label + *{
+	margin-right			: 4%;
+}
+
+.dataForm .radioList input[type="radio"]{
+	float					: left;
+}
+.dataForm .radioList label{
+	display					: inline-block;
+	margin					: 0 10px 0 5px;
+}
+.dataForm .btnDefault{
+	-webkit-border-radius	: 0px;
+	-moz-border-radius		: 0px;
+	border-radius			: 0px;
+}
+.noneDataForm {
+	display					: inline-block;
+	margin					: 0 10px 0 5px;
+}
+.noneDataForm input[type="text"],
+.noneDataForm input[type="password"],
+.noneDataForm input[type="file"],
+.noneDataForm select{
+	width					: auto;
+	height					: 30px;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+}
+.dataCount:before,
+.dataCount:after {
+    content					: " ";
+    display					: table;
+}
+.dataCount:after {
+    clear					: both;
+}
+.dataCount{
+	margin					: 10px 0;
+}
+.dataCount ul li{
+	float					: left;
+	margin-right			: 5px;
+}
+.dataCount ul li span{
+	font-weight				: bold;
+	color					: #cb4040;
+}
+.dataFilter .toggleTitle .titleTab{
+	margin-left				: 0 !important;
+}
+.dataFilter .toggleTitle .titleTab ul li:first-child a{
+	border-left				: 0 !important;
+}
+.dataFilter .toggleContent .tabContent .tab{
+	padding					: 10px;
+}
+.dataPager span,
+.dataPager a{
+	display					: inline-block;
+	width					: 26px;
+	height					: 26px;
+	line-height				: 26px;
+	float					: left;
+	margin					: 0 5px 5px 0;
+	text-align				: center;
+	border					: 1px solid #e1e1e1;
+	background-color		: #fff;
+	-webkit-border-radius	: 4px;
+	-moz-border-radius		: 4px;
+	border-radius			: 4px;
+}
+.dataPager span:hover,
+.dataPager a:hover{
+	border-color			: #cb4040;
+}
+.dataPager span{
+	color					: #fff;
+	border-color			: #cb4040;
+	background-color		: #cb4040;
+}
+.buttonGroup{
+	margin					: 10px 0;
+}
+.buttonGroup:before,
+.buttonGroup:after {
+    content					: " ";
+    display					: table;
+}
+.buttonGroup:after {
+    clear					: both;
+}
+.buttonGroup .btnDefault,
+.buttonGroup .btnDesc{
+	float					: left;
+	margin-right			: 5px;
+}
+.buttonGroup .btnDesc{
+	display					: inline-block;
+	height					: 26px;
+	line-height				: 26px;
+}
+.colGroup:before,
+.colGroup:after{
+    content					: " ";
+    display					: table;
+}
+.colGroup:after{
+    clear					: both;
+}
+.colGroup .row:before,
+.colGroup .row:after{
+    content					: " ";
+    display					: table;
+}
+.colGroup .row:after{
+    clear					: both;
+}
+.colGroup .col{
+	width					: 180px;
+	float					: left;
+	padding-right			: 10px;
+	margin-bottom			: 10px;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+}
+.colGroup .col label{
+	display					: block;
+	margin-bottom			: 5px;
+	white-space				: nowrap;
+	text-overflow			: ellipsis;
+	overflow				: hidden;
+}
+.colGroup .col select,
+.colGroup .col input[type="text"],
+.colGroup .col input[type="button"]{
+	float					: left;
+	height					: 30px;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+	-webkit-box-shadow		: 1px 1px 5px 0px rgba(50, 50, 50, 0.1);
+	-moz-box-shadow			: 1px 1px 5px 0px rgba(50, 50, 50, 0.1);
+	box-shadow				: 1px 1px 5px 0px rgba(50, 50, 50, 0.1);
+}
+.colGroup .col select:focus,
+.colGroup .col input[type="text"]:focus,
+.colGroup .col input[type="password"]:focus{
+	border-color			: rgba(82, 168, 236, 0.8);
+	outline					: 0;
+	outline					: thin dotted \9;
+	-webkit-box-shadow		: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	-moz-box-shadow			: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	box-shadow				: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+.colGroup .col input[type="text"]{
+	width					: 100%;
+}
+.colGroup .col input[type="text"] + input[type="button"]{
+	width					: 26px;
+}
+.colGroup .col input[type="text"] + select{
+	width					: 80px;
+}
+.colGroup .col select{
+	width					: 100%;
+	line-height				: 20px;
+}
+.colGroup .col .btnDefault{
+	height					: 30px;
+	line-height				: 30px;
+}
+.colGroup .col.col2 input[type="text"]{
+	width					: 90px;
+}
+.colGroup .col.col3 input[type="text"]{
+	width					: 144px;
+}
+.colGroup .col.col4{
+	width					: 360px;
+}
+.colGroup .col.col4 + .btnDefault {
+	float					: left;
+	margin-top				: 20px;
+}
+.colGroup .col.col4 input[type="text"]{
+	width					: 144px;
+}
+.colGroup .col.col4 > span:last-child input[type="text"],
+.colGroup .col.col4 input[type="text"]:nth-last-of-type(2){
+	margin-left				: 10px;
+}
+.colGroup .col.colAuto{
+	width					: auto;
+	padding-right			: 0;
+}
+.colGroup .btnDefault{
+	-webkit-border-radius	: 0px;
+	-moz-border-radius		: 0px;
+	border-radius			: 0px;
+}
+.colGroup .openAdvanced{
+	display					: inline-block;
+	padding					: 5px 10px;
+	color					: #FFFFFF;
+	background-color		: #354052;
+	position				: absolute;
+	right					: 0;
+	bottom					: -11px;
+}
+.colGroup .openAdvanced .fa{
+	margin-right			: 6px;
+}
+.colGroup .openAdvanced.active{
+	background-color		: #cb4040;
+}
+.colGroupAdvanced{
+	display					: none;
+}
+.checkTable input{
+	float					: left;
+	margin					: 0;
+	margin-right			: 5px;
+}
+.checkList ul li{
+	margin-bottom			: 10px;
+}
+.checkList ul li:last-child{
+	margin-bottom			: 0;
+}
+.checkList ul li input{
+	float					: left;
+	margin-right			: 5px;
+}
+.checkList ul li label{
+	margin					: 0;
+}
+.btnDefault{
+	display					: inline-block;
+	height					: 26px;
+	line-height				: 26px;
+	padding					: 0 10px;
+	margin					: 0;
+	border					: none;
+	outline					: none;
+	cursor					: pointer;
+	color					: #FFF;
+	background-color		: #354052;
+	-webkit-border-radius	: 4px;
+	-moz-border-radius		: 4px;
+	border-radius			: 4px;
+}
+.btnDefault:hover{
+	background-color		: #df4e4e;
+}
+.btnDefault[disabled="true"],
+.btnDefault[disabled="disabled"],
+.btnDisabled{
+	-ms-filter				: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter					: alpha(opacity=50);
+	-moz-opacity			: 0.5;
+	-khtml-opacity			: 0.5;
+	opacity					: 0.5;
+}
+.btnDefault .fa{
+	line-height				: 26px;
+}
+.btnBlue{
+	display					: inline-block;
+	height					: 26px;
+	line-height				: 26px;
+	padding					: 0 10px;
+	margin					: 0;
+	border					: none;
+	outline					: none;
+	cursor					: pointer;
+	color					: #FFF;
+	background-color		: #427fed;
+	-webkit-border-radius	: 4px;
+	-moz-border-radius		: 4px;
+	border-radius			: 4px;
+}
+.btnBlue:hover{
+	background-color		: #5f97fb;
+}
+.btnIcon{
+	font-size				: 18px;
+}
+.btnIcon:hover{
+	color					: #df4e4e;
+}
+.btnLink{
+	font-weight				: bold;
+	color					: #427fed;
+}
+.btnLink:hover{
+	color					: #df4e4e;
+}
+.textGreen{
+	color					: #0ca85d;
+}
+.textRed{
+	color					: #cb4040;
+}
+.margin-none{
+	margin					: 0 !important;
+}
+.margin-none-top{
+	margin-top				: 0 !important;
+}
+.margin-none-bottom{
+	margin-bottom			: 0 !important;
+}
+.clearfix:before,
+.clearfix:after {
+    content					: " ";
+    display					: table;
+}
+.clearfix:after {
+    clear					: both;
+}
+.alert {
+	display					: block;
+	padding					: 8px 35px 8px 14px;
+	margin					: 10px 0;
+	text-shadow				: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background-color		: #fcf8e3;
+	border					: 1px solid #fbeed5;
+	-webkit-border-radius	: 4px;
+	   -moz-border-radius	: 4px;
+		    border-radius	: 4px;
+}
+.alert-success {
+	color					: #468847;
+	background-color		: #dff0d8;
+	border-color			: #d6e9c6;
+}
+.alert-error {
+	color					: #b94a48;
+	background-color		: #f2dede;
+	border-color			: #eed3d7;
+}
+.alert-info {
+	color					: #3a87ad;
+	background-color		: #d9edf7;
+	border-color			: #bce8f1;
+}
+.pagePopup{
+	display					: inline-block;
+	min-width				: 600px;
+}
+.pagePopup .boxToggle{
+	margin-bottom			: 0;
+}
+.pagePopup .boxToggle .toggleTitle{
+	height					: 37px;
+	padding-right			: 0;
+}
+.pagePopup .boxToggle .toggleTitle .titleText,
+.pagePopup .boxToggle .toggleTitle .titleTab{
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+}
+.pagePopup .boxToggle .toggleTitle .titleText{
+	width					: 20%;
+	height					: 37px;
+	line-height				: 37px;
+	font-size				: 150%;
+	padding					: 0 0 0 15px;
+	white-space				: nowrap;
+}
+.pagePopup .boxToggle .toggleTitle .titleTab{
+	width					: 80%;
+	float					: right;
+	margin-left				: 0;
+}
+.pagePopup .boxToggle .toggleTitle .titleTab ul{
+	float					: right;
+}
+.pagePopup .boxToggle .toggleTitle .titleTab ul li a{
+	font-size				: 13px;
+	height					: 33px;
+	line-height				: 33px;
+}
+.pagePopup .boxToggle .toggleTitle .titleToggle{
+	display					: none;
+}
+.pagePopup .boxToggle .toggleContent{
+	padding					: 10px;
+	background-color		: #f2f2f2;
+}
+.pagePopup#orderDetail .toggleContent table tbody tr td table tr.title td{
+	text-align				: left;
+	background-color		: #FFFFFF !important;
+}
+.pagePopup#orderDetail .toggleContent table tbody tr td table tbody td{
+	border					: 1px solid #d8d9db;
+}
+.pagePopup#orderDetail .toggleContent table tr td table tbody tr td:first-child{
+	background-color		: #f7f7f7;
+}
+.pagePopup#orderDetail .colThree textarea{
+	min-height				: 50px;
+	height					: 50px;
+	resize					: both;
+}
+.pagePopup#flowerProducts .flowerList li{
+	width					: 23%;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+	float					: left;
+	text-align				: center;
+	border					: 1px solid #d8d9db;
+	padding					: 10px;
+	margin-right			: 2%;
+	margin-bottom			: 10px;
+}
+.pagePopup.pageLogin{
+	min-width				: 380px;
+	margin					: 50px auto 0 auto;
+	text-align				: left;
+}
+.pagePopup.pageLogin .boxToggle .toggleContent{
+	padding					: 30px;
+}
+.pagePopup.pageLogin .boxToggle .toggleContent h2{
+	padding-bottom			: 20px;
+	border-bottom			: 1px solid #e1e1e1;
+	margin-bottom			: 10px;
+}
+.pagePopup.pageLogin .boxToggle .toggleContent .field{
+	position				: relative;
+}
+.pagePopup.pageLogin .boxToggle .toggleContent .field input{
+	height					: 40px;
+	padding-right			: 30px;
+}
+.pagePopup.pageLogin .boxToggle .toggleContent .field .fa{
+	position				: absolute;
+	bottom					: 10px;
+	font-size				: 16px;
+	color					: #CCCCCC;
+	right					: 16px;
+}
+.pagePopup.pageLogin .boxToggle .toggleContent .field .fa-lock{
+	font-size				: 18px;
+}
+.pagePopup.pageLogin .boxToggle .toggleFooter{
+	padding					: 20px;
+	color					: #FFFFFF;
+	background-color		: #427fed;
+}
+.pagePopup.pageLogin .boxToggle .toggleFooter a{
+	color					: #FFFFFF;
+	font-family				: 14px;
+}
+.pagePopup.pageInstall{
+	min-width				: 560px;
+	margin					: 50px auto 0 auto;
+	text-align				: left;
+}
+.pagePopup.pageInstall table{
+	width					: 100%;
+}
+.pagePopup.pageInstall .toggleContent{
+	padding					: 20px;
+}
+.pagePopup.pageInstall .radioList ul li{
+	margin-bottom			: 10px;
+}
+.pagePopup.pageInstall .radioList ul li input{
+	float					: left;
+	margin					: 0 5px 0 0;
+}
+.pagePopup.pageWizards .featureBox{
+	border					: 1px solid #e1e1e1;
+	margin-bottom			: 10px;
+}
+.pagePopup.pageWizards .featureBox .featureTitle{
+	padding					: 5px 10px;
+	background-color		: #FFF;
+	border-bottom			: 1px solid #e1e1e1;
+}
+
+.pageEntegrasyon ul li{
+	float					: left;
+	width					: 100px;
+	height					: 60px;
+	padding					: 10px;
+	border					: 1px solid #d8d9db;
+	margin					: 0 10px 10px 0;
+	background-color		: #FFFFFF;
+}
+.pageEntegrasyon ul li span{
+	display					: table-cell;
+	vertical-align			: middle;
+	width					: 100px;
+	height					: 60px;
+	text-align				: center;
+}
+.pageProductEdit .dataForm .boxToggle .titleText{
+	font-size				: 14px;
+	font-weight				: bold;
+	width					: auto;
+}
+.pageMarketSettings .boxToggle .toggleContent {
+	padding					: 10px;
+	background-color		: #f2f2f2;
+}
+.pageMarketSettings .boxToggle .toggleContent .tabContent {
+	padding					: 10px;
+	border					: 1px solid #d8d9db;
+}
+.siteContainer .siteHeader{
+	height					: 50px;
+	color					: #FFF;
+	position				: relative;
+	z-index					: 999;
+	background				: #cb4040;
+}
+.siteContainer .siteHeader .headerLogo{
+	width					: 229px;
+	height					: 50px;
+	line-height				: 50px;
+	float					: left;
+	padding					: 0 0 0 20px;
+	font-size				: 15px;
+	font-weight				: bold;
+	position				: relative;
+	z-index					: 1;
+}
+.siteContainer .siteHeader .headerLogo span.text{
+	display					: inline-block;
+	max-width				: 130px;
+	white-space				: nowrap;
+	text-overflow			: ellipsis;
+	overflow				: hidden;
+	float					: left;
+}
+.siteContainer .siteHeader .headerLogo span.version{
+	font-size				: 15px;
+	float					: left;
+	margin-left				: 10px;
+}
+.siteContainer .siteHeader .headerLogo .switch{
+	display					: inline-block;
+	width					: 18px;
+	height					: 14px;
+	cursor					: pointer;
+	position				: absolute;
+	top						: 18px;
+	right					: 18px;
+	z-index					: 1;
+	background				: url("../img/menu-switch.png") no-repeat scroll 0 0 transparent;
+}
+.siteContainer .siteHeader .headerMenu ul li{
+	position				: relative;
+	z-index					: 1;
+}
+.siteContainer .siteHeader .headerMenu ul li a{
+	display					: block;
+}
+.siteContainer .siteHeader .headerMenu ul li .icon{
+	display					: inline-block;
+	position				: absolute;
+}
+.siteContainer .siteHeader .headerMenu ul li .down{
+	width					: 8px;
+	margin					: 18px 0 0 10px;
+}
+.siteContainer .siteHeader .headerMenu ul li .down:before{
+	display					: block;
+}
+.siteContainer .siteHeader .headerMenu > ul > li{
+	float					: left;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > a{
+	height					: 50px;
+	line-height				: 50px;
+	padding					: 0 10px 0 34px;
+	color					: #FFF;
+	border-left				: 1px solid #b43737;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > a > .icon{
+	width					: 20px;
+	height					: 20px;
+	line-height				: 20px;
+	top						: 15px;
+	left					: 10px;
+	font-size				: 16px;
+	text-align				: center;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > a > .icon:before{
+	display					: block;
+	line-height				: 20px;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > a > .bubble{
+	margin					: 15px 0 0 10px;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.site > a > .icon:before{
+	font-size				: 14px;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.lang > a{
+	border-right			: 1px solid #b43737;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.exit,
+.siteContainer .siteHeader .headerMenu > ul > li.notification,
+.siteContainer .siteHeader .headerMenu > ul > li.messages{
+	float					: right;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.exit > a{
+	padding-right			: 16px;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.messages > ul{
+	width					: 220px;
+	right					: 0;
+	left					: inherit;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.messages > ul > li > a{
+	height					: inherit;
+	line-height				: inherit;
+	padding					: 10px;
+	white-space				: inherit;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.messages > ul > li > a > .m-name,
+.siteContainer .siteHeader .headerMenu > ul > li.messages > ul > li > a > .m-text,
+.siteContainer .siteHeader .headerMenu > ul > li.messages > ul > li > a > .m-date{
+	display					: block;
+	margin-bottom			: 4px;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.messages > ul > li > a .fa{
+	margin-right			: 5px;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.messages > ul > li > a .m-name{
+	font-weight				: bold;
+	line-height				: 20px;
+	padding-right			: 50px;
+	position				: relative;
+	white-space				: nowrap;
+	overflow				: hidden;
+	text-overflow			: ellipsis;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.messages > ul > li > a .m-date{
+	font-size				: 11px;
+	margin-bottom			: 0;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.messages > ul > li > a .bubble{
+	top						: 0;
+	right					: 0;
+}
+.siteContainer .siteHeader .headerMenu > ul > li:hover > a{
+	color					: #222;
+	border-color			: #d5d5d5;
+	background-color		: #e5e6e8;
+}
+.siteContainer .siteHeader .headerMenu > ul > li:hover > ul{
+	display					: block;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > ul{
+	display					: none;
+	min-width				: 150px;
+	position				: absolute;
+	top						: 50px;
+	left					: 0;
+	z-index					: 1;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > ul.menuHover {
+	width					: 450px;
+	background-color		: #e5e6e8;
+	padding					: 15px;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > ul.menuHover li {
+	float					: left;
+	width					: 225px;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > ul.menuHover li a {
+	border					: none;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > ul.menuHover > li:last-child > a{
+	border-bottom			: none;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > ul > li > a {
+	white-space				: nowrap;
+	height					: 30px;
+	line-height				: 30px;
+	padding					: 0 30px 0 10px;
+	color					: #222;
+	border					: 1px solid #d5d5d5;
+	border-bottom			: 0;
+	background				: #e5e6e8;
+}
+.siteContainer .siteHeader .headerMenu > ul > li.notification > ul > li > a{
+	padding-right			: 44px;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > ul > li:last-child > a{
+	border-bottom			: 1px solid #d5d5d5;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > ul > li > a .icon{
+	width					: 16px;
+	height					: 16px;
+	top						: 7px;
+	right					: 15px;
+	background				: url("../img/ico-active.png") no-repeat scroll 0 0 transparent;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > ul > li > a .bubble{
+	position				: absolute;
+	top						: 6px;
+	right					: 10px;
+}
+.siteContainer .siteHeader .headerMenu > ul > li > ul > li:hover > a{
+	color					: #cb4040;
+	background				: #fff;
+}
+.siteContainer .siteMain{
+	padding-left			: 250px;
+	position				: relative;
+	z-index					: 1;
+}
+.siteContainer .siteMain .sideBar{
+	width					: 250px;
+	position				: absolute;
+	top						: 0;
+	left					: 0;
+	z-index					: 1;
+	background				: #e5e6e8;
+}
+.siteContainer .siteMain .sideBar .barTitle{
+	display					: none;
+	padding					: 0 10px;
+	height					: 40px;
+	line-height				: 40px;
+	color					: #fff;
+	background				: #2b3443;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li{
+	position				: relative;
+	z-index					: 1;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > a{
+	display					: block;
+	height					: 39px;
+	line-height				: 40px;
+	padding					: 0 20px 0 50px;
+	border-bottom			: 1px solid #d5d5d5;
+	border-right			: 1px solid #d5d5d5;
+	white-space				: nowrap;
+	text-overflow			: ellipsis;
+	overflow				: hidden;
+	font-weight				: bold;
+	color					: #222;
+	transition				: background-color 0.2s ease-in;
+   -moz-transition			: background-color 0.2s ease-in;
+   -webkit-transition		: background-color 0.2s ease-in;
+}
+.siteContainer .siteMain .sideBar > div:first-child .barMenu > ul > li > a .fa.fa-star {
+	color					: #ffba00;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > a > .menuIcon{
+	display					: inline-block;
+	width					: 39px;
+	height					: 40px;
+	border-right			: 1px solid #d5d5d5;
+	position				: absolute;
+	top						: 0;
+	left					: 0;
+	z-index					: 1;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > a > .menuIcon:before{
+	display					: block;
+	text-align				: center;
+	line-height				: 40px;
+	font-size				: 16px;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > a > .menuDown{
+	display					: none;
+	width					: 20px;
+	height					: 39px;
+	position				: absolute;
+	top						: 0;
+	right					: 0;
+	z-index					: 1;
+	font					: normal normal normal 14px/1 FontAwesome;
+	font-size				: inherit;
+	text-rendering			: auto;
+	-webkit-font-smoothing	: antialiased;
+	-moz-osx-font-smoothing	: grayscale;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > a > .menuDown:before{
+	display					: block;
+	line-height				: 40px;
+	content					: "\f107";
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li.sub > a > .menuDown{
+	display					: inline-block;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li.open > a{
+	background-color		: #dd5555;
+	color					: #fff;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li.open > a > .menuDown:before{
+	content					: "\f106";
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li:hover > a{
+	background				: #dd5555;
+	transition				: background-color 0.2s ease-in;
+   -moz-transition			: background-color 0.2s ease-in;
+   -webkit-transition		: background-color 0.2s ease-in;
+   color					: #fff;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul{
+	display					: none;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li{
+	position				: relative;
+	z-index					: 1;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li > a{
+	display					: block;
+	height					: 29px;
+	line-height				: 30px;
+	padding					: 0 15px 0 40px;
+	font-size				: 11px;
+	color					: #000;
+	border-bottom			: 1px solid #d5d5d5;
+	border-right			: 1px solid #d5d5d5;
+	white-space				: nowrap;
+	text-overflow			: ellipsis;
+	overflow				: hidden;
+	background				: #fff;
+	transition				: all 0.2s ease-in;
+   -moz-transition			: all 0.2s ease-in;
+   -webkit-transition		: all 0.2s ease-in;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li > a > .icon{
+	display					: inline-block;
+	width					: 17px;
+	height					: 29px;
+	position				: absolute;
+	top						: 0;
+	right					: 0;
+	z-index					: 1;
+	font					: normal normal normal 14px/1 FontAwesome;
+	font-size				: inherit;
+	text-rendering			: auto;
+	-webkit-font-smoothing	: antialiased;
+	-moz-osx-font-smoothing	: grayscale;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li > a > .icon:before{
+	display					: block;
+	line-height				: 29px;
+	content					: "\f105";
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li:hover > a{
+	background				: #e5e6e8;
+	border-color			: #d5d5d5;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li:hover > ul{
+	display					: block;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li > ul{
+	display					: none;
+	position				: absolute;
+	top						: -1px;
+	left					: 100%;
+	z-index					: 1;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li > ul > li > a{
+	display					: block;
+	height					: 29px;
+	line-height				: 30px;
+	padding					: 0 10px;
+	white-space				: nowrap;
+	font-size				: 11px;
+	border					: 1px solid #d5d5d5;
+	border-left				: 0;
+	border-bottom			: 0;
+	background				: #e5e6e8;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li > ul > li:last-child > a{
+	border-bottom			: 1px solid #d5d5d5;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li > ul > li:hover > a{
+	background				: #fff;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li.used {
+	display					: block;
+	background-color		: #FFF;
+	border-bottom			: 1px solid #d5d5d5;
+	border-right			: 1px solid #d5d5d5;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li.used a {
+	height					: 29px;
+	line-height				: 30px;
+	padding					: 0 15px;
+	font-size				: 11px;
+	color					: #000;
+	white-space				: nowrap;
+	text-overflow			: ellipsis;
+	overflow				: hidden;
+	background				: #fff;
+	transition				: all 0.2s ease-in;
+	-moz-transition			: all 0.2s ease-in;
+	-webkit-transition		: all 0.2s ease-in;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li.used label > a:last-child {
+	float					: right;
+	height					: auto;
+	padding					: 9px;
+}
+.siteContainer .siteMain .sideBar .barMenu > ul > li > ul > li.used label > a:last-child i {
+	color					: #ffba00;
+}
+.siteContainer .siteMain .sideContent .contentTitle{
+	height					: 40px;
+	line-height				: 40px;
+	padding					: 0 20px;
+	font-size				: 150%;
+	font-weight				: bold;
+	color					: #333;
+	background				: #FFF;
+}
+.siteContainer .siteMain .sideContent .contentTitle .titleBookMark{
+	display					: inline-block;
+	width					: 20px;
+	height					: 20px;
+	margin					: 10px 0 0 0;
+	padding					: 0;
+	border					: none;
+	outline					: none;
+	background				: none;
+	cursor					: pointer;
+	font-size				: 16px;
+}
+.siteContainer .siteMain .sideContent .contentTitle .titleBookMark.active{
+	color					: #ffba00;
+}
+.siteContainer .siteMain .sideContent .contentBreadCrumb{
+	font-size				: 11px;
+	font-weight				: bold;
+	height					: 38px;
+	border-top				: 1px solid #e5e5e5;
+	border-bottom			: 1px solid #e5e5e5;
+	padding					: 0 20px;
+	background				: #f7f7f9;
+}
+.siteContainer .siteMain .sideContent .contentBreadCrumb ul li{
+	float					: left;
+	height					: 38px;
+	line-height				: 38px;
+}
+.siteContainer .siteMain .sideContent .contentBreadCrumb ul li a{
+	display					: inline-block;
+	height					: 38px;
+	line-height				: 38px;
+}
+.siteContainer .siteMain .sideContent .contentBreadCrumb ul li.home a{
+	padding-left			: 16px;
+	background				: url("../img/ico-dark-home.png") no-repeat scroll 0 13px transparent;
+}
+.siteContainer .siteMain .sideContent .contentBreadCrumb ul li.seperator{
+	padding					: 0 5px;
+}
+.siteContainer .siteMain .sideContent .contentPage{
+	padding					: 20px;
+}
+.siteContainer .siteMain .sideContent .frameBanner{
+	margin-bottom			: 10px;
+}
+.publicTab .toggleContent {
+	padding					: 10px;
+	background-color		: #f2f2f2;
+}
+.publicTab .toggleTitle .titleText {
+	float					: left;
+	width					: 20%;
+	height					: 37px;
+	line-height				: 37px;
+	font-size				: 150% !important;
+	padding					: 0 0 0 15px;
+	white-space				: nowrap;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+}
+.publicTab .toggleTitle .titleTab {
+	width					: 80%;
+	float					: right;	
+	margin-left				: 0;
+	-webkit-box-sizing		: border-box;
+	-moz-box-sizing			: border-box;
+	box-sizing				: border-box;
+}
+.publicTab .toggleTitle .titleTab ul {
+	float					: right;	
+}
+.dataForm table .colBtn .btnDefault {
+	font-size				: 12px;
+}
+.editCampain .btnDefault {
+	float					: right;
+}
+.autocomplete_completionListElement {
+    visibility              : hidden;
+    background-color        : #223e66;
+    color                   : windowtext;
+    border                  : buttonshadow;
+    cursor                  : default;
+    overflow                : auto;
+    height                  : 200px;
+    text-align              : left;
+    list-style-type         : none;
+    border-style            : solid;
+    border-width            : 1px;
+    margin                  : 0;
+}
+.autocomplete_highlightedListItem {
+    background-color        : #ff9;
+    color                   : #000;
+    padding                 : 1px;
+}
+.autocomplete_listItem {
+    background-color        : #223e66;
+    color                   : #FFF;
+    padding                 : 1px;
+}
+.modalPopup {
+    vertical-align          : middle;
+    text-align              : center;
+    padding-top             : 30px;
+    margin-top              : 10px;
+    background-color        : #FFF;
+    width                   : 340px;
+    height                  : 100px;
+    border-style            : solid;
+    border-width            : 3px;
+}
+
+
+/*---------------------------------*/
+.autocomplete_completionListElement {
+    visibility				: hidden;
+    background-color		: #223e66;
+    color					: windowtext;
+    border					: buttonshadow;
+    cursor					: default;
+    overflow				: auto;
+    height					: 200px;
+    text-align				: left;
+    list-style-type			: none;
+    border-style			: solid;
+    border-width			: 1px;
+    margin					: 0;
+}
+.autocomplete_highlightedListItem {
+    background-color		: #ff9;
+    color					: #000;
+    padding					: 1px;
+}
+.autocomplete_listItem {
+    background-color		: #223e66;
+    color					: #FFF;
+    padding					: 1px;
+}
+.pageWizards .btnIcon {
+	margin					: 0 5px;
+}
+.modalPopup {
+    vertical-align			: middle;
+    text-align				: center;
+    padding-top				: 30px;
+    margin-top				: 10px;
+    background-color		: #FFF;
+    width					: 340px;
+    height					: 100px;
+    border-style			: solid;
+    border-width			: 3px;  
+}
+.leftTitle {
+	line-height				: 30px;
+	text-align				: right;
+}
+.hideClass {
+	width					: 300px;
+	display					: none;
+	background-color		: #FFF;
+	padding					: 5px;
+	position				: absolute;
+	top						: -33px;
+	right					: 0px;
+}
+.blockClass {
+	position				: relative;
+}
+.blockClass:hover .hideClass {
+	display					: block;
+}
+/*--- report ---*/
+.tree > .dataForm > .row > .col6 > ul > li {
+	background-color		: #f7f7f9;
+	padding					: 20px;
+}
+.tree > .dataForm > .row > .col6 > ul > li > a{
+	font-size				: 13px;
+	font-weight				: 700;
+	padding-bottom			: 5px;
+	color					: #cb4040;
+}
+.tree > .dataForm > .row > .col6 > ul > li > span:before {
+	top						: 10px;
+	left					: 20px;
+}
+.tree ul li {
+	display					: block;
+	padding					: 10px 0;
+	white-space				: nowrap;
+	position				: relative;
+}
+.tree ul li > ul > li{
+	padding					: 2px 10px;
+}
+.tree li span {
+	position				: absolute;
+	top						: 10px;
+	left					: 0px;
+}
+.tree li a {
+	display					: block;
+	cursor					: pointer;
+}
+.tree > ul > li > a {
+	color					: #3B4C56;
+	display					: block;
+	font-weight				: normal;
+	position				: relative;
+	text-decoration			: none;
+}
+.tree li.parent > a {
+	padding					: 0 0 0 20px;
+}
+.tree > .dataForm > .row > .col6 > ul > li:hover > a {
+	color					: #427fed;
+}
+.tree > .dataForm > .row > .col6 > ul > li:hover span:before,
+.tree > .dataForm > .row > .col6 > ul > li:hover span:after{
+	color					: #427fed;
+}
+
+.tree li.parent > span:before {
+	display					: block;
+	font					: normal normal normal 12px/1 FontAwesome;
+	content					: "\f078";
+	width					: 20px;
+	height					: 20px;
+	cursor					: pointer;
+	position				: absolute;
+	top						: 0px;
+	left					: 10px;
+	color					: #cb4040;
+}
+.tree ul li.active > span:before {
+	content					: "\f054";
+}
+.tree ul li ul {
+	border-left				: 1px dashed #E2E2E3;
+	display					: block;
+	margin					: 0 0 0 5px;
+	overflow				: hidden;
+	padding					: 0 0 0 25px;
+}
+.tree ul li ul li {
+	position				: relative;
+}
+.tree ul li ul li:before {
+	border-bottom			: 1px dashed #E2E2E3;
+	content					: "";
+	left					: -20px;
+	position				: absolute;
+	top						: 12px;
+	width					: 15px;
+}	
+.col6 {
+	width					: 19%;
+	float					: left;
+}
+.dDwnContent {
+	position				: relative;
+}
+.dDwnContent .labelInput {
+	display					: block;
+	padding					: 5px;
+	border					: 1px solid #d8d9db;
+}
+.dDwnContent .labelInput a {
+	display					: block;
+	cursor					: pointer;
+}
+.dDwnContent .labelInput a i {
+	float					: right;
+	padding					: 2px 5px;
+	font-size				: 13px;
+}
+.dDwnContent #divPrice {
+	display					: none;
+	width					: 90%;
+	padding					: 10px;
+	border					: 1px solid #d8d9db;
+	border-top				: inherit;
+	position				: absolute;
+	top						: 100%;
+	z-index					: 999;
+	background-color		: #FFF;
+}
+.dDwnContent input,
+.dDwnContent label {
+	display					: inline-block;
+	padding-left			: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,503 @@
+
+.wrapper {
+	width					: 990px;
+	padding					: 0 10px;
+	margin					: 0 auto;
+}
+.clear {
+	clear					: both;
+	padding					: 0px;
+	margin					: 0px;
+}
+#container .pageTitle {
+	display					: block;
+	padding					: 5px 5px;
+	margin-bottom			: 10px;
+	margin-top				: 15px;
+	border					: 1px solid #CCC;
+	-webkit-border-radius	: 5px;
+	-moz-border-radius		: 5px;
+	border-radius			: 5px;
+}
+#container .pageTitle ul {
+	list-style-type			: none;
+}
+#container .pageTitle ul li {
+	width					: 155px;
+	height					: 56px;
+	float					: left;
+}
+#container .pageTitle ul li a {
+	display					: block;
+	height					: 56px;
+}
+#container .pageTitle ul li.TitleIconOne {
+	background				: url("ico-title-1.png") no-repeat scroll top left transparent;
+	-moz-border-radius-topleft		 : 10px;
+	-webkit-border-top-left-radius	 : 10px;
+	 border-top-left-radius			 : 10px;
+	-moz-border-radius-bottomleft	 : 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	border-bottom-left-radius		 : 10px;
+}
+#container .pageTitle ul li.TitleIconTwo {
+	width					: 146px;
+	background				: url("ico-title-2.png") no-repeat scroll top left transparent;
+}
+#container .pageTitle ul li.TitleIconThree {
+	width					: 156px;
+	background				: url("ico-title-3.png") no-repeat scroll top left transparent;
+}
+#container .pageTitle ul li.TitleIconFour {
+	width					: 169px;
+	background				: url("ico-title-4.png") no-repeat scroll top left transparent;
+}
+#container .pageTitle ul li.check {
+	background-position		: 0 -112px;
+}
+#container .pageTitle ul li.active {
+	background-position		: 0 -56px;
+}
+
+/*----- CART -----*/
+.cartPrice {
+	font-size				: 20px;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	color					: #e55a20;
+}
+.cart .SepetlerContainer {
+	display					: block;
+	padding					: 10px 0;
+}
+.cart .SepetlerContainer span {
+	display					: block;
+	float					: left;
+	font-size				: 13px;
+	padding					: 10px 15px;
+}
+.cart .SepetlerContainer select {
+	float					: left;
+	height					: 34px;
+	margin-right			: 15px;
+}
+.cart .SepetlerContainer a {
+	float					: left;
+	margin					: 0px;
+}
+
+.ajax__tab_body {
+	border					: none !important;
+}
+.basket {
+	display					: block;
+}
+.basket .datalist tbody > tr {
+	border-bottom			: 1px solid #ccc;
+}
+.basket .datalist tbody > tr:first-child {
+	background-color		: #000;
+	color					: #fff;
+}
+.basket .datalist tbody > tr:first-child td {
+	padding					: 10px 10px;
+}
+.basket .datalist tbody > tr td {
+	max-width				: 150px;
+	padding					: 15px;
+}
+.basket .datalist .deleteButton {
+	background				: none;
+	border					: none;
+	font-size				: 14px;
+	border-bottom			: 1px solid #000;
+	cursor					: pointer;
+}
+.ajax__tab_xp .ajax__tab_header {
+	display					: none;
+	background				: url("none") no-repeat center left transparent;
+}
+.ajax__tab_header span {
+	background				: url("none") no-repeat center left transparent;
+}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_outer {
+	display					: inherit;
+	background				: url("none") no-repeat center left transparent;
+}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_inner {
+	background				: url("none") no-repeat center left transparent;
+}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_tab {
+	background				: url("none") no-repeat center left #f72721;
+	padding					: 10px 15px;
+	color					: #fff;
+	font-size				: 14px;
+}
+.cart #kln_time {
+	font-size				: 20px;
+	font-style				: italic;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+}
+.orderButton {
+	display					: block;
+	margin-top				: 15px;
+	padding					: 8px 35px;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	font-style				: italic;
+	font-size				: 15px;
+	color					: #fff;
+	text-shadow				: 1px 1px 1px #bf611d;
+	background				: url("buy-button.png") repeat-x scroll top left transparent;
+	-webkit-border-radius	: 5px;
+	-moz-border-radius		: 5px;
+	border-radius			: 5px;
+	border					: none;
+	cursor					: pointer;
+}
+.orderButton:hover { 
+	background				: url("buy-button-hover.png") repeat-x scroll top left transparent;
+}
+.cart .buybuttonCart {
+	display					: block;
+	margin-top				: 15px;
+	padding					: 8px 35px;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	font-style				: italic;
+	font-size				: 15px;
+	color					: #fff;
+	text-shadow				: 1px 1px 1px #bf611d;
+	background				: url("buy-button-cart.png") repeat-x scroll top left transparent;
+	-webkit-border-radius	: 5px;
+	-moz-border-radius		: 5px;
+	border-radius			: 5px;
+	border					: none;
+	cursor					: pointer;
+}
+.cart .buybuttonCart:hover {
+	background				: url("buy-button-cart-hover.png") repeat-x scroll top left transparent;
+}
+.cart .totalTitle {
+	font-family				: "Times New Roman", Times, serif;
+	font-size				: 14px;
+}
+.buy .buyBack {
+	font-size				: 17px;
+	height					: 18px;
+	line-height				: 18px;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	font-style				: italic;
+	color					: #e55a20;
+	padding-left			: 25px;
+	background				: url("ico-back.png") no-repeat scroll center left transparent;
+}
+.cart .up {
+	display					: block;
+	float					: left;
+	background				: url("product-cart-add.png") no-repeat scroll top left transparent;
+	width					: 23px;
+	height					: 13px;
+	text-indent				: -9999px;
+	cursor					: pointer;
+}
+.cart .down {
+	display					: block;
+	float					: left;
+	background				: url("product-cart-remove.png") no-repeat scroll top left transparent;
+	width					: 23px;
+	height					: 22px;
+	text-indent				: -9999px;
+	cursor					: pointer;
+}
+.cart .numberinput {
+	width					: 20px;
+	height					: 30px;
+	float					: left;
+}
+/*---- CART END ----*/
+/*---- ORDERSTEP2 -----*/
+#orderStep2 .title {
+	display					: block;
+	padding					: 10px;
+	margin					: 10px 0;
+	background				: #000;
+	font-size				: 13px;
+	font-weight				: 600;
+	color					: #FFF;
+}
+#orderStep2 .left {
+	float					: left;
+	width					: 455px;
+	padding					: 20px;
+	background-color		: #F8F8F8;
+}
+#orderStep2 .subtitle,
+#orderStep2 .subTitleOne {
+	display					: block;
+	font-size				: 14px;
+	padding-bottom			: 20px;
+}
+#orderStep2 .right {
+	float					: right;
+	width					: 455px;
+	background-color		: #F8F8F8;
+	padding					: 20px;
+}
+#orderStep2 .buttonContent {
+	display					: block;
+	text-align				: center;
+}
+#orderStep2 .orderButton {
+	width					: 130px;
+}
+#orderStep2 .left,
+#orderStep2 .right {
+	font-size				: 14px;
+}
+#orderStep2 .left input[type="text"],
+#orderStep2 .right input[type="text"]{
+	width					: 200px;
+	height					: 20px;
+}
+#orderStep2 .left select,
+#orderStep2 .right select {
+	width					: 214px;
+	height					: 25px;
+}
+#orderStep2 .left textarea,
+#orderStep2 .right textarea {
+	width					: 200px;
+}
+/*---- ORDERSTEP2 END -----*/
+/*--orderstep3 --*/
+#orderStep3d .totalPrice {
+	font-size				: 20px;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	color					: #E55A20;
+}
+#orderStep3d {
+	display					: block;
+}
+#orderStep3d #content {
+	display					: block;
+}
+#orderStep3d #content .orderContent {
+	display					: block;
+}
+#orderStep3d #content .orderContent .orderTitle {
+	display					: block;
+	border					: 1px solid #aaaaaa;
+	border-bottom			: 1px solid #000;
+	background-color		: #cccccc;
+}
+#orderStep3d #content .orderContent .orderTitle ul {
+	float					: left;
+}
+#orderStep3d #content .orderContent .orderTitle ul li {
+	float					: left;
+	padding					: 5px 2px 0px 2px;
+	overflow				: hidden;
+}
+#orderStep3d #content .orderContent .orderTitle ul li label {
+	display					: inline-block;
+	color					: #000;
+	border					: 1px solid #d3d3d3;
+	background-color		: #e6e6e6;
+	cursor					: pointer;
+	position				: relative;
+	text-align				: center;
+	font-size				: 13px;
+	-moz-border-radius-topleft		: 7px;
+	-webkit-border-top-left-radius	: 7px;
+	 border-top-left-radius			: 7px;
+	-moz-border-radius-topright		: 7px;
+	-webkit-border-top-right-radius	: 7px;
+	border-top-right-radius			: 7px;
+}
+#orderStep3d #content .orderContent .orderTitle ul li label span {
+	display					: block;
+	padding					: 6px 5px;
+}
+#orderStep3d #content .orderContent .orderTitle ul li label.active {
+	background-color		: #FFF !important;
+}
+#orderStep3d #content .orderContent .orderTitle ul li label input {
+	visibility				: hidden;
+	position				: absolute;
+	top						: 0px;
+	left					: 0px;
+}
+#orderStep3d #content .orderContent .orderContainer{
+	width					: 450px;
+	background-color		: #F8F8F8;
+	float					: left;
+	padding					: 20px;
+	position				: relative;
+	min-height				: 300px;
+	font-size				: 13px;
+}
+#orderStep3d #content .orderContent .orderContainer .cboxElement{
+	font-size				: 11px;
+}
+#orderStep3d #content .orderContent .orderContainer label {
+	display					: block;
+}
+#orderStep3d #content .orderContent .orderContainer label span{
+	display					: block;
+	padding					: 10px 0;
+}
+#orderStep3d #content .orderContent .orderContainer .pnlPaytypes span {
+	font-size				: 20px;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	color					: #E55A20;
+}
+#container #content #buyContent #basket {
+	display					: block;
+}
+#container #content #buyContent .buyTitle {
+	display					: block;
+	font-size				: 17px;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	font-style				: italic;
+	color					: #FFF;
+	padding					: 10px 40px;
+	cursor					: pointer;
+	background				: url("arrow-right.png") no-repeat scroll center left #000;
+	border-bottom			: 1px solid #CCC;
+}
+
+#container #content #buyContent #basket #tableTitle {
+	color					: #FFF;
+}
+#container #content #buyContent #basket table {
+	font-size				: 11px;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	font-style				: italic;
+}
+#container #content #buyContent .minTitle {
+	color					: #E55A20;
+}
+#container #content #buyContent #basket #basketContetn {
+	display					: none;
+}
+#container #content #buyContent #basket #basketContetn tr td {
+	padding					: 10px;
+	font-size				: 12px;
+}
+#container #content #buyContent #campaign {
+	display					: block;
+}
+#container #content #buyContent #campaign #campaignContetn {
+	display					: none;
+	height					: 100px;
+}
+#container #content #buyContent #campaign #campaignContetn select {
+	display					: block;
+	width					: 290px;
+	margin					: 30px 50px;
+	padding					: 5px;
+	color					: #CCC;
+	font-size				: 12px;
+}
+#container #content #buyContent #discount {
+	display					: block;
+}
+#container #content #buyContent #discount #discountContetn {
+	display					: none;
+}
+#container #content #buyContent #discount #discountContetn tr td {
+	padding					: 10px;
+	font-size				: 12px;
+}
+#container #content #buyContent #discount #discountContetn tr td span {
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	font-style				: italic;
+	font-size				: 13px;
+	padding					: 10px 0;
+}
+#container #content #buyContent #discount #discountContetn .buyButton {
+	padding					: 8px 50px;
+	margin					: 30px 80px 30px 0;
+}
+#container #content #buyContent #address {
+	display					: block;
+}
+#container #content #buyContent #address #addressContetn {
+	display					: none;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	font-style				: italic;
+	font-size				: 13px;
+	padding					: 10px 0;
+}
+#container #content #buyContent #address #addressContetn tr {
+	border					: none;
+}
+#container #tabs-3 input {
+	float					: left;
+	padding-right			: 10px;
+}
+#container #tabs-3 img {
+	float					: left;
+	padding-left			: 15px;
+}
+#container #tabs-4 input {
+	float					: left;
+	padding-right			: 10px;
+}
+#container #tabs-4 img {
+	float					: left;
+	padding-left			: 15px;
+}
+#container #tabs-5 input {
+	float					: left;
+	padding-right			: 10px;
+}
+#container #tabs-5 img {
+	float					: left;
+	padding-left			: 15px;
+}
+#orderStep3d #buyContent{
+	float					: right;
+	width					: 450px;
+	background-color		: #F8F8F8;
+	padding					: 20px;
+	position				: relative;
+	min-height				: 300px;
+}
+#orderStep3d #buyContent{
+	float					: right;
+	width					: 450px;
+	background-color		: #F8F8F8;
+	padding					: 20px;
+	position				: relative;
+	min-height				: 300px;
+}
+#orderStep3d #buyContent .buyContentPrice tr.priceBorder {
+	border-bottom			: 1px solid #fff;
+}
+#orderStep3d #buyContent .buyContentPrice span {
+	font-size				: 13px;
+	color					: #E55A20;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+}
+#orderStep3d #buyContent .buyContentPrice .priceTitle > span {
+	display					: inline-block;
+	font-size				: 14px;
+	font-family				: Tahoma, Geneva, sans-serif;
+	padding					: 10px 5px;
+	color					: #000;
+}
+#orderStep3d #buyContent .buyContentPrice .totalPrice {
+	font-size				: 20px;
+	font-family				: Georgia, "Times New Roman", Times, serif;
+	color					: #E55A20;
+}
+#orderStep3d #buyContent .buyContentPrice .orderButton {
+	float					: right;
+	margin-bottom			: 10px;
+}
+/*--orderstep3 End--*/
+
+
+
+
+
+

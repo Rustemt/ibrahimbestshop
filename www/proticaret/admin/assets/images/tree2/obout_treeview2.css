@@ -1,0 +1,149 @@
+/* link hover */
+
+td.ob_t2 A:hover
+
+{
+	width:150;
+	height:20;
+background-image:  url(images/tred/tree.jpg);
+font-weight:bold;
+font-family:arial;
+font-size: 11px;
+color:#7BBA23;
+text-decoration:none;
+
+}
+/* for div where treeview is placed */
+div.ob_tree		{
+	background-color:Transparent;
+	overflow: auto;
+}
+
+/* for node text */
+td.ob_t2	{background-image:  url(images/tred/tree.jpg);
+	font-weight: bold;
+	font-size: 11px;
+	font-family: arial;
+	width:150;
+	height:20;
+}
+
+/* for node text highlighted/selected */
+td.ob_t3		{background-image:  url(images/tred/tree.jpg);
+	font-weight: bold;
+	font-size: 11px;
+
+	text-decoration: none;
+	font-family: arial;
+	color: #ff0000;
+	width:150;
+	height:20;
+
+}
+
+/* for node when edited */
+input.ob_t3		{
+	font-family: arial;
+	font-size: 11pt;
+	text-decoration:none; 
+}
+
+/* links in all nodes */
+td.ob_t2 A		{
+	font-weight: bold;
+	font-size: 11px;
+	color:#666666;
+	text-decoration:none;
+}
+
+/* link in selected node */
+td.ob_t3 A		{
+	color: #7BBA23;
+	text-decoration:none;
+}
+
+/* for icons */
+td.ob_t4	 	{
+	vertical-align:top;
+display:none;
+}
+
+/* for icons */
+div.ob_d4 		{
+	width: 1px;
+	font: 6pt Tahoma;
+text-decoration:none;
+}
+
+/* for children */
+td.ob_t5	{
+	width:100%;
+}
+/* for vertical lines (indent) */
+div.ob_d5		{
+	width: 13px;
+	vertical-align: top;
+}
+
+/* for plus-minus images */
+td.ob_t6		{
+	vertical-align:top;
+}
+
+/* for plus-minus images of the root node*/
+td.ob_t8 {
+	width:16px;
+	vertical-align: top;
+	display: none;
+}
+
+/* for message "Loading ..." */
+td.ob_t7		{
+	FONT:8pt Tahoma;
+	background-color:#ffffff;
+	border:1px solid #666666; 
+	color:#666666;
+	width:80px;
+	text-align:center;
+	padding-left:20px;
+}
+
+/* for links */
+A.ob_a2		{
+	font-family: arial;
+	font-size: 11pt;
+	color: #0000cd;
+	text-decoration:none;
+}
+		
+.ob_t2c 
+{		
+	border-collapse: separate;	
+	border-spacing: 0px;
+}
+
+.ob_t2b 
+{	
+	border-collapse: separate;	
+	border-spacing: 0px;
+}
+
+.ob_t2g
+{	
+	border-collapse: separate;	
+	border-spacing: 0px;
+}
+.ob_t2g td
+{
+	padding:0px;		
+}
+
+.ob_t2b td
+{
+	padding:0px;	
+}
+
+.ob_t2c td
+{
+	padding:0px;	
+}

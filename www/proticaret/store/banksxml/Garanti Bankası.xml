@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<GVPSRequest>
+	<Mode>PROD</Mode>
+	<Version>v0.01</Version>
+	<ChannelCode></ChannelCode>
+	<Terminal>
+		<ProvUserID>[%Name%]</ProvUserID>
+		<HashData>[%Hash%]</HashData>
+		<UserID>[%Name%]</UserID>
+		<ID>[%posNo%]</ID>
+		<MerchantID>[%ClientId%]</MerchantID>		
+	</Terminal>
+	<Customer>
+		<IPAddress>[%IPAddress%]</IPAddress>
+		<EmailAddress>email@email.com</EmailAddress>
+	</Customer>
+	<Card>
+		<Number>[%Number%]</Number>
+		<ExpireDate>[%Expires%]</ExpireDate>
+		<CVV2>[%Cvv2Val%]</CVV2>
+	</Card>
+	<Order>
+		<OrderID>[%OrderId2%]</OrderID>
+		<GroupID></GroupID>
+		<Description></Description>
+	</Order>
+	<Transaction>
+		<Type>[%Paytype2%]</Type>
+		<InstallmentCnt>[%Taksit%]</InstallmentCnt>
+		<Amount>[%Total%]</Amount>
+		<CurrencyCode>949</CurrencyCode>
+		<CardholderPresentCode>0</CardholderPresentCode>
+		<MotoInd>N</MotoInd>		
+		[%3d%]
+	</Transaction>
+</GVPSRequest>

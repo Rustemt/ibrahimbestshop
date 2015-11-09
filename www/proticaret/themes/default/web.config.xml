@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?><Appconfig>
+<ProductsPerPage>20</ProductsPerPage>
+<ProductsPerListPage>50</ProductsPerListPage>
+<ProductsPerLine>99</ProductsPerLine>
+<TopSellersPerPage>10</TopSellersPerPage>
+<GaleryImageSize>130</GaleryImageSize>
+<ListImageSize>95</ListImageSize>
+<DetailImageSize>200</DetailImageSize>
+<DetailImageSizeBig>500</DetailImageSizeBig>
+<OutOfStockMessage></OutOfStockMessage>
+</Appconfig>
